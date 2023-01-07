@@ -9,6 +9,7 @@
     "css-modules": "^0.3.0",
     "node-sass": "^7.0.3",
     "react": "^18.2.0",
+    "react-burger-icons": "^1.1.8",
     "react-css-modules": "^4.7.11",
     "react-dom": "^18.2.0",
     "react-icons": "^4.7.1",
