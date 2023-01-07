@@ -1,0 +1,118 @@
+@import "../../styles/mixins";
+
+.navbar {
+  overflow: hidden;
+
+  .menuIcon {
+    @include flex-container($justify: flex-start);
+    height: 30%;
+
+    .menuIconOpen {
+      font-size: 2rem;
+      margin: 0.5rem;
+      display: none;
+      cursor: pointer;
+      color: rgb(255, 130, 176);
+    }
+  }
+
+  .slider {
+    // position: fixed;
+    // min-width: 100%;
+    // height: 100vh;
+    // top: -100%;
+    // transition: 1s ease;
+
+    ul {
+      @include flex-container(
+        $direction: row,
+        $justify: space-around,
+        // $align: center
+      );
+      width: 100%;
+      font-size: 1.3rem;
+      transition: 1s ease;
+
+      .menuIconClosed {
+        @include flex-container();
+        display: none;
+        cursor: pointer;
+        width: 100%;
+
+        .iconClosed {
+          margin: 0.5rem;
+          font-size: 2rem;
+          color: #ffffff;
+        }
+      }
+
+      li {
+        margin-block: 2.5rem;
+        list-style: none;
+        color: rgb(255, 130, 176);
+      }
+
+      a {
+        text-decoration: none;
+      }
+    }
+
+    // &.active {
+    //   top: 0;
+    //   transition: 1s ease;
+    // }
+  }
+}
+
+@media (max-width: 992px) {
+  .navbar {
+    .menuIcon {
+      .menuIconOpen {
+        display: block;
+        cursor: pointer;
+      }
+    }
+
+    .slider {
+      position: fixed;
+      min-width: 100%;
+      height: 100vh;
+      // top: -100%;
+      top: 0;
+      left: -100%;
+      transition: 1s ease;
+
+      ul {
+        @include flex-container($direction: column, $align: center);
+
+        .menuIconClosed {
+          @include flex-container();
+
+          cursor: pointer;
+          width: 100%;
+          background-color: rgb(255, 130, 176);
+
+          .IconClosed {
+          }
+        }
+
+        li {
+          margin-block: 2.5rem;
+          // margin-inline: 2rem;
+          list-style: none;
+        }
+
+        a {
+          text-decoration: none;
+          //   color: rgb(255, 255, 255);
+        }
+      }
+
+      &.active {
+        // top: 0;
+        left: 0;
+        transition: 1s ease;
+      }
+    }
+  }
+}
