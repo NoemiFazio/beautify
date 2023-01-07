@@ -28,8 +28,10 @@
       color: #ffffff;
     }
 
-    .iconeCasuali {
+    .icon {
       @include flex-container($align: center);
+      color: #ffffff;
+      font-size: 1.3rem;
     }
   }
 }
@@ -65,7 +67,7 @@ ul {
         font-weight: bold;
         font-size: 2.7rem;
       }
-      .iconeCasuali {
+      .icon {
         margin: 0.5rem;
       }
     }
@@ -115,9 +117,10 @@ ul {
         margin: 0.5rem;
       }
 
-      .iconeCasuali {
+      .icon {
         @include flex-container($align: center);
         margin: 0.5rem;
+        font-size: 1.4rem;
       }
     }
 

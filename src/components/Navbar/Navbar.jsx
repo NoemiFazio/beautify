@@ -1,6 +1,6 @@
 // import { Link } from "react-router-dom";
 import { useSelector, useDispatch } from "react-redux";
-
+import { BsCart4 } from "react-icons/bs";
 import { BurgerSexy } from "react-burger-icons";
 import styles from "./index.module.scss";
 
@@ -30,7 +30,7 @@ const Navbar = () => {
         </button>
 
         <h1 className={styles.siteTitle}>Beautify</h1>
-        <div className={styles.iconeCasuali}>🛒</div>
+        <BsCart4 className={styles.icon} />
       </div>
       <nav
         className={`${styles.slider} ${
