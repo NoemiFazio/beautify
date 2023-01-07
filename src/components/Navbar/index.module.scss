@@ -12,25 +12,18 @@
     .menuIcon {
       display: none;
       cursor: pointer;
-      color: rgb(255, 130, 176);
       background-color: #121212;
       border: none;
-
-      .burger {
-        &.burger-sexy {
-          color: rgb(255, 130, 176);
-        }
-      }
     }
 
     .siteTitle {
       font-family: "Moon Dance", cursive;
-      color: #ffffff;
+      color: ghostwhite;
     }
 
     .icon {
       @include flex-container($align: center);
-      color: #ffffff;
+      color: ghostwhite;
       font-size: 1.3rem;
     }
   }
@@ -113,7 +106,7 @@ ul {
       .siteTitle {
         font-family: "Moon Dance", cursive;
         font-size: 3rem;
-        color: #ffffff;
+        color: ghostwhite;
         margin: 0.5rem;
       }
 
