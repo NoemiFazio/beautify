@@ -4,7 +4,8 @@
   @include dimensions($height: 5vh, $width: 100%);
   position: relative;
   overflow: hidden;
-  background-color: rgb(255, 130, 176);
+  background-color: #f09;
+  box-shadow: 0 0 5px #d9ccf1;
 
   .slider_container {
     @include flex-container();

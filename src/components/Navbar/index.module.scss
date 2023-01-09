@@ -2,6 +2,7 @@
 
 .navbar {
   overflow: hidden;
+  box-shadow: 0 0 5px #d9ccf1;
 
   .menuIconDiv {
     @include flex-container($justify: space-between, $align: center);
@@ -18,7 +19,9 @@
 
     .siteTitle {
       font-family: "Moon Dance", cursive;
-      color: ghostwhite;
+
+      color: #fff;
+      text-shadow: 0 0 7px #fff, 0 0 10px #f09, 0 0 15px #f09;
     }
 
     .icon {
@@ -39,7 +42,7 @@ ul {
   li {
     margin-block: 2.5rem;
     list-style: none;
-    color: rgb(255, 130, 176);
+    color: #f09;
   }
 
   a {
@@ -49,6 +52,7 @@ ul {
 
 @media (max-width: 992px) {
   .navbar {
+    box-shadow: 0 0 5px #d9ccf1;
     .menuIconDiv {
       position: relative;
       height: 10%;
@@ -127,6 +131,7 @@ ul {
 
       li {
         margin-block: 0.3rem;
+        font-weight: bold;
       }
 
       a {

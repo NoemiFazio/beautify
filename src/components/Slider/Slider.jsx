@@ -10,7 +10,7 @@ const Slider = () => {
   let interval = () => {};
   const phrases = [
     {
-      phrase: "SPEDIZIONE GRATUITA CON ORDINI DI €1.99 EURO",
+      phrase: "SPEDIZIONE GRATUITA CON ORDINI > 1.99€",
       icon: <CgAirplane className={styles.icon} />,
     },
     {
@@ -39,7 +39,7 @@ const Slider = () => {
     }
 
     return () => clearInterval(interval);
-  }, [value, isStoppedInterval]);
+  }, [value]);
 
   return (
     <div className={styles.slider}>
