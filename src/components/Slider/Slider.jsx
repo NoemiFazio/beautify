@@ -1,11 +1,27 @@
 import { useState, useEffect } from "react";
+import { CgAirplane } from "react-icons/cg";
+import { GoMegaphone } from "react-icons/go";
+import { BiWinkSmile } from "react-icons/bi";
 import styles from "./index.module.scss";
 
 const Slider = () => {
   const [isStoppedInterval, setIsStoppedInterval] = useState(false);
   const [value, setValue] = useState(0);
   let interval = () => {};
-  const phrases = ["ho fame", "ho sete", "ho sonno"];
+  const phrases = [
+    {
+      phrase: "SPEDIZIONE GRATUITA CON ORDINI DI €1.99 EURO",
+      icon: <CgAirplane className={styles.icon} />,
+    },
+    {
+      phrase: "TAROCCHI ORIGINALI DELLA FIERA",
+      icon: <BiWinkSmile className={styles.icon} />,
+    },
+    {
+      phrase: "VENGHINO SIGNOR*, VENGHINO!",
+      icon: <GoMegaphone className={styles.icon} />,
+    },
+  ];
 
   useEffect(() => {
     if (!isStoppedInterval) {
@@ -34,7 +50,10 @@ const Slider = () => {
             className={styles.phrase_container}
             key={index}
           >
-            <p>{phrases[index]}</p>
+            <p>
+              {item.phrase}
+              {item.icon}
+            </p>
 
             {/* <div className={styles.overlay_gradient} />
           <img

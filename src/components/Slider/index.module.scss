@@ -4,6 +4,7 @@
   @include dimensions($height: 5vh, $width: 100%);
   position: relative;
   overflow: hidden;
+  background-color: rgb(255, 130, 176);
 
   .slider_container {
     @include flex-container();
@@ -25,7 +26,14 @@
         // flex: 0 0 auto;
         // object-fit: cover;
 
-        color: red;
+        color: #121212;
+        font-weight: 600;
+        font-size: small;
+
+        .icon {
+          font-size: 1.2rem;
+          margin-left: 0.5rem;
+        }
       }
 
       // .overlay_gradient {
