@@ -1,0 +1,20 @@
+@import "../../styles/mixins";
+
+.MakeupCard {
+  @include flex-container($direction: column);
+  display: inline-flex;
+  width: 50%;
+  margin-bottom: 20px;
+  padding: 0 10px;
+  vertical-align: top;
+  position: relative;
+
+  .makeupImage {
+    width: 100%;
+    max-width: 100%;
+    border: 0;
+    vertical-align: top;
+  }
+  .detailsDiv {
+  }
+}
