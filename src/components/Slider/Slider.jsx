@@ -5,7 +5,6 @@ import { BiWinkSmile } from "react-icons/bi";
 import styles from "./index.module.scss";
 
 const Slider = () => {
-  const [isStoppedInterval, setIsStoppedInterval] = useState(false);
   const [value, setValue] = useState(0);
   let interval = () => {};
   const phrases = [
@@ -24,7 +23,7 @@ const Slider = () => {
   ];
 
   useEffect(() => {
-    if (!isStoppedInterval) {
+    if ((value >= 0) & (value <= 2)) {
       interval = setInterval(() => {
         setValue((prev) => prev + 1);
       }, 5000);
