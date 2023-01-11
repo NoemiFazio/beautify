@@ -1,5 +1,6 @@
 // import { Link } from "react-router-dom";
 import { useSelector, useDispatch } from "react-redux";
+import { useEffect } from "react";
 import { BsCart4 } from "react-icons/bs";
 import { BurgerSexy } from "react-burger-icons";
 import styles from "./index.module.scss";
@@ -14,6 +15,15 @@ const Navbar = () => {
 
   const { navbarStatus } = useSelector((state) => state);
   const dispatch = useDispatch();
+
+  //Questo useEffect fa si che, quando il menù a tendina si apre, non possa avvenire lo scroll in basso <3
+  useEffect(() => {
+    if (navbarStatus.isActive === true) {
+      window.document.body.style.overflowY = "hidden";
+    } else {
+      window.document.body.style.overflowY = "scroll";
+    }
+  }, [navbarStatus.isActive]);
 
   return (
     <div className={styles.navbar}>
