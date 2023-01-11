@@ -23,7 +23,7 @@ const Slider = () => {
   ];
 
   useEffect(() => {
-    if ((value >= 0) & (value <= 2)) {
+    if (0 <= value <= 2) {
       interval = setInterval(() => {
         setValue((prev) => prev + 1);
       }, 5000);
