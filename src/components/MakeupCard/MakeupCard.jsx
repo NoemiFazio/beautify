@@ -16,8 +16,15 @@ const MakeupCard = ({ data }) => {
         <label id={name} className={styles.category}>
           {category}
         </label>
+        <label id={brand} className={styles.brand}>
+          {brand}
+        </label>
+        <span className={price}>
+          {price}
+          {price_sign}
+        </span>
       </div>
-      <button></button>
+      <button>Add to bag</button>
     </div>
   );
 };
