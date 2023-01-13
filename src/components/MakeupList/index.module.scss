@@ -1,0 +1,7 @@
+@import "../../styles/mixins";
+
+.MakeupList {
+  @include flex-container($wrap: wrap, $gap: 0.98rem);
+  box-sizing: border-box;
+  margin: 1.2rem;
+}

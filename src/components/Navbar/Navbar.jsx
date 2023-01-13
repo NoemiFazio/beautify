@@ -26,14 +26,14 @@ const Navbar = () => {
     }
   };
 
-  //Questo useEffect fa si che, quando il menù a tendina si apre, non possa avvenire lo scroll in basso <3
-  // useEffect(() => {
-  //   if (navbarStatus.isActive === true) {
-  //     window.document.body.style.overflowY = "hidden";
-  //   } else {
-  //     window.document.body.style.overflowY = "scroll";
-  //   }
-  // }, [navbarStatus.isActive]);
+  // Questo useEffect fa si che, quando il menù a tendina si apre, non possa avvenire lo scroll in basso <3
+  useEffect(() => {
+    if (navbarStatus.isActive === true) {
+      window.document.body.style.overflowY = "hidden";
+    } else {
+      window.document.body.style.overflowY = "scroll";
+    }
+  }, [navbarStatus.isActive]);
 
   // useEffect(() => {
   //   if (typeof window !== "undefined") {

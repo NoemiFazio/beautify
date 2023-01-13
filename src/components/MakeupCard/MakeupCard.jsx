@@ -8,7 +8,14 @@ const MakeupCard = ({ data }) => {
 
   return (
     <div className={styles.MakeupCard}>
-      <img className={styles.makeupImage} src={api_featured_image} alt={name} />
+      <div className={styles.imageDiv}>
+        <img
+          className={styles.makeupImage}
+          src={api_featured_image}
+          alt={name}
+        />
+      </div>
+
       <div className={styles.detailsDiv}>
         <label id={name} className={styles.title}>
           {name}
@@ -19,12 +26,11 @@ const MakeupCard = ({ data }) => {
         <label id={brand} className={styles.brand}>
           {brand}
         </label>
-        <span className={price}>
-          {price}
-          {price_sign}
-        </span>
+        <span className={styles.price}>{`${price} ${price_sign}`}</span>
+
+        <button className={styles.addToBagBtn}>Add to bag</button>
+        <button className={styles.wishListBtn}>❤️</button>
       </div>
-      <button>Add to bag</button>
     </div>
   );
 };
