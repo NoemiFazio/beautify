@@ -88,7 +88,7 @@ ul {
       // left: -100%;
       transition: 1s ease;
       background-color: rgba(0, 0, 0, 0.767);
-      background-color: rgba(0, 0, 0, 0.767);
+      backdrop-filter: blur(2px);
       z-index: 1;
       overflow: hidden;
       box-sizing: border-box;

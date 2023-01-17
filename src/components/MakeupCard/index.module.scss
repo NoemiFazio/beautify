@@ -3,13 +3,14 @@
 .MakeupCard {
   @include flex-container($direction: column);
   display: inline-flex;
-  width: 10rem;
-  height: 20rem;
+  width: 50%;
+  min-height: 20rem;
   // min-width: 10rem;
   // min-height: 20rem;
-  // max-width: 15rem;
-  // max-height: 25rem;
+  max-width: 13rem;
+  max-height: 25rem;
   margin: 0 0 20px 0;
+  padding: 0 5px;
   vertical-align: top;
   position: relative;
 
@@ -29,21 +30,34 @@
   .detailsDiv {
     @include flex-container(
       $direction: column,
-      $justify: space-around,
+      $justify: space-between,
       $align: center
     );
 
     height: 50%;
+    padding-top: 1.4rem;
     .title {
+      font-weight: bolder;
+      text-align: center;
     }
 
-    .category {
-    }
+    .specifics {
+      @include flex-container($direction: column, $gap: 0.2rem, $align: center);
 
-    .brand {
-    }
+      .brand {
+        font-size: 0.87rem;
+        font-weight: bold;
+        text-align: center;
+        &::first-letter {
+          text-transform: uppercase;
+        }
+      }
 
-    .price {
+      .category,
+      .price {
+        font-size: 0.84rem;
+        font-weight: bold;
+      }
     }
 
     .addToBagBtn {
@@ -54,6 +68,79 @@
       position: absolute;
       top: 2%;
       right: 7%;
+      cursor: pointer;
+
+      &.active {
+      }
     }
   }
+}
+
+@media only screen and (min-width: 767px) {
+  .MakeupCard {
+    @include flex-container($direction: column);
+    display: inline-flex;
+    width: 50%;
+    min-height: 20rem;
+    // min-width: 10rem;
+    // min-height: 20rem;
+    // max-width: 15rem;
+    max-height: 25rem;
+    margin: 0 0 20px 0;
+    padding: 0 5px;
+    vertical-align: top;
+    position: relative;
+
+    .imageDiv {
+      width: auto;
+      max-width: 100%;
+      height: 50%;
+      border: 0;
+      vertical-align: top;
+      box-shadow: 0 0 1px #d9ccf1;
+
+      .makeupImage {
+        width: 100%;
+        height: 100%;
+      }
+    }
+    .detailsDiv {
+      @include flex-container(
+        $direction: column,
+        $justify: space-around,
+        $align: center
+      );
+
+      height: 50%;
+      .title {
+        font-weight: bolder;
+      }
+
+      .brand {
+        font-weight: bold;
+        &::first-letter {
+          text-transform: uppercase;
+        }
+      }
+
+      .category,
+      .price {
+        font-size: 0.84rem;
+        font-weight: bold;
+      }
+
+      .addToBagBtn {
+        width: 100%;
+      }
+
+      .wishListBtn {
+        position: absolute;
+        top: 2%;
+        right: 7%;
+      }
+    }
+  }
+}
+
+@media only screen and (min-width: 1290px) {
 }

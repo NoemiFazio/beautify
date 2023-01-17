@@ -1,7 +1,7 @@
 import { combineReducers, createStore } from "redux";
 
 const initialState = {
-  makeupData: { makeup: [] },
+  makeupData: { makeup: [], favourites: [] },
   navbarStatus: {
     isActive: false,
     isInputActive: false,
@@ -12,6 +12,17 @@ function makeupReducer(state = {}, action) {
   switch (action.type) {
     case "SET_MAKEUP_LIST":
       return { ...state, makeup: action.payload };
+    case "SET_FAVORITE_MAKEUP":
+      return { ...state, favourites: [...state.favourites, action.payload] };
+    case "REMOVE_FAVORITE_MAKEUP":
+      return {
+        ...state,
+        favourites: state.favourites.filter(
+          (item) => item.id !== action.payload
+        ),
+      };
+    case "RESTORE_FAVORITE":
+      return { ...state, favourites: action.payload };
     default:
       return state;
   }
