@@ -16,18 +16,20 @@ const FilterList = () => {
 
   return (
     <div className={styles.FilterList}>
-      <span>
-        <p>Filters</p>
-        <p>+</p>
-      </span>
-      <div>
-        {filtersCategory.map((item, index) => (
-          <p>{item.name}</p>
-        ))}
+      <div className={styles.mainDiv}>
+        <button className={styles.filterBtn}>
+          <p>Filters</p>
+          <p>+</p>
+        </button>
+        <div className={styles.categories}>
+          {filtersCategory.map((item, index) => (
+            <label className={styles.category}>{item.name}</label>
+          ))}
+        </div>
       </div>
-      <div>
+      <div className={styles.filtersDiv}>
         {starFilters.map((item, index) => (
-          <p>{item.phrase}</p>
+          <label className={styles.filter}>{item.phrase}</label>
         ))}
       </div>
     </div>
