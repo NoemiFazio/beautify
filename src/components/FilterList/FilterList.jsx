@@ -3,7 +3,7 @@ import { useSelector, useDispatch } from "react-redux";
 import { useEffect } from "react";
 
 const FilterList = () => {
-  const { filterStatus, categoryStatus } = useSelector((state) => state);
+  const { filterStatus } = useSelector((state) => state);
   const dispatch = useDispatch();
 
   const starFilters = [
@@ -29,7 +29,7 @@ const FilterList = () => {
   const handleCategoryClick = () => {
     dispatch({ type: "OPEN_CATEGORY_LIST" });
 
-    if (categoryStatus.isCategoryClicked === true) {
+    if (filterStatus.isCategoryClicked === true) {
       dispatch({ type: "CLOSE_CATEGORY_LIST" });
     }
   };
@@ -60,7 +60,7 @@ const FilterList = () => {
         )}
       </div>
       {filterStatus?.isFilterActive === true &&
-      categoryStatus?.isCategoryClicked === true ? (
+      filterStatus?.isCategoryClicked === true ? (
         <div className={styles.filtersDiv}>
           {starFilters.map((item, index) => (
             <label

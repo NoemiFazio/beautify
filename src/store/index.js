@@ -6,8 +6,7 @@ const initialState = {
     isActive: false,
     isInputActive: false,
   },
-  filterStatus: { isFilterActive: false },
-  categoryStatus: { isCategoryClicked: false },
+  filterStatus: { isFilterActive: false, isCategoryClicked: false },
 };
 
 function makeupReducer(state = {}, action) {
@@ -48,30 +47,21 @@ function navbarStatusReducer(state = {}, action) {
 function filterReducer(state = {}, action) {
   switch (action.type) {
     case "OPEN_FILTER_MENU":
-      return { isFilterActive: true };
+      return { ...state, isFilterActive: true };
     case "CLOSE_FILTER_MENU":
-      return { isFilterActive: false };
-    default:
-      return state;
-  }
-}
-
-function categoryReducer(state = {}, action) {
-  switch (action.type) {
+      return { ...state, isFilterActive: false };
     case "OPEN_CATEGORY_LIST":
-      return { isCategoryClicked: true };
+      return { ...state, isCategoryClicked: true };
     case "CLOSE_CATEGORY_LIST":
-      return { isCategoryClicked: false };
+      return { ...state, isCategoryClicked: false };
     default:
       return state;
   }
 }
-
 const rootReducer = combineReducers({
   makeupData: makeupReducer,
   navbarStatus: navbarStatusReducer,
   filterStatus: filterReducer,
-  categoryStatus: categoryReducer,
 });
 
 const store = createStore(rootReducer, initialState);
