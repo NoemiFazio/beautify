@@ -23,6 +23,7 @@ const FilterList = () => {
     dispatch({ type: "OPEN_FILTER_MENU" });
     if (filterStatus.isFilterActive === true) {
       dispatch({ type: "CLOSE_FILTER_MENU" });
+      dispatch({ type: "CLOSE_CATEGORY_LIST" });
     }
   };
 
@@ -36,6 +37,7 @@ const FilterList = () => {
 
   const handleSingleLabel = () => {
     dispatch({ type: "CLOSE_CATEGORY_LIST" });
+    dispatch({ type: "CLOSE_FILTER_MENU" });
   };
 
   return (
