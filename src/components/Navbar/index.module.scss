@@ -10,7 +10,7 @@
     @include flex-container($justify: space-between, $align: center);
     height: 30%;
     min-width: 100vw;
-
+    z-index: 999 !important;
     background-color: #121212;
 
     .menuIcon {
@@ -40,7 +40,7 @@ ul {
   width: 100%;
   font-size: 1.3rem;
   transition: 1s ease;
-  z-index: 1;
+  z-index: 2;
 
   li {
     margin-block: 2.5rem;
@@ -89,7 +89,7 @@ ul {
       transition: 1s ease;
       background-color: rgba(0, 0, 0, 0.767);
       backdrop-filter: blur(2px);
-      z-index: 1;
+      z-index: 2;
       overflow: hidden;
       box-sizing: border-box;
       touch-action: none;
