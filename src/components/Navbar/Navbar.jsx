@@ -64,36 +64,35 @@ const Navbar = () => {
           navbarStatus.isActive ? styles.active : ""
         }`}
         onClick={handleHamOnClick}
+      ></div>
+      <nav
+        className={`${styles.slider} ${
+          navbarStatus.isActive ? styles.active : ""
+        }`}
       >
-        <nav
-          className={`${styles.slider} ${
-            navbarStatus.isActive ? styles.active : ""
-          }`}
-        >
-          <ul>
-            <li onClick={handleHamOnClick}>
-              {/* <Link to="/"> */}
-              Home
-              {/* </Link> */}
-            </li>
-            <li onClick={handleHamOnClick}>
-              {/* <Link to="/"> */}
-              Categories
-              {/* </Link> */}
-            </li>
-            <li onClick={handleHamOnClick}>
-              {/* <Link to="/"> */}
-              Sales
-              {/* </Link> */}
-            </li>
-            <li onClick={handleHamOnClick}>
-              {/* <Link to="/"> */}
-              Login
-              {/* </Link> */}
-            </li>
-          </ul>
-        </nav>
-      </div>
+        <ul>
+          <li onClick={handleHamOnClick}>
+            {/* <Link to="/"> */}
+            Home
+            {/* </Link> */}
+          </li>
+          <li onClick={handleHamOnClick}>
+            {/* <Link to="/"> */}
+            Categories
+            {/* </Link> */}
+          </li>
+          <li onClick={handleHamOnClick}>
+            {/* <Link to="/"> */}
+            Sales
+            {/* </Link> */}
+          </li>
+          <li onClick={handleHamOnClick}>
+            {/* <Link to="/"> */}
+            Login
+            {/* </Link> */}
+          </li>
+        </ul>
+      </nav>
     </div>
   );
 };
