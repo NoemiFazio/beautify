@@ -5,7 +5,8 @@
   position: relative;
   overflow: hidden;
   background-color: #f09;
-  box-shadow: 0 0 5px #d9ccf1;
+  box-shadow: 0 0 3px #d9ccf1;
+  height: 6rem;
 
   .slider_container {
     @include flex-container();
@@ -22,7 +23,7 @@
       transition: right 0.3s ease-in-out;
 
       p {
-        @include flex-container($align: center, $justify: center);
+        @include flex-container($align: flex-end, $justify: center);
         @include dimensions($width: 100vw, $height: 100%);
         // flex: 0 0 auto;
         // object-fit: cover;
@@ -30,6 +31,7 @@
         color: #121212;
         font-weight: 600;
         font-size: small;
+        padding-bottom: 0.6rem;
 
         .icon {
           font-size: 1.2rem;

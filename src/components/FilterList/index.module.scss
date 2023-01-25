@@ -7,6 +7,7 @@
   margin-bottom: 1.2rem;
   font-weight: 600;
   font-size: small;
+  z-index: 0;
 
   .mainDiv {
     @include flex-container($direction: column, $gap: 1.2rem);
@@ -80,7 +81,7 @@
       .categories {
         @include flex-container($justify: space-around);
         padding: 0 1rem;
-        top: 185px;
+        top: 129px;
         width: 100%;
 
         .category {
@@ -90,7 +91,7 @@
     }
 
     .filtersDiv {
-      top: 215px;
+      top: 159px;
       height: 12rem;
 
       .filter {

@@ -65,22 +65,22 @@ const Navbar = () => {
         }`}
       >
         <ul>
-          <li>
+          <li onClick={handleHamOnClick}>
             {/* <Link to="/"> */}
             Home
             {/* </Link> */}
           </li>
-          <li>
+          <li onClick={handleHamOnClick}>
             {/* <Link to="/"> */}
             Categories
             {/* </Link> */}
           </li>
-          <li>
+          <li onClick={handleHamOnClick}>
             {/* <Link to="/"> */}
             Sales
             {/* </Link> */}
           </li>
-          <li>
+          <li onClick={handleHamOnClick}>
             {/* <Link to="/"> */}
             Login
             {/* </Link> */}

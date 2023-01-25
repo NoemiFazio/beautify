@@ -2,27 +2,33 @@
 
 .navbar {
   overflow: hidden;
-  box-shadow: 0 0 5px #d9ccf1;
-  min-width: 100%;
-  box-sizing: border-box;
+  box-shadow: 0 0 2px #d9ccf1;
+  // min-width: 100%;
+  // box-sizing: border-box;
+  position: fixed;
+  z-index: 3;
 
   .menuIconDiv {
     @include flex-container($justify: space-between, $align: center);
-    height: 30%;
+    // height: 30%;
     min-width: 100vw;
     z-index: 999 !important;
     background-color: #121212;
 
     .menuIcon {
-      display: none;
+      // display: none;
       cursor: pointer;
       background-color: #121212;
       border: none;
+      display: block;
+      cursor: pointer;
+      margin: 0.5rem;
     }
 
     .siteTitle {
       font-family: "Moon Dance", cursive;
-
+      font-weight: bold;
+      font-size: 2.7rem;
       color: #fff;
       text-shadow: 0 0 7px #fff, 0 0 10px #f09, 0 0 15px #f09;
     }
@@ -35,29 +41,58 @@
   }
 }
 
-ul {
-  @include flex-container($direction: row, $justify: space-around);
-  width: 100%;
-  font-size: 1.3rem;
+.slider {
+  position: fixed;
+  width: 20rem;
+  height: 92vh;
+  // top: -100%;
+  bottom: auto;
+  top: 58px;
+  left: -100%;
   transition: 1s ease;
+  background-color: rgba(0, 0, 0, 0.767);
+  backdrop-filter: blur(2px);
   z-index: 2;
+  overflow: hidden;
+  box-sizing: border-box;
+  // touch-action: none;
 
-  li {
-    margin-block: 2.5rem;
-    list-style: none;
-    color: #f09;
+  ul {
+    @include flex-container($direction: column);
+    width: 100%;
+    font-size: 1.3rem;
+    transition: 1s ease;
+    z-index: 2;
+
+    li {
+      margin-block: 2.5rem;
+      list-style: none;
+      color: #f09;
+      font-weight: bold;
+      padding-left: 1rem;
+      cursor: pointer;
+      width: fit-content;
+    }
+
+    a {
+      text-decoration: none;
+    }
   }
 
-  a {
-    text-decoration: none;
+  &.active {
+    // top: 8.5%;
+    left: 0;
+    transition: 1.3 ease;
   }
 }
 
-@media (max-width: 992px) {
+@media (max-width: 767px) {
   .navbar {
+    position: fixed;
     box-sizing: border-box;
-    box-shadow: 0 0 5px #d9ccf1;
+    box-shadow: 0 0 0px #d9ccf1;
     min-width: 100%;
+    z-index: 999;
     .menuIconDiv {
       position: relative;
       height: 10%;
@@ -79,19 +114,19 @@ ul {
     }
 
     .slider {
-      position: absolute;
+      position: fixed;
       min-width: 100%;
       height: 93vh;
-      top: -100%;
-      bottom: auto;
+      top: -100vh;
+      // bottom: auto;
       // top: 0;
-      // left: -100%;
+      left: 0;
       transition: 1s ease;
       background-color: rgba(0, 0, 0, 0.767);
       backdrop-filter: blur(2px);
       z-index: 2;
       overflow: hidden;
-      box-sizing: border-box;
+      // box-sizing: border-box;
       touch-action: none;
 
       ul {
@@ -104,6 +139,7 @@ ul {
           font-weight: bold;
           font-size: 1.3rem;
           touch-action: auto;
+          padding: 0;
         }
 
         a {
@@ -112,7 +148,7 @@ ul {
       }
 
       &.active {
-        top: 8.5%;
+        top: 8.6vh;
         // left: 0;
         transition: 1.3 ease;
       }
@@ -120,34 +156,34 @@ ul {
   }
 }
 
-@media only screen and (min-width: 992px) {
-  .navbar {
-    box-sizing: border-box;
-    .menuIconDiv {
-      .siteTitle {
-        font-family: "Moon Dance", cursive;
-        font-size: 3rem;
-        color: ghostwhite;
-        margin: 0.5rem;
-      }
+// @media only screen and (min-width: 767px) {
+//   .navbar {
+//     box-sizing: border-box;
+//     .menuIconDiv {
+//       .siteTitle {
+//         font-family: "Moon Dance", cursive;
+//         font-size: 3rem;
+//         color: ghostwhite;
+//         margin: 0.5rem;
+//       }
 
-      .icon {
-        @include flex-container($align: center);
-        margin: 0.5rem;
-        font-size: 1.4rem;
-      }
-    }
+//       .icon {
+//         @include flex-container($align: center);
+//         margin: 0.5rem;
+//         font-size: 1.4rem;
+//       }
+//     }
 
-    ul {
-      @include flex-container($direction: row, $justify: space-around);
+//     ul {
+//       @include flex-container($direction: row, $justify: space-around);
 
-      li {
-        margin-block: 0.3rem;
-        font-weight: bold;
-      }
+//       li {
+//         margin-block: 0.3rem;
+//         font-weight: bold;
+//       }
 
-      a {
-      }
-    }
-  }
-}
+//       a {
+//       }
+//     }
+//   }
+// }
