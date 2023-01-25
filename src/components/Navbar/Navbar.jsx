@@ -59,34 +59,41 @@ const Navbar = () => {
         <h1 className={styles.siteTitle}>Beautify</h1>
         <BsCart4 className={styles.icon} />
       </div>
-      <nav
-        className={`${styles.slider} ${
+      <div
+        className={`${styles.overlay} ${
           navbarStatus.isActive ? styles.active : ""
         }`}
+        onClick={handleHamOnClick}
       >
-        <ul>
-          <li onClick={handleHamOnClick}>
-            {/* <Link to="/"> */}
-            Home
-            {/* </Link> */}
-          </li>
-          <li onClick={handleHamOnClick}>
-            {/* <Link to="/"> */}
-            Categories
-            {/* </Link> */}
-          </li>
-          <li onClick={handleHamOnClick}>
-            {/* <Link to="/"> */}
-            Sales
-            {/* </Link> */}
-          </li>
-          <li onClick={handleHamOnClick}>
-            {/* <Link to="/"> */}
-            Login
-            {/* </Link> */}
-          </li>
-        </ul>
-      </nav>
+        <nav
+          className={`${styles.slider} ${
+            navbarStatus.isActive ? styles.active : ""
+          }`}
+        >
+          <ul>
+            <li onClick={handleHamOnClick}>
+              {/* <Link to="/"> */}
+              Home
+              {/* </Link> */}
+            </li>
+            <li onClick={handleHamOnClick}>
+              {/* <Link to="/"> */}
+              Categories
+              {/* </Link> */}
+            </li>
+            <li onClick={handleHamOnClick}>
+              {/* <Link to="/"> */}
+              Sales
+              {/* </Link> */}
+            </li>
+            <li onClick={handleHamOnClick}>
+              {/* <Link to="/"> */}
+              Login
+              {/* </Link> */}
+            </li>
+          </ul>
+        </nav>
+      </div>
     </div>
   );
 };
