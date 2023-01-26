@@ -1,20 +1,28 @@
 import styles from "./index.module.scss";
 import { useSelector, useDispatch } from "react-redux";
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 
 const FilterList = () => {
   const { filterStatus } = useSelector((state) => state);
   const dispatch = useDispatch();
+  const [filterCategory, setFilterCategory] = useState("");
 
-  const starFilters = [
+  const Category = [
     { phrase: "5 Stars" },
     { phrase: "4 Stars" },
     { phrase: "3 Stars" },
     { phrase: "2 Stars" },
     { phrase: "1 Stars" },
   ];
+  const Brand = [
+    { phrase: "Colourpop" },
+    { phrase: "Boosh" },
+    { phrase: "Sally b's skin yummies" },
+    { phrase: "Penny lane organics" },
+    { phrase: "Nudus" },
+  ];
   const filtersCategory = [
-    { name: "Rating" },
+    // { name: "Rating" },
     { name: "Brand" },
     { name: "Category" },
   ];
@@ -27,12 +35,13 @@ const FilterList = () => {
     }
   };
 
-  const handleCategoryClick = () => {
+  const handleCategoryClick = (value) => {
     dispatch({ type: "OPEN_CATEGORY_LIST" });
 
-    if (filterStatus.isCategoryClicked === true) {
+    if (filterStatus.isCategoryClicked === true && filterCategory === value) {
       dispatch({ type: "CLOSE_CATEGORY_LIST" });
     }
+    setFilterCategory(value);
   };
 
   const handleSingleLabel = () => {
@@ -52,7 +61,7 @@ const FilterList = () => {
             {filtersCategory?.map((item, index) => (
               <label
                 className={styles.category}
-                onClick={handleCategoryClick}
+                onClick={() => handleCategoryClick(item.name)}
                 key={index}
               >
                 {item.name}
@@ -64,15 +73,17 @@ const FilterList = () => {
       {filterStatus?.isFilterActive === true &&
       filterStatus?.isCategoryClicked === true ? (
         <div className={styles.filtersDiv}>
-          {starFilters.map((item, index) => (
-            <label
-              className={styles.filter}
-              key={index}
-              onClick={handleSingleLabel}
-            >
-              {item.phrase}
-            </label>
-          ))}
+          {(filterCategory === "Category" ? Category : Brand).map(
+            (item, index) => (
+              <label
+                className={styles.filter}
+                key={index}
+                onClick={handleSingleLabel}
+              >
+                {item.phrase}
+              </label>
+            )
+          )}
         </div>
       ) : (
         <></>
