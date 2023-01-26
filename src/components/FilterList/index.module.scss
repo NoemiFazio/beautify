@@ -1,7 +1,12 @@
 @import "../../styles/mixins";
 
 .FilterList {
-  @include flex-container($direction: column, $gap: 1.2rem);
+  @include flex-container(
+    $direction: column,
+    $gap: 1.2rem,
+    $align: center,
+    $justify: center
+  );
 
   box-sizing: border-box;
   margin-bottom: 1.2rem;
@@ -11,9 +16,10 @@
 
   .mainDiv {
     @include flex-container($direction: column, $gap: 1.2rem);
+    width: 100%;
 
     .filterBtn {
-      @include flex-container($justify: space-between);
+      @include flex-container($justify: space-around);
       font-family: "Montserrat", sans-serif;
       font-weight: 600;
       font-size: medium;
@@ -29,7 +35,7 @@
     }
 
     .categories {
-      @include flex-container($justify: space-around);
+      @include flex-container($justify: space-between);
       padding: 0 1rem;
       position: absolute;
       z-index: 1;
@@ -70,6 +76,7 @@
     margin-bottom: 1.2rem;
 
     .mainDiv {
+      width: 80%;
       .filterBtn {
         padding: 0 1rem;
 
@@ -82,7 +89,7 @@
         @include flex-container($justify: space-around);
         padding: 0 1rem;
         top: 129px;
-        width: 100%;
+        width: 80%;
 
         .category {
           padding: 0.5rem 0;
@@ -93,6 +100,7 @@
     .filtersDiv {
       top: 159px;
       height: 12rem;
+      width: 80%;
 
       .filter {
         padding: 0.15rem 0.2rem;
