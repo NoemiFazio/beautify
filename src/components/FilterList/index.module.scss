@@ -53,14 +53,14 @@
   }
 
   .filtersDiv {
-    @include flex-container($direction: column, $justify: space-evenly);
+    @include flex-container($direction: column, $gap: 0.4rem);
     padding: 0 2rem;
     position: absolute;
     z-index: 1;
     background-color: white;
     top: 158px;
     width: 100%;
-    height: 12rem;
+    height: auto;
     box-shadow: 0 0 5px #d9ccf1;
 
     .filter {
@@ -99,7 +99,7 @@
 
     .filtersDiv {
       top: 159px;
-      height: 12rem;
+      height: auto;
       width: 80%;
 
       .filter {

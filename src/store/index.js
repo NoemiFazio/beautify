@@ -1,12 +1,19 @@
 import { combineReducers, createStore } from "redux";
 
 const initialState = {
-  makeupData: { makeup: [], favourites: [] },
+  makeupData: {
+    makeup: [],
+    favourites: [],
+  },
   navbarStatus: {
     isActive: false,
     isInputActive: false,
   },
-  filterStatus: { isFilterActive: false, isCategoryClicked: false },
+  filterStatus: {
+    isFilterActive: false,
+    isCategoryClicked: false,
+    labels: [],
+  },
 };
 
 function makeupReducer(state = {}, action) {
@@ -54,6 +61,11 @@ function filterReducer(state = {}, action) {
       return { ...state, isCategoryClicked: true };
     case "CLOSE_CATEGORY_LIST":
       return { ...state, isCategoryClicked: false };
+    case "SET_LABELS_LIST":
+      return {
+        // ...state,
+        labels: action.payload,
+      };
     default:
       return state;
   }
