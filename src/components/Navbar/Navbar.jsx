@@ -1,6 +1,6 @@
 // import { Link } from "react-router-dom";
 import { useSelector, useDispatch } from "react-redux";
-import { useState, useEffect } from "react";
+import { useState, useEffect, memo } from "react";
 import { BsCart4 } from "react-icons/bs";
 import { BurgerSexy } from "react-burger-icons";
 import styles from "./index.module.scss";
@@ -33,7 +33,7 @@ const Navbar = () => {
     } else {
       window.document.body.style.overflowY = "scroll";
     }
-  }, [navbarStatus.isActive]);
+  }, [dispatch]);
 
   // useEffect(() => {
   //   if (typeof window !== "undefined") {
@@ -93,8 +93,9 @@ const Navbar = () => {
           </li>
         </ul>
       </nav>
+      {console.log("NAVBAR")}
     </div>
   );
 };
 
-export default Navbar;
+export default memo(Navbar);

@@ -1,4 +1,4 @@
-import { useState, useEffect } from "react";
+import { useState, useEffect, memo } from "react";
 import { CgAirplane } from "react-icons/cg";
 import { GoMegaphone } from "react-icons/go";
 import { BiWinkSmile } from "react-icons/bi";
@@ -43,7 +43,7 @@ const Slider = () => {
   return (
     <div className={styles.slider}>
       <div className={styles.slider_container}>
-        {phrases?.map((item, index) => (
+        {phrases.map((item, index) => (
           <div
             style={{ right: `${value * 100}vw` }}
             className={styles.phrase_container}
@@ -63,8 +63,9 @@ const Slider = () => {
           </div>
         ))}
       </div>
+      {/* {console.log("SLIDER")} */}
     </div>
   );
 };
 
-export default Slider;
+export default memo(Slider);

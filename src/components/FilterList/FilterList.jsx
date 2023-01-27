@@ -1,9 +1,9 @@
 import styles from "./index.module.scss";
 import { GET } from "../../utils/api";
 import { useSelector, useDispatch } from "react-redux";
-import { useEffect, useState } from "react";
+import { useEffect, useState, memo } from "react";
 
-const FilterList = () => {
+const FilterList = ({ setBrandKey, setTypeKey }) => {
   const dispatch = useDispatch();
   const { filterStatus } = useSelector((state) => state);
   const [filterCategory, setFilterCategory] = useState("");
@@ -31,6 +31,7 @@ const FilterList = () => {
     // { name: "Rating" },
     { name: "Brand" },
     { name: "Category" },
+    { name: "Clear" },
   ];
 
   useEffect(() => {
@@ -39,7 +40,7 @@ const FilterList = () => {
 
       dispatch({ type: "SET_LABELS_LIST", payload: data })
     );
-  }, []);
+  }, [dispatch]);
 
   const handleFilterClick = () => {
     dispatch({ type: "OPEN_FILTER_MENU" });
@@ -50,15 +51,22 @@ const FilterList = () => {
   };
 
   const handleCategoryClick = (value) => {
-    dispatch({ type: "OPEN_CATEGORY_LIST" });
+    if (value === "Clear") {
+      setTypeKey("");
+      setBrandKey("");
+    } else {
+      dispatch({ type: "OPEN_CATEGORY_LIST" });
 
-    if (filterStatus.isCategoryClicked === true && filterCategory === value) {
-      dispatch({ type: "CLOSE_CATEGORY_LIST" });
+      if (filterStatus.isCategoryClicked === true && filterCategory === value) {
+        dispatch({ type: "CLOSE_CATEGORY_LIST" });
+      }
+      setFilterCategory(value);
     }
-    setFilterCategory(value);
   };
 
-  const handleSingleLabel = () => {
+  const handleSingleLabel = (item) => {
+    const key = item.split("_").join("%20");
+    filterCategory === "Category" ? setTypeKey(key) : setBrandKey(key);
     dispatch({ type: "CLOSE_CATEGORY_LIST" });
     dispatch({ type: "CLOSE_FILTER_MENU" });
   };
@@ -104,7 +112,7 @@ const FilterList = () => {
     </div> */}
           {filterStatus?.labels
             .map((item) =>
-              filterCategory === "Category" ? item.category : item.brand
+              filterCategory === "Category" ? item.product_type : item.brand
             )
             .filter(
               (value, index, self) =>
@@ -114,17 +122,18 @@ const FilterList = () => {
               <label
                 className={styles.filter}
                 key={index}
-                onClick={handleSingleLabel}
+                onClick={() => handleSingleLabel(item)}
               >
-                {item}
+                {item?.split("_")?.join(" ")}
               </label>
             ))}
         </div>
       ) : (
         <></>
       )}
+      {console.log("FILTERLIST")}
     </div>
   );
 };
 
-export default FilterList;
+export default memo(FilterList);

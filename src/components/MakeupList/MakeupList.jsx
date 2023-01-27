@@ -1,27 +1,35 @@
-import { useEffect } from "react";
+import { useEffect, memo } from "react";
 import { GET } from "../../utils/api";
 import { useDispatch, useSelector } from "react-redux";
 import MakeupCard from "../MakeupCard/MakeupCard";
 import styles from "./index.module.scss";
 
-const MakeupList = () => {
+const MakeupList = ({ brandKey, typeKey }) => {
   const dispatch = useDispatch();
-  const { makeupData } = useSelector((state) => state);
+  const { makeupData, filterStatus } = useSelector((state) => state);
 
   useEffect(() => {
-    GET("", "lipstick").then((data) =>
+    GET(
+      brandKey,
+      typeKey
+      // "",
+      // "lipstick"
       // "colourpop", "lipstick"
-      dispatch({ type: "SET_MAKEUP_LIST", payload: data })
-    );
-  }, [dispatch]);
+    ).then((data) => dispatch({ type: "SET_MAKEUP_LIST", payload: data }));
+  }, [dispatch, brandKey, typeKey]);
 
   return (
     <div className={styles.MakeupList}>
-      {makeupData?.makeup?.map((product, index) => (
-        <MakeupCard data={product} key={index} />
-      ))}
+      {makeupData.makeup.length ? (
+        makeupData?.makeup?.map((product, index) => (
+          <MakeupCard data={product} key={index} />
+        ))
+      ) : (
+        <p>LOADING...</p>
+      )}
+      {console.log("MAKEUPLIST")}
     </div>
   );
 };
 
-export default MakeupList;
+export default memo(MakeupList);

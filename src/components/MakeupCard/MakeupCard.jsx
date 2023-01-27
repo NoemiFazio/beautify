@@ -1,10 +1,18 @@
 import { useDispatch, useSelector } from "react-redux";
 import { RiHeart3Line, RiHeart3Fill } from "react-icons/ri";
+import { memo } from "react";
 import styles from "./index.module.scss";
 
 const MakeupCard = ({ data }) => {
-  const { name, id, category, price, price_sign, api_featured_image, brand } =
-    data;
+  const {
+    name,
+    id,
+    product_type,
+    price,
+    price_sign,
+    api_featured_image,
+    brand,
+  } = data;
   const dispatch = useDispatch();
   const { makeupData } = useSelector((state) => state);
 
@@ -37,7 +45,7 @@ const MakeupCard = ({ data }) => {
             {brand}
           </label>
           <label id={name} className={styles.category}>
-            {category?.split("_")?.join(" ")}
+            {product_type?.split("_")?.join(" ")}
           </label>
 
           <span className={styles.price}>{`${price} ${price_sign}`}</span>
@@ -56,8 +64,9 @@ const MakeupCard = ({ data }) => {
           />
         )}
       </div>
+      {/* {console.log("MAKEUPCARD")} */}
     </div>
   );
 };
 
-export default MakeupCard;
+export default memo(MakeupCard);
