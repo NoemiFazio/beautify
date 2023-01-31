@@ -25,9 +25,9 @@ const MakeupList = ({ brandKey, typeKey }) => {
           <MakeupCard data={product} key={index} />
         ))
       ) : (
-        <p>LOADING...</p>
+        <p>NO PRODUCTS AVAIABLE AT THE MOMENT </p>
       )}
-      {console.log("MAKEUPLIST")}
+      {/* {console.log("MAKEUPLIST")} */}
     </div>
   );
 };

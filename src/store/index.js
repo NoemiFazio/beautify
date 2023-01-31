@@ -13,6 +13,8 @@ const initialState = {
     isFilterActive: false,
     isCategoryClicked: false,
     labels: [],
+    // categoryValue: "",
+    // brandValue: "",
     // brandKey: "",
     // categoryKey: "",
   },
@@ -68,10 +70,10 @@ function filterReducer(state = {}, action) {
         // ...state,
         labels: action.payload,
       };
-    // case "SET_BRAND_KEY":
-    //   return { brandKey: action.payload };
-    // case "SET_CATEGORY_KEY":
-    //   return { categoryKey: action.payload };
+    // case "SET_CATEGORY_VALUE":
+    //   return { categoryValue: action.payload };
+    // case "SET_BRAND_VALUE":
+    //   return { brandValue: action.payload };
     default:
       return state;
   }

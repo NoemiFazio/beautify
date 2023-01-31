@@ -28,12 +28,13 @@ const Navbar = () => {
 
   // Questo useEffect fa si che, quando il menù a tendina si apre, non possa avvenire lo scroll in basso <3
   useEffect(() => {
-    if (navbarStatus.isActive === true && window.innerWidth <= 767) {
+    if (navbarStatus.isActive && window.innerWidth <= 767) {
       window.document.body.style.overflowY = "hidden";
-    } else {
+    }
+    if (navbarStatus.isActive === false) {
       window.document.body.style.overflowY = "scroll";
     }
-  }, [dispatch]);
+  }, [navbarStatus.isActive]);
 
   // useEffect(() => {
   //   if (typeof window !== "undefined") {
@@ -93,7 +94,7 @@ const Navbar = () => {
           </li>
         </ul>
       </nav>
-      {console.log("NAVBAR")}
+      {/* {console.log("NAVBAR")} */}
     </div>
   );
 };

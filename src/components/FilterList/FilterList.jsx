@@ -7,6 +7,8 @@ const FilterList = ({ setBrandKey, setTypeKey }) => {
   const dispatch = useDispatch();
   const { filterStatus } = useSelector((state) => state);
   const [filterCategory, setFilterCategory] = useState("");
+  const [labelCategoryValue, setLabelCategoryValue] = useState("");
+  const [labelBrandValue, setLabelBrandValue] = useState("");
 
   // const Category = [
   //   { phrase: "5 Stars" },
@@ -54,6 +56,9 @@ const FilterList = ({ setBrandKey, setTypeKey }) => {
     if (value === "Clear") {
       setTypeKey("");
       setBrandKey("");
+      setLabelCategoryValue("");
+      setLabelBrandValue("");
+      dispatch({ type: "CLOSE_CATEGORY_LIST" });
     } else {
       dispatch({ type: "OPEN_CATEGORY_LIST" });
 
@@ -64,11 +69,35 @@ const FilterList = ({ setBrandKey, setTypeKey }) => {
     }
   };
 
-  const handleSingleLabel = (item) => {
+  // useEffect(() => {
+  //   if (clickedValue === index) {
+  //     const elem = document.getElementById(`'label${index}'`);
+  //     elem.style.color = "pink";
+  //   }
+  // }, [clickedValue]);
+
+  const handleSingleLabel = (item, index) => {
     const key = item.split("_").join("%20");
-    filterCategory === "Category" ? setTypeKey(key) : setBrandKey(key);
+    if (filterCategory === "Category") {
+      setTypeKey(key);
+      setLabelCategoryValue(item);
+    } else {
+      setBrandKey(key);
+      setLabelBrandValue(item);
+    }
+    // filterCategory === "Category" ? setTypeKey(key) : setBrandKey(key);
     dispatch({ type: "CLOSE_CATEGORY_LIST" });
     dispatch({ type: "CLOSE_FILTER_MENU" });
+
+    // setIndexValue(index);
+    // setLabelValue(item);
+    // filterCategory === "Category"
+    //   ? localStorage.setItem("categoryValue", JSON.stringify(`${item}${index}`))
+    //   : localStorage.setItem("brandValue", JSON.stringify(`${item}${index}`));
+    // filterCategory === "Category"
+    //   ? dispatch({ type: "SET_CATEGORY_VALUE", payload: `${item}${index}` })
+    //   : dispatch({ type: "SET_BRAND_VALUE", payload: `${item}${index}` });
+    // setIsClicked(!clicked);
   };
 
   return (
@@ -121,17 +150,20 @@ const FilterList = ({ setBrandKey, setTypeKey }) => {
             .map((item, index) => (
               <label
                 className={styles.filter}
+                id={item?.split("_")?.join(" ")}
                 key={index}
-                onClick={() => handleSingleLabel(item)}
+                onClick={() => handleSingleLabel(item, index)}
               >
                 {item?.split("_")?.join(" ")}
+                {labelCategoryValue === item ? "💋" : ""}
+                {labelBrandValue === item ? "💋" : ""}
               </label>
             ))}
         </div>
       ) : (
         <></>
       )}
-      {console.log("FILTERLIST")}
+      {/* {console.log("FILTERLIST")} */}
     </div>
   );
 };

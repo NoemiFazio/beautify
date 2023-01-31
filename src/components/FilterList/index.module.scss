@@ -60,8 +60,10 @@
     background-color: white;
     top: 158px;
     width: 100%;
-    height: auto;
+    height: 15rem;
     box-shadow: 0 0 5px #d9ccf1;
+    overflow-x: hidden;
+    overflow-y: scroll;
 
     .filter {
       padding: 0.15rem 0.2rem;
@@ -70,6 +72,9 @@
 
       &::first-letter {
         text-transform: uppercase;
+      }
+      &:active {
+        color: red;
       }
     }
   }

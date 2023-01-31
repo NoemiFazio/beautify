@@ -6,7 +6,7 @@ import FilterList from "./components/FilterList";
 import { memo, useState } from "react";
 
 function App() {
-  const [typeKey, setTypeKey] = useState("");
+  const [typeKey, setTypeKey] = useState("lip liner");
   const [brandKey, setBrandKey] = useState("");
 
   return (
@@ -14,8 +14,9 @@ function App() {
       <Navbar />
       <Slider />
       <FilterList setBrandKey={setBrandKey} setTypeKey={setTypeKey} />
+
       {<MakeupList brandKey={brandKey} typeKey={typeKey} />}
-      {console.log("APP!!!")}
+      {/* {console.log("APP!!!")} */}
     </div>
   );
 }
