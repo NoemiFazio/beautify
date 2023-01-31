@@ -27,7 +27,17 @@ const MakeupList = ({ brandKey, typeKey }) => {
       ) : (
         <p>NO PRODUCTS AVAIABLE AT THE MOMENT </p>
       )}
-      {/* {console.log("MAKEUPLIST")} */}
+      {/* {makeupData.makeup.length ? (
+        makeupData?.makeup?.map((product, index) =>
+          product.map((product, index) => (
+            <MakeupCard data={product} key={index} />
+          ))
+        )
+      ) : (
+        <p>NO PRODUCTS AVAIABLE AT THE MOMENT </p>
+      )} */}
+
+      {/* {console.log(makeupData.makeup)} */}
     </div>
   );
 };

@@ -68,6 +68,7 @@
     scroll-behavior: smooth;
 
     .filter {
+      @include flex-container($justify: space-between);
       padding: 0.15rem 0.2rem;
       box-shadow: 0 0 1px #d9ccf1;
       cursor: pointer;

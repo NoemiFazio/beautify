@@ -9,7 +9,7 @@ import { useSelector, useDispatch } from "react-redux";
 function App() {
   const { filterStatus } = useSelector((state) => state);
   const dispatch = useDispatch();
-  const [typeKey, setTypeKey] = useState("lip liner");
+  const [typeKey, setTypeKey] = useState("Nail polish");
   const [brandKey, setBrandKey] = useState("");
 
   const handleOverlayClick = () => {

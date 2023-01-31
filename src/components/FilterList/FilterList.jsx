@@ -58,6 +58,7 @@ const FilterList = ({ setBrandKey, setTypeKey }) => {
       setBrandKey("");
       setLabelCategoryValue("");
       setLabelBrandValue("");
+      localStorage.clear();
       dispatch({ type: "CLOSE_CATEGORY_LIST" });
     } else {
       dispatch({ type: "OPEN_CATEGORY_LIST" });
@@ -81,9 +82,11 @@ const FilterList = ({ setBrandKey, setTypeKey }) => {
     if (filterCategory === "Category") {
       setTypeKey(key);
       setLabelCategoryValue(item);
+      // localStorage.setItem(`categoryValue${item}`, JSON.stringify(item));
     } else {
       setBrandKey(key);
       setLabelBrandValue(item);
+      // localStorage.setItem(`brandValue${item}`, JSON.stringify(item));
     }
     // filterCategory === "Category" ? setTypeKey(key) : setBrandKey(key);
     dispatch({ type: "CLOSE_CATEGORY_LIST" });
@@ -155,8 +158,8 @@ const FilterList = ({ setBrandKey, setTypeKey }) => {
                 onClick={() => handleSingleLabel(item, index)}
               >
                 {item?.split("_")?.join(" ")}
-                {labelCategoryValue === item ? "💋" : ""}
-                {labelBrandValue === item ? "💋" : ""}
+                {labelCategoryValue === item ? <span>💋</span> : ""}
+                {labelBrandValue === item ? <span>💋</span> : ""}
               </label>
             ))}
         </div>
