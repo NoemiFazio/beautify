@@ -82,10 +82,18 @@ const FilterList = ({ setBrandKey, setTypeKey }) => {
     if (filterCategory === "Category") {
       setTypeKey(key);
       setLabelCategoryValue(item);
+      if (labelCategoryValue === item) {
+        setLabelCategoryValue("");
+        setTypeKey("");
+      }
       // localStorage.setItem(`categoryValue${item}`, JSON.stringify(item));
     } else {
       setBrandKey(key);
       setLabelBrandValue(item);
+      if (labelBrandValue === item) {
+        setLabelBrandValue("");
+        setBrandKey("");
+      }
       // localStorage.setItem(`brandValue${item}`, JSON.stringify(item));
     }
     // filterCategory === "Category" ? setTypeKey(key) : setBrandKey(key);
