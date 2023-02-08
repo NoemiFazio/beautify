@@ -3,6 +3,7 @@ import { useSelector, useDispatch } from "react-redux";
 import { useState, useEffect, memo } from "react";
 import { BsCart4 } from "react-icons/bs";
 import { BurgerSexy } from "react-burger-icons";
+import { NavLink } from "react-router-dom";
 import styles from "./index.module.scss";
 
 const Navbar = () => {
@@ -72,26 +73,24 @@ const Navbar = () => {
         }`}
       >
         <ul>
-          <li onClick={handleHamOnClick}>
-            {/* <Link to="/"> */}
+          <NavLink className={styles.link} to="/" onClick={handleHamOnClick}>
             Home
-            {/* </Link> */}
-          </li>
-          <li onClick={handleHamOnClick}>
-            {/* <Link to="/"> */}
-            Categories
-            {/* </Link> */}
-          </li>
-          <li onClick={handleHamOnClick}>
-            {/* <Link to="/"> */}
+          </NavLink>
+
+          <NavLink
+            className={styles.link}
+            to="/cart"
+            onClick={handleHamOnClick}
+          >
+            Cart
+          </NavLink>
+
+          <NavLink className={styles.link} to="/" onClick={handleHamOnClick}>
             Sales
-            {/* </Link> */}
-          </li>
-          <li onClick={handleHamOnClick}>
-            {/* <Link to="/"> */}
+          </NavLink>
+          <NavLink className={styles.link} to="/" onClick={handleHamOnClick}>
             Login
-            {/* </Link> */}
-          </li>
+          </NavLink>
         </ul>
       </nav>
       {/* {console.log("NAVBAR")} */}

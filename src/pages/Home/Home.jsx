@@ -20,6 +20,7 @@ const Home = () => {
   return (
     <div className={styles.App}>
       {/* <Navbar /> */}
+
       <Slider />
       <FilterList setBrandKey={setBrandKey} setTypeKey={setTypeKey} />
       {(filterStatus.isFilterActive || filterStatus.isCategoryClicked) && (

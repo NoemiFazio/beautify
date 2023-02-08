@@ -9,7 +9,8 @@ import Home from "./pages/Home/Home";
 import Cart from "./pages/Cart/Cart";
 import ProductPage from "./pages/ProductPage";
 import Error from "./pages/Error";
-import Navbar from "./components/Navbar";
+import SharedLayout from "./pages/SharedLayout";
+// import Navbar from "./components/Navbar";
 // import { useSelector, useDispatch } from "react-redux";
 
 function App() {
@@ -25,12 +26,14 @@ function App() {
 
   return (
     <BrowserRouter>
-      <Navbar />
+      {/* <Navbar /> */}
       <Routes>
-        <Route path="/" element={<Home />} />
-        <Route path="/cart" element={<Cart />} />
-        <Route path="/productpage" element={<ProductPage />} />
-        <Route path="*" element={<Error />} />
+        <Route path="/" element={<SharedLayout />}>
+          <Route index element={<Home />} />
+          <Route path="/cart" element={<Cart />} />
+          <Route path="/productpage" element={<ProductPage />} />
+          <Route path="*" element={<Error />} />
+        </Route>
       </Routes>
     </BrowserRouter>
   );
