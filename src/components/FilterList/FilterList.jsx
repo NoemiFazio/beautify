@@ -82,6 +82,7 @@ const FilterList = ({ setBrandKey, setTypeKey }) => {
     if (filterCategory === "Category") {
       setTypeKey(key);
       setLabelCategoryValue(item);
+
       if (labelCategoryValue === item) {
         setLabelCategoryValue("");
         setTypeKey("");
@@ -90,6 +91,7 @@ const FilterList = ({ setBrandKey, setTypeKey }) => {
     } else {
       setBrandKey(key);
       setLabelBrandValue(item);
+
       if (labelBrandValue === item) {
         setLabelBrandValue("");
         setBrandKey("");

@@ -1,12 +1,12 @@
 // import styles from "./index.module.scss";
 import { memo, useState } from "react";
-import { useSelector, useDispatch } from "react-redux";
+import { useSelector } from "react-redux";
 import { Link, useParams } from "react-router-dom";
 import styles from "./index.module.scss";
 
 const SingleProduct = () => {
   const { productId } = useParams();
-  const dispatch = useDispatch();
+
   const { makeupData } = useSelector((state) => state);
   const product = makeupData.makeup.find(
     (product) => product.id === +productId

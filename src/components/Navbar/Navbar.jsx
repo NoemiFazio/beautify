@@ -3,7 +3,8 @@ import { useSelector, useDispatch } from "react-redux";
 import { useState, useEffect, memo } from "react";
 import { BsCart4 } from "react-icons/bs";
 import { BurgerSexy } from "react-burger-icons";
-import { NavLink } from "react-router-dom";
+import { NavLink, Link } from "react-router-dom";
+
 import styles from "./index.module.scss";
 
 const Navbar = () => {
@@ -57,8 +58,9 @@ const Navbar = () => {
         >
           <BurgerSexy isClosed={navbarStatus.isActive} />
         </button>
-
-        <h1 className={styles.siteTitle}>Beautify</h1>
+        <Link to="/" style={{ textDecoration: "none" }}>
+          <h1 className={styles.siteTitle}>Beautify</h1>
+        </Link>
         <BsCart4 className={styles.icon} />
       </div>
       <div
