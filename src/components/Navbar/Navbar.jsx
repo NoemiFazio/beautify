@@ -74,64 +74,40 @@ const Navbar = () => {
       >
         <ul>
           <NavLink
-            className={styles.link}
+            className={({ isActive }) =>
+              isActive ? `${styles.link} ${styles.active}` : styles.link
+            }
             to="/"
             onClick={handleHamOnClick}
-            style={({ isActive }) => {
-              return {
-                textShadow: isActive
-                  ? "0 0 7px #fff, 0 0 10px #f09, 0 0 15px #f09"
-                  : "none",
-                color: isActive ? "white" : "#f09",
-              };
-            }}
           >
             Home
           </NavLink>
 
           <NavLink
-            className={styles.link}
+            className={({ isActive }) =>
+              `${styles.link} ${isActive ? styles.active : ""}`
+            }
             to="/cart"
             onClick={handleHamOnClick}
-            style={({ isActive }) => {
-              return {
-                textShadow: isActive
-                  ? "0 0 7px #fff, 0 0 10px #f09, 0 0 15px #f09"
-                  : "none",
-                color: isActive ? "white" : "#f09",
-              };
-            }}
           >
             Cart
           </NavLink>
 
           <NavLink
-            className={styles.link}
+            className={({ isActive }) =>
+              isActive ? `${styles.link} ${styles.active}` : styles.link
+            }
             to="/damettere"
             onClick={handleHamOnClick}
-            style={({ isActive }) => {
-              return {
-                textShadow: isActive
-                  ? "0 0 7px #fff, 0 0 10px #f09, 0 0 15px #f09"
-                  : "none",
-                color: isActive ? "white" : "#f09",
-              };
-            }}
           >
             Sales
           </NavLink>
           <NavLink
-            className={styles.link}
+            className={({ isActive }) =>
+              isActive ? `${styles.link} ${styles.active}` : styles.link
+            }
             to="/damettere"
             onClick={handleHamOnClick}
-            style={({ isActive }) => {
-              return {
-                textShadow: isActive
-                  ? "0 0 7px #fff, 0 0 10px #f09, 0 0 15px #f09"
-                  : "none",
-                color: isActive ? "white" : "#f09",
-              };
-            }}
           >
             Login
           </NavLink>

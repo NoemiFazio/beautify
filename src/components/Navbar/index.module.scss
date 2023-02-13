@@ -82,6 +82,11 @@
       padding-left: 1rem;
       cursor: pointer;
       width: fit-content;
+
+      &.active {
+        text-shadow: 0 0 7px #fff, 0 0 10px #f09, 0 0 15px #f09;
+        color: white;
+      }
     }
   }
 
