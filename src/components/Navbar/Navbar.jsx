@@ -108,7 +108,7 @@ const Navbar = () => {
             className={({ isActive }) =>
               isActive ? `${styles.link} ${styles.active}` : styles.link
             }
-            to="/damettere"
+            to="login"
             onClick={handleHamOnClick}
           >
             Login

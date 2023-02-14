@@ -11,11 +11,20 @@ const SingleProduct = () => {
   const product = makeupData.makeup.find(
     (product) => product.id === +productId
   );
+  const {
+    name,
+    id,
+    product_type,
+    price,
+    price_sign,
+    api_featured_image,
+    brand,
+  } = product;
 
   return (
     <div className={styles.SingleProduct}>
       <h1>{productId}</h1>
-      {console.log(product.name)}
+      {console.log(name)}
 
       <Link to="/">Torna alla home</Link>
     </div>
