@@ -15,6 +15,8 @@ const Login = ({ setUser }) => {
     // console.log(name, email);
     if (!name || !email) return;
     setUser({ name: name, email: email });
+    localStorage.setItem("username", name);
+    localStorage.setItem("email", email);
     navigate("/dashboard");
   };
 

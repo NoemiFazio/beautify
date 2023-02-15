@@ -1,6 +1,8 @@
 // import { Link } from "react-router-dom";
 import { useSelector, useDispatch } from "react-redux";
 import { useState, useEffect, memo } from "react";
+import { Navigate, useNavigate } from "react-router";
+
 import { BsCart4 } from "react-icons/bs";
 import { BurgerSexy } from "react-burger-icons";
 import { NavLink, Link } from "react-router-dom";
@@ -10,7 +12,7 @@ import styles from "./index.module.scss";
 const Navbar = () => {
   const { navbarStatus } = useSelector((state) => state);
   const dispatch = useDispatch();
-
+  const navigate = useNavigate();
   // const [isScrollDown, setIsScrollDown] = useState(false);
 
   // const eventScrollDown = () => {
@@ -25,6 +27,14 @@ const Navbar = () => {
     dispatch({ type: "OPEN_MENU" });
     if (navbarStatus.isActive === true) {
       dispatch({ type: "CLOSE_MENU" });
+    }
+  };
+  const handleLogoutOnClick = () => {
+    dispatch({ type: "OPEN_MENU" });
+    if (navbarStatus.isActive === true) {
+      dispatch({ type: "CLOSE_MENU" });
+      localStorage.clear();
+      navigate("/");
     }
   };
 
@@ -61,7 +71,15 @@ const Navbar = () => {
         <Link to="/" style={{ textDecoration: "none" }}>
           <h1 className={styles.siteTitle}>Beautify</h1>
         </Link>
-        <BsCart4 className={styles.icon} />
+        <Link to="cart">
+          <BsCart4
+            className={styles.icon}
+            style={
+              !localStorage.getItem("username") &&
+              !localStorage.getItem("password") && { visibility: "hidden" }
+            }
+          />
+        </Link>
       </div>
       <div
         className={`${styles.overlay} ${
@@ -85,34 +103,50 @@ const Navbar = () => {
             Home
           </NavLink>
 
-          <NavLink
-            className={({ isActive }) =>
-              `${styles.link} ${isActive ? styles.active : ""}`
-            }
-            to="/cart"
-            onClick={handleHamOnClick}
-          >
-            Cart
-          </NavLink>
-
-          <NavLink
-            className={({ isActive }) =>
-              isActive ? `${styles.link} ${styles.active}` : styles.link
-            }
-            to="/damettere"
-            onClick={handleHamOnClick}
-          >
-            Sales
-          </NavLink>
-          <NavLink
-            className={({ isActive }) =>
-              isActive ? `${styles.link} ${styles.active}` : styles.link
-            }
-            to="login"
-            onClick={handleHamOnClick}
-          >
-            Login
-          </NavLink>
+          {!localStorage.getItem("username") &&
+            !localStorage.getItem("email") && (
+              <NavLink
+                className={({ isActive }) =>
+                  isActive ? `${styles.link} ${styles.active}` : styles.link
+                }
+                to="login"
+                onClick={handleHamOnClick}
+              >
+                Login
+              </NavLink>
+            )}
+          {localStorage.getItem("username") &&
+            localStorage.getItem("email") && (
+              <>
+                <NavLink
+                  className={({ isActive }) =>
+                    isActive ? `${styles.link} ${styles.active}` : styles.link
+                  }
+                  to="/dashboard"
+                  onClick={handleHamOnClick}
+                >
+                  My beauty case
+                </NavLink>
+                <NavLink
+                  className={({ isActive }) =>
+                    `${styles.link} ${isActive ? styles.active : ""}`
+                  }
+                  to="/cart"
+                  onClick={handleHamOnClick}
+                >
+                  My cart
+                </NavLink>
+                <NavLink
+                  className={({ isActive }) =>
+                    isActive ? `${styles.link} ${styles.active}` : styles.link
+                  }
+                  to="/"
+                  onClick={handleLogoutOnClick}
+                >
+                  Logout
+                </NavLink>
+              </>
+            )}
         </ul>
       </nav>
       {/* {console.log("NAVBAR")} */}

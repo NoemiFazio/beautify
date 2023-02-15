@@ -18,6 +18,12 @@ const initialState = {
     // brandKey: "",
     // categoryKey: "",
   },
+  user_data:
+    // {
+    //   username: null,
+    //   userEmail: null,
+    // }
+    null,
 };
 
 function makeupReducer(state = {}, action) {

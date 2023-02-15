@@ -6,7 +6,7 @@ import styles from "./index.module.scss";
 const Dashboard = ({ user }) => {
   return (
     <div className={styles.Dashboard}>
-      <h1>Buonsalve {user?.name}</h1>
+      <h1>Buonsalve {localStorage.getItem("username")}</h1>
     </div>
   );
 };
