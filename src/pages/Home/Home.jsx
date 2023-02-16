@@ -16,6 +16,7 @@ const Home = () => {
 
   const onLoginBtnClick = async (e) => {
     dispatch({ type: "SET_LOGIN_MODAL_OFF" });
+    dispatch({ type: "SET_LOGOUT" });
     navigate("/login");
   };
 

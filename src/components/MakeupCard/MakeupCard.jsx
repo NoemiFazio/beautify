@@ -34,7 +34,7 @@ const MakeupCard = ({ data }) => {
     // dispatch({ type: "SET_TRUE" });
     if (userData.isLogged === false) {
       dispatch({ type: "SET_LOGIN_MODAL_ON" });
-    } else {
+    } else if (userData.isLogged === true) {
       // dispatch({ type: "SET_LOGIN_MODAL_OFF" });
       dispatch({ type: "ADD_PRODUCT", payload: data });
     }
