@@ -18,11 +18,15 @@ const MakeupCard = ({ data }) => {
   const { makeupData, userData } = useSelector((state) => state);
 
   const handleWishListBtn = () => {
-    dispatch({ type: "SET_FAVORITE_MAKEUP", payload: data });
-    localStorage.setItem("favourites", JSON.stringify(makeupData.favourites));
+    if (userData.isLogged === false) {
+      dispatch({ type: "SET_LOGIN_MODAL_ON" });
+    } else {
+      dispatch({ type: "SET_FAVORITE_MAKEUP", payload: data });
+      localStorage.setItem("favourites", JSON.stringify(makeupData.favourites));
 
-    if (makeupData.favourites.find((item) => item.id === id)) {
-      dispatch({ type: "REMOVE_FAVORITE_MAKEUP", payload: id });
+      if (makeupData.favourites.find((item) => item.id === id)) {
+        dispatch({ type: "REMOVE_FAVORITE_MAKEUP", payload: id });
+      }
     }
   };
 
