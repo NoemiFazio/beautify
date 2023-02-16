@@ -27,4 +27,25 @@
     bottom: 0;
     z-index: 1;
   }
+
+  .loginModalOverlay {
+    background-color: rgba(0, 0, 0, 0.767);
+    backdrop-filter: blur(2px);
+    position: fixed;
+    box-sizing: border-box;
+    top: 0;
+    right: 0;
+    left: 0;
+    bottom: 0;
+    z-index: 2;
+
+    .loginModal {
+      position: fixed;
+      box-sizing: border-box;
+      background-color: ghostwhite;
+      width: 20rem;
+      height: 10rem;
+      top: calc(50% - 5rem);
+    }
+  }
 }

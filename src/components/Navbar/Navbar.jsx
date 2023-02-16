@@ -10,7 +10,9 @@ import { NavLink, Link } from "react-router-dom";
 import styles from "./index.module.scss";
 
 const Navbar = () => {
-  const { navbarStatus, cartData } = useSelector((state) => state);
+  const { navbarStatus, cartData, userData, makeupData } = useSelector(
+    (state) => state
+  );
   const dispatch = useDispatch();
   const navigate = useNavigate();
   // const [isScrollDown, setIsScrollDown] = useState(false);
@@ -33,7 +35,10 @@ const Navbar = () => {
     dispatch({ type: "OPEN_MENU" });
     if (navbarStatus.isActive === true) {
       dispatch({ type: "CLOSE_MENU" });
-      localStorage.clear();
+      dispatch({ type: "CLEAR_CART" });
+      dispatch({ type: "CLEAR_FAVOURITES" });
+      // localStorage.clear();
+      dispatch({ type: "SET_LOGOUT" });
       navigate("/");
     }
   };
@@ -82,9 +87,10 @@ const Navbar = () => {
           <span
             className={styles.cartNum}
             style={
-              cartData?.cartList?.length === 0
-                ? { color: "#121212" }
-                : { color: "#f09" }
+              !localStorage.getItem("username") &&
+              !localStorage.getItem("password")
+                ? { visibility: "hidden" }
+                : { visibility: "visible" }
             }
           >
             {cartData.cartList.length}

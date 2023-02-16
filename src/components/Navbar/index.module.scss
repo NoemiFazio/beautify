@@ -38,11 +38,12 @@
       @include flex-container($align: center);
       color: ghostwhite;
       font-size: 1.3rem;
+      padding-right: 1px;
     }
     .cartNum {
       color: #f09;
       position: absolute;
-      top: 2rem;
+      top: 2.3rem;
       right: 0.09rem;
       z-index: 1000 !important;
       font-weight: bolder;

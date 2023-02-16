@@ -7,7 +7,8 @@ import styles from "./index.module.scss";
 const Login = ({ setUser }) => {
   const [name, setName] = useState("");
   const [email, setEmail] = useState("");
-
+  const dispatch = useDispatch();
+  const { userData } = useSelector((state) => state);
   const navigate = useNavigate();
 
   const handleSubmit = async (e) => {
@@ -15,6 +16,7 @@ const Login = ({ setUser }) => {
     // console.log(name, email);
     if (!name || !email) return;
     setUser({ name: name, email: email });
+    dispatch({ type: "SET_LOGIN" });
     localStorage.setItem("username", name);
     localStorage.setItem("email", email);
     navigate("/dashboard");

@@ -22,7 +22,26 @@ const initialState = {
     cartList: [],
     purchasedList: [],
   },
+  userData: {
+    isLogged: false,
+    loginModalVisibility: false,
+  },
 };
+
+function userReducer(state = {}, action) {
+  switch (action.type) {
+    case "SET_LOGIN":
+      return { isLogged: true };
+    case "SET_LOGOUT":
+      return { isLogged: false };
+    case "SET_LOGIN_MODAL_ON":
+      return { loginModalVisibility: true };
+    case "SET_LOGIN_MODAL_OFF":
+      return { loginModalVisibility: false };
+    default:
+      return state;
+  }
+}
 
 function makeupReducer(state = {}, action) {
   switch (action.type) {
@@ -39,6 +58,9 @@ function makeupReducer(state = {}, action) {
       };
     case "RESTORE_FAVORITE":
       return { ...state, favourites: action.payload };
+    case "CLEAR_FAVOURITES":
+      state.favourites = [];
+      localStorage.clear();
     default:
       return state;
   }
@@ -92,6 +114,9 @@ function cartDataReducer(state = {}, action) {
     case "REMOVE_PRODUCT":
       state.cartList = state.cartList.filter((_, id) => id !== action.payload);
       localStorage.setItem("cart", JSON.stringify(state.cartList));
+    case "CLEAR_CART":
+      state.cartList = [];
+      localStorage.clear();
       return {
         ...state,
         cartList: state.cartList,
@@ -114,6 +139,7 @@ const rootReducer = combineReducers({
   navbarStatus: navbarStatusReducer,
   filterStatus: filterReducer,
   cartData: cartDataReducer,
+  userData: userReducer,
 });
 
 const store = createStore(rootReducer, initialState);

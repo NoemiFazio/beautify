@@ -15,7 +15,7 @@ const MakeupCard = ({ data }) => {
     brand,
   } = data;
   const dispatch = useDispatch();
-  const { makeupData } = useSelector((state) => state);
+  const { makeupData, userData } = useSelector((state) => state);
 
   const handleWishListBtn = () => {
     dispatch({ type: "SET_FAVORITE_MAKEUP", payload: data });
@@ -28,7 +28,12 @@ const MakeupCard = ({ data }) => {
 
   const handleOnCartClick = () => {
     // dispatch({ type: "SET_TRUE" });
-    dispatch({ type: "ADD_PRODUCT", payload: data });
+    if (userData.isLogged === false) {
+      dispatch({ type: "SET_LOGIN_MODAL_ON" });
+    } else {
+      // dispatch({ type: "SET_LOGIN_MODAL_OFF" });
+      dispatch({ type: "ADD_PRODUCT", payload: data });
+    }
   };
 
   return (
