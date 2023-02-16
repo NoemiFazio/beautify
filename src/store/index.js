@@ -18,12 +18,10 @@ const initialState = {
     // brandKey: "",
     // categoryKey: "",
   },
-  user_data:
-    // {
-    //   username: null,
-    //   userEmail: null,
-    // }
-    null,
+  cartData: {
+    cartList: [],
+    purchasedList: [],
+  },
 };
 
 function makeupReducer(state = {}, action) {
@@ -84,10 +82,38 @@ function filterReducer(state = {}, action) {
       return state;
   }
 }
+
+function cartDataReducer(state = {}, action) {
+  switch (action.type) {
+    case "ADD_PRODUCT":
+      state.cartList = [...state.cartList, action.payload];
+      localStorage.setItem("cart", JSON.stringify(state.cartList));
+      return { ...state, cartList: state.cartList };
+    case "REMOVE_PRODUCT":
+      state.cartList = state.cartList.filter((_, id) => id !== action.payload);
+      localStorage.setItem("cart", JSON.stringify(state.cartList));
+      return {
+        ...state,
+        cartList: state.cartList,
+      };
+    // case "SET_UUID":
+    //   return { ...state, Uuid: action.payload };
+    case "BUY_ITEMS":
+      return { ...state, purchasedList: state.cartList };
+    case "CLEAR_PRODUCT":
+      return { ...state, cartList: [] };
+    case "RESTORE_CART":
+      return { ...state, cartList: action.payload };
+    default:
+      return state;
+  }
+}
+
 const rootReducer = combineReducers({
   makeupData: makeupReducer,
   navbarStatus: navbarStatusReducer,
   filterStatus: filterReducer,
+  cartData: cartDataReducer,
 });
 
 const store = createStore(rootReducer, initialState);

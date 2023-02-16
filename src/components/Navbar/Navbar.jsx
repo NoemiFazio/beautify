@@ -10,7 +10,7 @@ import { NavLink, Link } from "react-router-dom";
 import styles from "./index.module.scss";
 
 const Navbar = () => {
-  const { navbarStatus } = useSelector((state) => state);
+  const { navbarStatus, cartData } = useSelector((state) => state);
   const dispatch = useDispatch();
   const navigate = useNavigate();
   // const [isScrollDown, setIsScrollDown] = useState(false);
@@ -71,7 +71,7 @@ const Navbar = () => {
         <Link to="/" style={{ textDecoration: "none" }}>
           <h1 className={styles.siteTitle}>Beautify</h1>
         </Link>
-        <Link to="cart">
+        <Link to="cart" style={{ textDecoration: "none" }}>
           <BsCart4
             className={styles.icon}
             style={
@@ -79,6 +79,16 @@ const Navbar = () => {
               !localStorage.getItem("password") && { visibility: "hidden" }
             }
           />
+          <span
+            className={styles.cartNum}
+            style={
+              cartData?.cartList?.length === 0
+                ? { color: "#121212" }
+                : { color: "#f09" }
+            }
+          >
+            {cartData.cartList.length}
+          </span>
         </Link>
       </div>
       <div
@@ -138,7 +148,7 @@ const Navbar = () => {
                 </NavLink>
                 <NavLink
                   className={({ isActive }) =>
-                    isActive ? `${styles.link} ${styles.active}` : styles.link
+                    isActive ? styles.link : styles.link
                   }
                   to="/"
                   onClick={handleLogoutOnClick}

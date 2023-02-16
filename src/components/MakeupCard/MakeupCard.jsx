@@ -26,6 +26,11 @@ const MakeupCard = ({ data }) => {
     }
   };
 
+  const handleOnCartClick = () => {
+    // dispatch({ type: "SET_TRUE" });
+    dispatch({ type: "ADD_PRODUCT", payload: data });
+  };
+
   return (
     <div className={styles.MakeupCard}>
       <div className={styles.imageDiv}>
@@ -52,7 +57,9 @@ const MakeupCard = ({ data }) => {
 
           <span className={styles.price}>{`${price} ${price_sign}`}</span>
         </div>
-        <button className={styles.addToBagBtn}>Add to bag</button>
+        <button className={styles.addToBagBtn} onClick={handleOnCartClick}>
+          Add to bag
+        </button>
         {!makeupData.favourites.find((item) => item.id === id) ? (
           <RiHeart3Line
             onClick={handleWishListBtn}
