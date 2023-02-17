@@ -44,7 +44,7 @@ const Home = () => {
 
       <Slider />
       <FilterList setBrandKey={setBrandKey} setTypeKey={setTypeKey} />
-      {userData.loginModalVisibility && (
+      {userData.loginModalVisibility && userData.isLogged === false && (
         <div
           className={styles.loginModalOverlay}
           onClick={handleOnModalOverlayClick}

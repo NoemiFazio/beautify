@@ -37,6 +37,7 @@ const Navbar = () => {
       dispatch({ type: "CLOSE_MENU" });
       dispatch({ type: "CLEAR_CART" });
       dispatch({ type: "CLEAR_FAVOURITES" });
+      dispatch({ type: "SET_LOGIN_MODAL_OFF" });
       // localStorage.clear();
       dispatch({ type: "SET_LOGOUT" });
       navigate("/");

@@ -99,6 +99,10 @@
         color: white;
       }
     }
+    a {
+      list-style: none;
+      text-decoration: none;
+    }
   }
 
   &.active {
@@ -154,8 +158,9 @@
       ul {
         @include flex-container($direction: column, $align: center);
 
-        li {
+        .link {
           margin-block: 2.5rem;
+          text-decoration: none;
           // margin-inline: 2rem;
           list-style: none;
           font-weight: bold;
@@ -165,6 +170,7 @@
         }
 
         a {
+          list-style: none;
           text-decoration: none;
         }
       }
