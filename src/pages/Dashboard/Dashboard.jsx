@@ -30,14 +30,20 @@ const Dashboard = ({ user }) => {
           <p>Lista vuota</p>
         )}
       </div>
-      <h3>Cos'hai visto:</h3>
-      <div>
-        {makeupData.viewed.length ? (
-          makeupData?.viewed?.map((obj, index) => <p key={index}>{obj.name}</p>)
-        ) : (
-          <p>Lista vuota</p>
-        )}
-      </div>
+      {makeupData.viewed.length >= 1 && (
+        <>
+          <h3>Cos'hai visto:</h3>
+          <div>
+            {makeupData.viewed.length ? (
+              makeupData?.viewed?.map((obj, index) => (
+                <p key={index}>{obj.name}</p>
+              ))
+            ) : (
+              <p>Lista vuota</p>
+            )}
+          </div>
+        </>
+      )}
     </div>
   );
 };
