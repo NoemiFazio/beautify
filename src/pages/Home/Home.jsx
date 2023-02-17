@@ -17,6 +17,7 @@ const Home = () => {
   const onLoginBtnClick = async (e) => {
     dispatch({ type: "SET_LOGIN_MODAL_OFF" });
     dispatch({ type: "SET_LOGOUT" });
+    console.log(userData);
     navigate("/login");
   };
 
@@ -33,6 +34,12 @@ const Home = () => {
     dispatch({ type: "CLOSE_CATEGORY_LIST" });
   };
 
+  const handleOnModalOverlayClick = () => {
+    dispatch({ type: "SET_LOGIN_MODAL_OFF" });
+    console.log(userData);
+    // console.log(userData.isLogged);
+  };
+
   return (
     <div className={styles.App}>
       {/* <Navbar /> */}
@@ -40,10 +47,15 @@ const Home = () => {
       <Slider />
       <FilterList setBrandKey={setBrandKey} setTypeKey={setTypeKey} />
       {userData.loginModalVisibility && (
-        <div className={styles.loginModalOverlay}>
+        <div
+          className={styles.loginModalOverlay}
+          onClick={handleOnModalOverlayClick}
+        >
           <div className={styles.loginModal}>
             <h3>Devi prima effettuare il login!</h3>
-            <button onClick={onLoginBtnClick}>Login</button>
+            <button className={styles.modalBtn} onClick={onLoginBtnClick}>
+              Login
+            </button>
           </div>
         </div>
       )}

@@ -1,3 +1,4 @@
+@import "../src/styles/mixins";
 * {
   margin: 0;
   padding: 0;
@@ -29,6 +30,7 @@
   }
 
   .loginModalOverlay {
+    @include flex-container($justify: center, $align: center);
     background-color: rgba(0, 0, 0, 0.767);
     backdrop-filter: blur(2px);
     position: fixed;
@@ -40,12 +42,29 @@
     z-index: 2;
 
     .loginModal {
+      @include flex-container(
+        $justify: center,
+        $align: center,
+        $direction: column,
+        $gap: 1.3rem
+      );
       position: fixed;
       box-sizing: border-box;
       background-color: ghostwhite;
       width: 20rem;
       height: 10rem;
       top: calc(50% - 5rem);
+      border-radius: 20px;
+      text-align: center;
+      z-index: 3;
+
+      .modalBtn {
+        width: 40%;
+        background-color: white;
+        height: 2rem;
+        font-family: "Montserrat", sans-serif;
+        font-weight: bolder;
+      }
     }
   }
 }

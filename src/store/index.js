@@ -32,13 +32,13 @@ const initialState = {
 function userReducer(state = {}, action) {
   switch (action.type) {
     case "SET_LOGIN":
-      return { isLogged: true };
+      return { ...state, isLogged: true };
     case "SET_LOGOUT":
-      return { isLogged: false };
+      return { ...state, isLogged: false };
     case "SET_LOGIN_MODAL_ON":
-      return { loginModalVisibility: true };
+      return { ...state, loginModalVisibility: true };
     case "SET_LOGIN_MODAL_OFF":
-      return { loginModalVisibility: false };
+      return { ...state, loginModalVisibility: false };
 
     default:
       return state;

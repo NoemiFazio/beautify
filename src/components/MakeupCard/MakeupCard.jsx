@@ -28,6 +28,7 @@ const MakeupCard = ({ data }) => {
         dispatch({ type: "REMOVE_FAVORITE_MAKEUP", payload: id });
       }
     }
+    console.log(userData);
   };
 
   const handleOnCartClick = () => {
@@ -38,6 +39,7 @@ const MakeupCard = ({ data }) => {
       // dispatch({ type: "SET_LOGIN_MODAL_OFF" });
       dispatch({ type: "ADD_PRODUCT", payload: data });
     }
+    console.log(userData);
   };
 
   const handleOnImageClick = () => {
