@@ -40,6 +40,12 @@ const MakeupCard = ({ data }) => {
     }
   };
 
+  const handleOnImageClick = () => {
+    dispatch({ type: "SET_VIEWED_PRODUCT", payload: data });
+    localStorage.setItem("viewed", JSON.stringify(makeupData.viewed));
+    console.log(makeupData.viewed);
+  };
+
   return (
     <div className={styles.MakeupCard}>
       <div className={styles.imageDiv}>
@@ -48,6 +54,7 @@ const MakeupCard = ({ data }) => {
             className={styles.makeupImage}
             src={api_featured_image}
             alt={name}
+            onClick={handleOnImageClick}
           />
         </Link>
       </div>

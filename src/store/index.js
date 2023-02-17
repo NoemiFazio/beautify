@@ -4,6 +4,7 @@ const initialState = {
   makeupData: {
     makeup: [],
     favourites: [],
+    viewed: [],
   },
   navbarStatus: {
     isActive: false,
@@ -38,6 +39,7 @@ function userReducer(state = {}, action) {
       return { loginModalVisibility: true };
     case "SET_LOGIN_MODAL_OFF":
       return { loginModalVisibility: false };
+
     default:
       return state;
   }
@@ -49,6 +51,8 @@ function makeupReducer(state = {}, action) {
       return { ...state, makeup: action.payload };
     case "SET_FAVORITE_MAKEUP":
       return { ...state, favourites: [...state.favourites, action.payload] };
+    case "SET_VIEWED_PRODUCT":
+      return { ...state, viewed: [...state.viewed, action.payload] };
     case "REMOVE_FAVORITE_MAKEUP":
       return {
         ...state,
