@@ -17,7 +17,7 @@ const Home = () => {
   const onLoginBtnClick = async (e) => {
     dispatch({ type: "SET_LOGIN_MODAL_OFF" });
     dispatch({ type: "SET_LOGOUT" });
-    console.log(userData);
+
     navigate("/login");
   };
 
@@ -36,8 +36,6 @@ const Home = () => {
 
   const handleOnModalOverlayClick = () => {
     dispatch({ type: "SET_LOGIN_MODAL_OFF" });
-    console.log(userData);
-    // console.log(userData.isLogged);
   };
 
   return (
@@ -51,7 +49,11 @@ const Home = () => {
           className={styles.loginModalOverlay}
           onClick={handleOnModalOverlayClick}
         >
-          <div className={styles.loginModal}>
+          <div
+            className={`${styles.loginModal} ${
+              userData.loginModalVisibility ? styles.active : ""
+            }`}
+          >
             <h3>Devi prima effettuare il login!</h3>
             <button className={styles.modalBtn} onClick={onLoginBtnClick}>
               Login
