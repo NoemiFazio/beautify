@@ -22,6 +22,7 @@ const initialState = {
   cartData: {
     cartList: [],
     purchasedList: [],
+    purchaseModalVisibility: false,
   },
   userData: {
     isLogged: false,
@@ -121,6 +122,10 @@ function cartDataReducer(state = {}, action) {
     case "CLEAR_CART":
       state.cartList = [];
       localStorage.clear();
+    case "SET_PURCHASE_MODAL_ON":
+      return { ...state, purchaseModalVisibility: true };
+    case "SET_PURCHASE_MODAL_OFF":
+      return { ...state, purchaseModalVisibility: false };
       return {
         ...state,
         cartList: state.cartList,

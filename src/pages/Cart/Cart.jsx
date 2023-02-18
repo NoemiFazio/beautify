@@ -32,6 +32,7 @@ const Cart = () => {
       dispatch({ type: "BUY_ITEMS" });
       dispatch({ type: "CLEAR_PRODUCT" });
       dispatch({ type: "SET_TRUE" });
+      dispatch({ type: "SET_PURCHASE_MODAL_ON" });
       navigate("/dashboard");
     } else {
       alert("Select a Pay Method please! or Insert products into the cart");

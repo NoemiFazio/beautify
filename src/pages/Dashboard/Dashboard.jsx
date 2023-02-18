@@ -1,5 +1,5 @@
 // import styles from "./index.module.scss";
-import { memo, useState } from "react";
+import { memo, useEffect } from "react";
 import { useSelector, useDispatch } from "react-redux";
 import styles from "./index.module.scss";
 
@@ -7,8 +7,38 @@ const Dashboard = ({ user }) => {
   const dispatch = useDispatch();
   const { makeupData, cartData, userData } = useSelector((state) => state);
 
+  const handleOnModalOverlayClick = () => {
+    dispatch({ type: "SET_PURCHASE_MODAL_OFF" });
+  };
+
+  useEffect(() => {
+    if (cartData.purchaseModalVisibility) {
+      setTimeout(() => {
+        dispatch({ type: "SET_PURCHASE_MODAL_OFF" });
+      }, 2500);
+
+      // setTimeout(() => {
+      //   setStatus("")
+      // }, 1500)
+    }
+  }, [cartData.purchaseModalVisibility]);
+
   return (
     <div className={styles.Dashboard}>
+      {cartData.purchaseModalVisibility && (
+        <div
+          className={styles.modalOverlay}
+          onClick={handleOnModalOverlayClick}
+        >
+          <div
+            className={`${styles.modal} ${
+              cartData.purchaseModalVisibility ? styles.active : ""
+            }`}
+          >
+            <h3>Grazie per l'acquisto 💋</h3>
+          </div>
+        </div>
+      )}
       <h1>Buonsalve {localStorage.getItem("username")}</h1>
       <h3>La tua lista dei preferiti:</h3>
       <div>
