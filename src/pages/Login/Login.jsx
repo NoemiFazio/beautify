@@ -8,7 +8,7 @@ const Login = ({ setUser }) => {
   const [name, setName] = useState("");
   const [email, setEmail] = useState("");
   const dispatch = useDispatch();
-  const { userData } = useSelector((state) => state);
+  const { userData, cartData } = useSelector((state) => state);
   const navigate = useNavigate();
 
   const handleSubmit = async (e) => {
@@ -20,6 +20,8 @@ const Login = ({ setUser }) => {
     localStorage.setItem("username", name);
     localStorage.setItem("email", email);
     navigate("/dashboard");
+
+    console.log(cartData);
   };
 
   return (

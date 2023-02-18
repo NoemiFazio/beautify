@@ -8,7 +8,7 @@ import { useSelector, useDispatch } from "react-redux";
 import { Navigate, useNavigate } from "react-router";
 
 const Home = () => {
-  const { filterStatus, userData } = useSelector((state) => state);
+  const { filterStatus, userData, cartData } = useSelector((state) => state);
   const dispatch = useDispatch();
   const navigate = useNavigate();
   const [typeKey, setTypeKey] = useState("Nail polish");
@@ -19,6 +19,9 @@ const Home = () => {
     dispatch({ type: "SET_LOGOUT" });
 
     navigate("/login");
+    {
+      console.log(cartData);
+    }
   };
 
   useEffect(() => {

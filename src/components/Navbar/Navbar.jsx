@@ -36,8 +36,11 @@ const Navbar = () => {
     if (navbarStatus.isActive === true) {
       dispatch({ type: "CLOSE_MENU" });
       dispatch({ type: "CLEAR_CART" });
+      dispatch({ type: "CLEAR_PRODUCT" });
+      dispatch({ type: "CLEAR_PURCHASED_LIST" });
       dispatch({ type: "CLEAR_FAVOURITES" });
       dispatch({ type: "SET_LOGIN_MODAL_OFF" });
+      dispatch({ type: "SET_PURCHASE_MODAL_OFF" });
       // localStorage.clear();
       dispatch({ type: "SET_LOGOUT" });
       navigate("/");
@@ -164,6 +167,7 @@ const Navbar = () => {
                 </NavLink>
               </>
             )}
+          {console.log(cartData)}
         </ul>
       </nav>
       {/* {console.log("NAVBAR")} */}

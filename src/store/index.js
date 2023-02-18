@@ -113,6 +113,7 @@ function filterReducer(state = {}, action) {
 function cartDataReducer(state = {}, action) {
   switch (action.type) {
     case "ADD_PRODUCT":
+      // return { ...state, favourites: [...state.favourites, action.payload] };
       state.cartList = [...state.cartList, action.payload];
       localStorage.setItem("cart", JSON.stringify(state.cartList));
       return { ...state, cartList: state.cartList };
@@ -133,9 +134,12 @@ function cartDataReducer(state = {}, action) {
     // case "SET_UUID":
     //   return { ...state, Uuid: action.payload };
     case "BUY_ITEMS":
-      return { ...state, purchasedList: state.cartList };
+      return { ...state, purchasedList: [...state.cartList] };
     case "CLEAR_PRODUCT":
       return { ...state, cartList: [] };
+
+    case "CLEAR_PURCHASED_LIST":
+      return { ...state, purchasedList: [] };
     case "RESTORE_CART":
       return { ...state, cartList: action.payload };
     default:

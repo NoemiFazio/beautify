@@ -3,7 +3,7 @@ import { memo, useEffect } from "react";
 import { useSelector, useDispatch } from "react-redux";
 import styles from "./index.module.scss";
 
-const Dashboard = ({ user }) => {
+const Dashboard = () => {
   const dispatch = useDispatch();
   const { makeupData, cartData, userData } = useSelector((state) => state);
 
