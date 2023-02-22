@@ -1,0 +1,30 @@
+@import "../../styles/mixins";
+
+.footer {
+  @include flex-container($direction: column, $gap: 1.2rem);
+
+  margin: 1.2rem;
+  padding: 1.2rem 0;
+  border-top: 1px solid #d9ccf1;
+
+  .socialsDiv {
+    text-align: center;
+    .iconSpan {
+      margin: 0 1rem;
+      .icon {
+        font-size: 1.6rem;
+      }
+    }
+  }
+
+  .creditsDiv {
+    @include flex-container($direction: column, $align: center, $gap: 1.2rem);
+    .footerCredit {
+      font-size: small;
+      font-weight: bolder;
+      &:nth-child(5) {
+        font-weight: lighter;
+      }
+    }
+  }
+}

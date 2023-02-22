@@ -27,7 +27,6 @@ const Cart = () => {
     },
   ];
   const handleOnClickPay = () => {
-    console.log(paymentMethod);
     if (paymentMethod && cartData.cartList.length > 0) {
       dispatch({ type: "BUY_ITEMS" });
       dispatch({ type: "CLEAR_PRODUCT" });

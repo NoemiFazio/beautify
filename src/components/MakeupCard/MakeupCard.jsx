@@ -43,7 +43,6 @@ const MakeupCard = ({ data }) => {
   const handleOnImageClick = () => {
     dispatch({ type: "SET_VIEWED_PRODUCT", payload: data });
     localStorage.setItem("viewed", JSON.stringify(makeupData.viewed));
-    console.log(makeupData.viewed);
   };
 
   return (

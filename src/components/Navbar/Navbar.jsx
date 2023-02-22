@@ -2,7 +2,6 @@
 import { useSelector, useDispatch } from "react-redux";
 import { useState, useEffect, memo } from "react";
 import { Navigate, useNavigate } from "react-router";
-
 import { BsCart4 } from "react-icons/bs";
 import { BurgerSexy } from "react-burger-icons";
 import { NavLink, Link } from "react-router-dom";
@@ -167,7 +166,6 @@ const Navbar = () => {
                 </NavLink>
               </>
             )}
-          {console.log(cartData)}
         </ul>
       </nav>
       {/* {console.log("NAVBAR")} */}

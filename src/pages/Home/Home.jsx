@@ -19,9 +19,6 @@ const Home = () => {
     dispatch({ type: "SET_LOGOUT" });
 
     navigate("/login");
-    {
-      console.log(cartData);
-    }
   };
 
   useEffect(() => {

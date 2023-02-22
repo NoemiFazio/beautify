@@ -24,7 +24,6 @@ const SingleProduct = () => {
   return (
     <div className={styles.SingleProduct}>
       <h1>{productId}</h1>
-      {console.log(name)}
 
       <Link to="/">Torna alla home</Link>
     </div>

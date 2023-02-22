@@ -20,8 +20,6 @@ const Login = ({ setUser }) => {
     localStorage.setItem("username", name);
     localStorage.setItem("email", email);
     navigate("/dashboard");
-
-    console.log(cartData);
   };
 
   return (
