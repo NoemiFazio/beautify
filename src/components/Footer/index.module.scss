@@ -3,7 +3,7 @@
 .footer {
   @include flex-container($direction: column, $gap: 1.2rem);
 
-  margin: 1.2rem;
+  margin: 1.2rem 1.2rem 0;
   padding: 1.2rem 0;
   border-top: 1px solid #d9ccf1;
 
@@ -11,8 +11,11 @@
     text-align: center;
     .iconSpan {
       margin: 0 1rem;
+      border-radius: 100%;
+
       .icon {
-        font-size: 1.6rem;
+        font-size: 1.9rem;
+        padding: 0.2rem;
       }
     }
   }
@@ -24,6 +27,46 @@
       font-weight: bolder;
       &:nth-child(5) {
         font-weight: lighter;
+      }
+    }
+  }
+}
+
+@media only screen and (min-width: 767px) {
+  .footer {
+    @include flex-container($direction: column, $gap: 2.5rem);
+
+    margin: 3.2rem 3.2rem 0;
+    padding: 2.5rem 0;
+    .socialsDiv {
+      .iconSpan {
+        margin: 0 1.4rem;
+        // transition: transform 2.55s;
+        // &:hover {
+        //   //   text-shadow: 0 0 7px #121212, 0 0 10px #f09, 0 0 15px #f09 !important;
+        //   transform: scale(1.3);
+        //   color: #f09;
+        // }
+        .icon {
+          cursor: pointer;
+          transition: transform 1s !important;
+          &:hover {
+            transform: scale(1.2);
+          }
+        }
+      }
+    }
+
+    .creditsDiv {
+      @include flex-container($direction: column, $align: center, $gap: 2.2rem);
+      .footerCredit {
+        font-size: 0.9rem;
+        font-weight: bolder;
+        cursor: pointer;
+        &:nth-child(5) {
+          font-weight: lighter;
+          cursor: auto;
+        }
       }
     }
   }

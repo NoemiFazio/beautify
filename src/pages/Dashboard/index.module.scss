@@ -2,6 +2,7 @@
 
 .Dashboard {
   padding-top: 3.7rem;
+  min-height: 39.5rem;
 
   .modalOverlay {
     @include flex-container($justify: center, $align: center);
