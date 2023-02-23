@@ -1,1 +1,73 @@
 @import "../../styles/mixins";
+
+.Error {
+  @include flex-container($direction: column, $justify: center, $align: center);
+  padding: 4.8rem 2rem 0;
+  min-height: 39.5rem;
+
+  .errorImg {
+    min-height: 300px;
+    height: 300px;
+  }
+
+  .messageContainer {
+    @include flex-container($direction: column, $gap: 6rem);
+    h4 {
+    }
+    .link {
+      button {
+        font-family: "Montserrat", sans-serif;
+        box-shadow: 0 0 10px #fff, 0 0 6px #f09, 0 0 4px #f09;
+        background-color: white;
+        height: 1.8rem;
+        width: 165px;
+        border-radius: 50px;
+        text-decoration: none;
+        border: 1px solid #d9ccf1;
+        cursor: pointer;
+        color: black;
+        font-weight: bold;
+
+        &:active {
+          text-shadow: 0 0 10px #fff, 0 0 6px #f09, 0 0 4px #f09;
+          color: white;
+        }
+      }
+    }
+  }
+}
+
+@media only screen and (min-width: 767px) {
+  .Error {
+    min-height: 39.5rem;
+
+    .errorImg {
+      height: 400px;
+    }
+
+    .messageContainer {
+      h4 {
+      }
+      .link {
+        button {
+          font-family: "Montserrat", sans-serif;
+          box-shadow: 0 0 10px #fff, 0 0 6px #f09, 0 0 4px #f09;
+          background-color: white;
+          height: 1.8rem;
+          width: 165px;
+          border-radius: 50px;
+          text-decoration: none;
+          border: 1px solid #d9ccf1;
+          cursor: pointer;
+          color: black;
+          font-weight: bold;
+
+          &:active {
+            text-shadow: 0 0 10px #fff, 0 0 6px #f09, 0 0 4px #f09;
+            color: white;
+          }
+        }
+      }
+    }
+  }
+}

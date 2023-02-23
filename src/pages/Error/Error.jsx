@@ -7,8 +7,17 @@ import styles from "./index.module.scss";
 const Error = () => {
   return (
     <div className={styles.Error}>
-      <div>Error</div>
-      <Link to="/">Back Home</Link>
+      <img
+        className={styles.errorImg}
+        src="https://freesvg.org/img/1538504528.png"
+        alt="PageNotFound"
+      />
+      <div className={styles.messageContainer}>
+        <h4>Where...exactly am I...?</h4>
+        <Link className={styles.link} to="/">
+          <button>Let's return back home.</button>
+        </Link>
+      </div>
     </div>
   );
 };
