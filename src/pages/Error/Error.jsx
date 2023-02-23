@@ -16,7 +16,7 @@ const Error = () => {
         <h1 className={styles.questionMark}>?</h1>
       </span>
       <span>
-        <h2 className={styles.questionMark2}>?</h2>
+        <h3 className={styles.questionMark2}>?</h3>
       </span>
       <div className={styles.messageContainer}>
         <h4>Where...exactly am I...?</h4>
