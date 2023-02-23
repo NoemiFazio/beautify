@@ -3,7 +3,7 @@
 .navbar {
   overflow: hidden;
   box-shadow: 0 0 2px #d9ccf1;
-  // min-width: 100%;
+  // max-width: 100%;
   // box-sizing: border-box;
   position: fixed;
   z-index: 3;
@@ -14,6 +14,7 @@
     min-width: 100vw;
     z-index: 999 !important;
     background-color: #121212;
+    padding: 0 0.9rem;
 
     .menuIcon {
       // display: none;
@@ -39,12 +40,13 @@
       color: ghostwhite;
       font-size: 1.3rem;
       padding-right: 1px;
+      margin-right: 5px;
     }
     .cartNum {
       color: #f09;
       position: absolute;
       top: 2.3rem;
-      right: 0.09rem;
+      right: 0.8rem;
       z-index: 1000 !important;
       font-weight: bolder;
       font-size: small;
@@ -124,6 +126,7 @@
       height: 10%;
       z-index: 2;
       min-width: 100vw;
+      padding: 0rem;
 
       .menuIcon {
         display: block;
@@ -136,6 +139,9 @@
       }
       .icon {
         margin: 0.5rem;
+      }
+      .cartNum {
+        right: 0.2rem;
       }
     }
 

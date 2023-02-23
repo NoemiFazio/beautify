@@ -25,33 +25,35 @@ const Login = ({ setUser }) => {
   return (
     <section className={styles.Login}>
       <form className={styles.form} onSubmit={handleSubmit}>
-        <h1>Login </h1>
+        <h1>Login</h1>
         <div className={styles.row}>
           <label htmlFor="name" className={styles.label}>
-            name
+            Username
           </label>
           <input
             type="text"
             className={styles.input}
             id="name"
             value={name}
+            placeholder="Username"
             onChange={(e) => setName(e.target.value)}
           />
         </div>
         <div className={styles.row}>
           <label htmlFor="email" className={styles.label}>
-            email
+            Email
           </label>
           <input
             type="email"
             className={styles.input}
             id="email"
             value={email}
+            placeholder="Email"
             onChange={(e) => setEmail(e.target.value)}
           />
         </div>
-        <button type="submit" className={`${styles.btn} ${styles.btnBlock}`}>
-          login
+        <button type="submit" className={styles.btn}>
+          Login
         </button>
       </form>
     </section>

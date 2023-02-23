@@ -3,14 +3,14 @@
 .footer {
   @include flex-container($direction: column, $gap: 1.2rem);
 
-  margin: 1.2rem 1.2rem 0;
+  margin: 1.2rem 2rem 0;
   padding: 1.2rem 0;
   border-top: 1px solid #d9ccf1;
 
   .socialsDiv {
     text-align: center;
     .iconSpan {
-      margin: 0 1rem;
+      margin: 0 0.5rem;
       border-radius: 100%;
 
       .icon {
