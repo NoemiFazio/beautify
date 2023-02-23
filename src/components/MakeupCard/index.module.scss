@@ -21,7 +21,9 @@
     height: 50%;
     border: 0;
     vertical-align: top;
-    box-shadow: 0 0 1px #d9ccf1;
+    border-radius: 5px;
+    // border: 1px solid #d9ccf1;
+    box-shadow: 0 0px 3px #d9ccf1;
 
     .makeupImage {
       width: 100%;
@@ -67,7 +69,15 @@
       height: 2rem;
       font-family: "Montserrat", sans-serif;
       font-weight: bolder;
+      border-radius: 5px;
+      border: 1px solid #d9ccf1;
+      box-shadow: 0 0px 3px #d9ccf1;
       cursor: pointer;
+
+      &:active {
+        transform: translateY(2px);
+        background-color: ghostwhite;
+      }
     }
 
     .wishListBtn {
