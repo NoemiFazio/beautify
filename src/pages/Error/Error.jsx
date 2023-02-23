@@ -12,6 +12,12 @@ const Error = () => {
         src="https://freesvg.org/img/1538504528.png"
         alt="PageNotFound"
       />
+      <span>
+        <h1 className={styles.questionMark}>?</h1>
+      </span>
+      <span>
+        <h2 className={styles.questionMark2}>?</h2>
+      </span>
       <div className={styles.messageContainer}>
         <h4>Where...exactly am I...?</h4>
         <Link className={styles.link} to="/">
