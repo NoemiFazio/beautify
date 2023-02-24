@@ -1,4 +1,69 @@
 @import "../../styles/mixins";
 .SingleProduct {
-  padding-top: 4rem;
+  @include flex-container($direction: column, $align: center);
+  padding-top: 3.6rem;
+  min-height: 39.5rem;
+
+  .specsDiv {
+    @include flex-container($justify: center, $gap: 0.5rem);
+    padding: 0.5rem 0;
+
+    .specsSpan {
+      font-weight: normal;
+      .specsH4 {
+      }
+    }
+  }
+
+  .name {
+    text-align: center;
+  }
+  .price {
+    text-align: center;
+    padding: 0.5rem 0;
+  }
+
+  .imgDiv {
+    position: relative;
+    text-align: center;
+    height: 270px;
+    width: 270px;
+    box-shadow: 0 0px 3px #d9ccf1;
+    .img {
+      height: 270px;
+      width: auto;
+      max-height: 270px;
+      // box-shadow: 0 0px 3px #d9ccf1;
+      // width: 300px;
+    }
+
+    .enlargeIcon {
+      position: absolute;
+      bottom: 2%;
+      left: 3%;
+      cursor: pointer;
+    }
+  }
+
+  .btnDiv {
+    width: max-content;
+    padding: 1.5rem 0;
+    width: 280px;
+    .addToBagBtn {
+      width: 100%;
+      background-color: white;
+      height: 2rem;
+      font-family: "Montserrat", sans-serif;
+      font-weight: bolder;
+      border-radius: 5px;
+      border: 1px solid #d9ccf1;
+      box-shadow: 0 0px 3px #d9ccf1;
+      cursor: pointer;
+
+      &:active {
+        transform: translateY(2px);
+        background-color: ghostwhite;
+      }
+    }
+  }
 }

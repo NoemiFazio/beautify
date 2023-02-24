@@ -70,7 +70,7 @@ const MakeupCard = ({ data }) => {
             {product_type?.split("_")?.join(" ")}
           </label>
 
-          <span className={styles.price}>{`${price} ${price_sign
+          <span className={styles.price}>{`${price}0 ${price_sign
             ?.split("£")
             ?.join("€")}`}</span>
         </div>

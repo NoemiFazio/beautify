@@ -59,7 +59,7 @@ const FilterList = ({ setBrandKey, setTypeKey }) => {
       setLabelCategoryValue("");
       setLabelBrandValue("");
       localStorage.clear();
-      dispatch({ type: "CLOSE_CATEGORY_LIST" });
+      dispatch({ type: "CLOSE_FILTER_MENU" });
     } else {
       dispatch({ type: "OPEN_CATEGORY_LIST" });
 
