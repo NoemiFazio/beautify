@@ -4,6 +4,7 @@ import { memo, useState } from "react";
 import { useSelector, useDispatch } from "react-redux";
 import { Link, useParams } from "react-router-dom";
 import { ImEnlarge } from "react-icons/im";
+import { RiHeart3Line, RiHeart3Fill } from "react-icons/ri";
 import styles from "./index.module.scss";
 
 const SingleProduct = () => {
@@ -19,6 +20,7 @@ const SingleProduct = () => {
     price_sign,
     api_featured_image,
     brand,
+    id,
     description,
     tag_list,
     product_colors,
@@ -32,6 +34,19 @@ const SingleProduct = () => {
     } else if (userData.isLogged === true) {
       // dispatch({ type: "SET_LOGIN_MODAL_OFF" });
       dispatch({ type: "ADD_PRODUCT", payload: product });
+    }
+  };
+
+  const handleWishListBtn = () => {
+    if (userData.isLogged === false) {
+      dispatch({ type: "SET_LOGIN_MODAL_ON" });
+    } else {
+      dispatch({ type: "SET_FAVORITE_MAKEUP", payload: product });
+      localStorage.setItem("favourites", JSON.stringify(makeupData.favourites));
+
+      if (makeupData.favourites.find((item) => item.id === id)) {
+        dispatch({ type: "REMOVE_FAVORITE_MAKEUP", payload: id });
+      }
     }
   };
 
@@ -60,6 +75,38 @@ const SingleProduct = () => {
         <button className={styles.addToBagBtn} onClick={handleOnCartClick}>
           Add to bag
         </button>
+        <button className={styles.addToFave}>
+          {!makeupData.favourites.find((item) => item.id === id) ? (
+            <RiHeart3Line
+              onClick={handleWishListBtn}
+              className={styles.wishListBtn}
+            />
+          ) : (
+            <RiHeart3Fill
+              onClick={handleWishListBtn}
+              className={`${styles.wishListBtn} ${styles.active}`}
+            />
+          )}{" "}
+          <h5>Add to favourites</h5>
+        </button>
+      </div>
+      <div className={styles.descriptionDiv}>
+        <p className={styles.description}>{description}</p>
+        {console.log(product)}
+        {tag_list && tag_list.map((item, index) => <h5 key={index}>{item}</h5>)}
+        {product_colors &&
+          product_colors.map(
+            (item, index) => (
+              <span
+                key={index}
+                className={styles.colourSpan}
+                style={{
+                  backgroundColor: `${item.hex_value}`,
+                }}
+              ></span>
+            )
+            // console.log(item.hex_value)
+          )}
       </div>
       <Link to="/">Torna alla home</Link>
     </div>

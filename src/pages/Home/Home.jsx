@@ -14,29 +14,29 @@ const Home = () => {
   const [typeKey, setTypeKey] = useState("Nail polish");
   const [brandKey, setBrandKey] = useState("");
 
-  const onLoginBtnClick = async (e) => {
-    dispatch({ type: "SET_LOGIN_MODAL_OFF" });
-    dispatch({ type: "SET_LOGOUT" });
+  // const onLoginBtnClick = async (e) => {
+  //   dispatch({ type: "SET_LOGIN_MODAL_OFF" });
+  //   dispatch({ type: "SET_LOGOUT" });
 
-    navigate("/login");
-  };
+  //   navigate("/login");
+  // };
 
-  useEffect(() => {
-    if (userData.loginModalVisibility === true) {
-      window.document.body.style.overflowY = "hidden";
-    } else {
-      window.document.body.style.overflowY = "scroll";
-    }
-  }, [userData.loginModalVisibility]);
+  // useEffect(() => {
+  //   if (userData.loginModalVisibility === true) {
+  //     window.document.body.style.overflowY = "hidden";
+  //   } else {
+  //     window.document.body.style.overflowY = "scroll";
+  //   }
+  // }, [userData.loginModalVisibility]);
 
   const handleOverlayClick = () => {
     dispatch({ type: "CLOSE_FILTER_MENU" });
     dispatch({ type: "CLOSE_CATEGORY_LIST" });
   };
 
-  const handleOnModalOverlayClick = () => {
-    dispatch({ type: "SET_LOGIN_MODAL_OFF" });
-  };
+  // const handleOnModalOverlayClick = () => {
+  //   dispatch({ type: "SET_LOGIN_MODAL_OFF" });
+  // };
 
   return (
     <div className={styles.App}>
@@ -44,7 +44,7 @@ const Home = () => {
 
       <Slider />
       <FilterList setBrandKey={setBrandKey} setTypeKey={setTypeKey} />
-      {userData.loginModalVisibility && userData.isLogged === false && (
+      {/* {userData.loginModalVisibility && userData.isLogged === false && (
         <div
           className={styles.loginModalOverlay}
           onClick={handleOnModalOverlayClick}
@@ -60,7 +60,7 @@ const Home = () => {
             </button>
           </div>
         </div>
-      )}
+      )} */}
       {(filterStatus.isFilterActive || filterStatus.isCategoryClicked) && (
         <div className={styles.overlay} onClick={handleOverlayClick}></div>
       )}

@@ -29,68 +29,68 @@
     z-index: 1;
   }
 
-  .loginModalOverlay {
-    @include flex-container($justify: center, $align: center);
-    background-color: rgba(0, 0, 0, 0.767);
-    backdrop-filter: blur(2px);
-    position: fixed;
-    box-sizing: border-box;
-    top: 0;
-    right: 0;
-    left: 0;
-    bottom: 0;
-    z-index: 2;
-    // visibility: hidden;
-    // opacity: 1;
+  // .loginModalOverlay {
+  //   @include flex-container($justify: center, $align: center);
+  //   background-color: rgba(0, 0, 0, 0.767);
+  //   backdrop-filter: blur(2px);
+  //   position: fixed;
+  //   box-sizing: border-box;
+  //   top: 0;
+  //   right: 0;
+  //   left: 0;
+  //   bottom: 0;
+  //   z-index: 2;
+  //   // visibility: hidden;
+  //   // opacity: 1;
 
-    .loginModal {
-      @include flex-container(
-        $justify: center,
-        $align: center,
-        $direction: column,
-        $gap: 1.3rem
-      );
-      position: fixed;
-      box-sizing: border-box;
-      background-color: ghostwhite;
-      width: 20rem;
-      height: 10rem;
-      top: calc(50% - 5rem);
-      border-radius: 20px;
-      box-shadow: 0 0 10px #fff, 0 0 0px #f09, 0 0 15px #f09;
-      text-align: center;
-      z-index: 3;
-      animation: fade 0.4s linear;
+  //   .loginModal {
+  //     @include flex-container(
+  //       $justify: center,
+  //       $align: center,
+  //       $direction: column,
+  //       $gap: 1.3rem
+  //     );
+  //     position: fixed;
+  //     box-sizing: border-box;
+  //     background-color: ghostwhite;
+  //     width: 20rem;
+  //     height: 10rem;
+  //     top: calc(50% - 5rem);
+  //     border-radius: 20px;
+  //     box-shadow: 0 0 10px #fff, 0 0 0px #f09, 0 0 15px #f09;
+  //     text-align: center;
+  //     z-index: 3;
+  //     animation: fade 0.4s linear;
 
-      @keyframes fade {
-        0% {
-          opacity: 0;
-        }
-        100% {
-          opacity: 1;
-        }
-      }
+  //     @keyframes fade {
+  //       0% {
+  //         opacity: 0;
+  //       }
+  //       100% {
+  //         opacity: 1;
+  //       }
+  //     }
 
-      &.active {
-        // visibility: visible;
-        // opacity: 1;
-        // transform: scale(1);
-        animation-name: fade;
-        animation-duration: 0.4s;
-      }
+  //     &.active {
+  //       // visibility: visible;
+  //       // opacity: 1;
+  //       // transform: scale(1);
+  //       animation-name: fade;
+  //       animation-duration: 0.4s;
+  //     }
 
-      .modalBtn {
-        width: 40%;
-        background-color: white;
-        height: 2rem;
-        font-family: "Montserrat", sans-serif;
-        font-weight: bolder;
-        cursor: pointer;
+  //     .modalBtn {
+  //       width: 40%;
+  //       background-color: white;
+  //       height: 2rem;
+  //       font-family: "Montserrat", sans-serif;
+  //       font-weight: bolder;
+  //       cursor: pointer;
 
-        // .modalBtn:active {
-        //   color: #f09;
-        // }
-      }
-    }
-  }
+  //       // .modalBtn:active {
+  //       //   color: #f09;
+  //       // }
+  //     }
+  //   }
+  // }
 }
