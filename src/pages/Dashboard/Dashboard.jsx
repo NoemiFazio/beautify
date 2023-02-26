@@ -23,6 +23,10 @@ const Dashboard = () => {
     }
   }, [cartData.purchaseModalVisibility]);
 
+  function getOccurrence(array, value) {
+    return array.filter((v) => v === value).length;
+  }
+
   return (
     <div className={styles.Dashboard}>
       {cartData.purchaseModalVisibility && (
@@ -53,9 +57,14 @@ const Dashboard = () => {
       <h3>Nel tuo beauty case:</h3>
       <div>
         {cartData.purchasedList.length ? (
-          cartData?.purchasedList?.map((purchase, index) => (
-            <p key={index}>{purchase.name}</p>
-          ))
+          cartData?.purchasedList
+            ?.filter((value, index, self) => self.indexOf(value) === index)
+            .map((purchase, index) => (
+              <p key={index}>
+                {purchase.name} x
+                {getOccurrence(cartData.purchasedList, purchase)}
+              </p>
+            ))
         ) : (
           <p>Lista vuota</p>
         )}

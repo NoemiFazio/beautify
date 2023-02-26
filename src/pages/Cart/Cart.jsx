@@ -39,6 +39,10 @@ const Cart = () => {
     }
   };
 
+  function getOccurrence(array, value) {
+    return array.filter((v) => v === value).length;
+  }
+
   return (
     <div className={styles.Cart}>
       <div className={styles.titleDiv}>
@@ -47,9 +51,13 @@ const Cart = () => {
       </div>
       <div className={styles.cartList}>
         {cartData.cartList.length ? (
-          cartData?.cartList?.map((product, index) => (
-            <p key={index}>{product.name}</p>
-          ))
+          cartData?.cartList
+            ?.filter((value, index, self) => self.indexOf(value) === index)
+            .map((product, index) => (
+              <p key={index}>
+                {product.name} x{getOccurrence(cartData.cartList, product)}
+              </p>
+            ))
         ) : (
           <p>Cart empty</p>
         )}
