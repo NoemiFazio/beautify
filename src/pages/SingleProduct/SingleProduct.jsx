@@ -76,6 +76,7 @@ const SingleProduct = () => {
           Add to bag
         </button>
         <button className={styles.addToFave}>
+          <h5>Add to favourites</h5>
           {!makeupData.favourites.find((item) => item.id === id) ? (
             <RiHeart3Line
               onClick={handleWishListBtn}
@@ -87,7 +88,6 @@ const SingleProduct = () => {
               className={`${styles.wishListBtn} ${styles.active}`}
             />
           )}{" "}
-          <h5>Add to favourites</h5>
         </button>
       </div>
       <div className={styles.descriptionDiv}>

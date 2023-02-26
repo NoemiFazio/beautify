@@ -31,6 +31,7 @@ const Cart = () => {
       dispatch({ type: "BUY_ITEMS" });
       dispatch({ type: "CLEAR_PRODUCT" });
       dispatch({ type: "SET_TRUE" });
+      // console.log(cartData.purchasedList);
 
       navigate("/dashboard");
       dispatch({ type: "SET_PURCHASE_MODAL_ON" });

@@ -134,7 +134,11 @@ function cartDataReducer(state = {}, action) {
     // case "SET_UUID":
     //   return { ...state, Uuid: action.payload };
     case "BUY_ITEMS":
+      // return {
+      //   purchasedList: [...state.purchasedList, ...state.cartList],
+      // };
       return { ...state, purchasedList: [...state.cartList] };
+
     case "CLEAR_PRODUCT":
       return { ...state, cartList: [] };
 

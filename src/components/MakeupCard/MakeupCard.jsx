@@ -70,13 +70,16 @@ const MakeupCard = ({ data }) => {
           <label id={brand} className={styles.brand}>
             {brand}
           </label>
-          <label id={name} className={styles.category}>
+          {/* <label id={name} className={styles.category}>
             {product_type?.split("_")?.join(" ")}
-          </label>
+          </label> */}
 
-          <span className={styles.price}>{`${price}0 ${price_sign
-            ?.split("£")
-            ?.join("€")}`}</span>
+          <span className={styles.price}>
+            {price_sign === null
+              ? `${price} €
+          `
+              : `${price} ${price_sign?.split("£")?.join("€")}`}
+          </span>
         </div>
         <button className={styles.addToBagBtn} onClick={handleOnCartClick}>
           Add to bag
