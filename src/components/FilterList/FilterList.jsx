@@ -94,6 +94,7 @@ const FilterList = ({
       if (labelCategoryValue === item) {
         setLabelCategoryValue("");
         setTypeKey("");
+        // console.log(labelCategoryValue);
       }
       // localStorage.setItem(`categoryValue${item}`, JSON.stringify(item));
     } else {
@@ -103,6 +104,7 @@ const FilterList = ({
       if (labelBrandValue === item) {
         setLabelBrandValue("");
         setBrandKey("");
+        // console.log(labelBrandValue);
       }
       // localStorage.setItem(`brandValue${item}`, JSON.stringify(item));
     }
@@ -177,6 +179,7 @@ const FilterList = ({
               >
                 {item?.split("_")?.join(" ")}
                 {labelCategoryValue === item ? <span>💋</span> : ""}
+
                 {labelBrandValue === item ? <span>💋</span> : ""}
               </label>
             ))}

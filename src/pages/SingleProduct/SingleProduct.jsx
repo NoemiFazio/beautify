@@ -14,6 +14,8 @@ const SingleProduct = ({
   setBrandKey,
   setLabelBrandValue,
   setLabelCategoryValue,
+  labelCategoryValue,
+  labelBrandValue,
 }) => {
   const { productId } = useParams();
   const { makeupData, userData } = useSelector((state) => state);
@@ -42,12 +44,16 @@ const SingleProduct = ({
       navigate("/");
       setTypeKey("");
       setBrandKey(key);
-      setLabelCategoryValue(category);
+      setLabelBrandValue(category);
+      // console.log(category);
+      // console.log(labelBrandValue);
     } else {
       navigate("/");
       setBrandKey("");
       setTypeKey(key);
-      setLabelBrandValue(category);
+      setLabelCategoryValue(category);
+      // console.log(category);
+      // console.log(labelCategoryValue);
     }
   };
 

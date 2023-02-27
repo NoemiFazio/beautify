@@ -70,6 +70,8 @@ function App() {
                 setBrandKey={setBrandKey}
                 setLabelCategoryValue={setLabelCategoryValue}
                 setLabelBrandValue={setLabelBrandValue}
+                labelCategoryValue={labelCategoryValue}
+                labelBrandValue={labelBrandValue}
               />
             }
           />
