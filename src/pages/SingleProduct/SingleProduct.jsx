@@ -42,17 +42,20 @@ const SingleProduct = ({
   const handleLabelClick = (category, type) => {
     const key = category.split("_").join("%20");
     if (type === "brand") {
-      navigate("/");
       setTypeKey("");
+      setLabelCategoryValue("");
       setBrandKey(key);
       setLabelBrandValue(category);
+      navigate("/");
       // console.log(category);
       // console.log(labelBrandValue);
     } else {
-      navigate("/");
       setBrandKey("");
+      setLabelBrandValue("");
       setTypeKey(key);
       setLabelCategoryValue(category);
+      navigate("/");
+
       // console.log(category);
       // console.log(labelCategoryValue);
     }
