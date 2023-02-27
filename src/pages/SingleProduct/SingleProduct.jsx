@@ -19,6 +19,7 @@ const SingleProduct = ({
 }) => {
   const { productId } = useParams();
   const { makeupData, userData } = useSelector((state) => state);
+  const [modalVisibility, setModalVisibility] = useState(false);
   const product = makeupData.makeup.find(
     (product) => product.id === +productId
   );
@@ -80,8 +81,30 @@ const SingleProduct = ({
     }
   };
 
+  const handleOnModalOverlayClick = () => {
+    setModalVisibility(false);
+  };
+
   return (
     <div className={styles.SingleProduct}>
+      {modalVisibility && (
+        <div
+          className={styles.modalOverlay}
+          onClick={handleOnModalOverlayClick}
+        >
+          <div className={styles.modal}>
+            <img src={api_featured_image} alt="name" />
+          </div>
+        </div>
+      )}
+      <h2 className={styles.name}>{name}</h2>
+      <h4 className={styles.price}>
+        {" "}
+        {price_sign === null
+          ? `${price}0 €
+          `
+          : `${price}0 ${price_sign?.split(`${price_sign}`)?.join("€")}`}
+      </h4>
       <div className={styles.specsDiv}>
         <span
           className={styles.specsSpan}
@@ -89,7 +112,7 @@ const SingleProduct = ({
         >
           {brand}
         </span>
-        <span className={styles.specsSpan}>
+        <span>
           <h4 className={styles.specsH4}>/</h4>
         </span>
 
@@ -100,58 +123,65 @@ const SingleProduct = ({
           {product_type?.split("_")?.join(" ")}
         </span>
       </div>
-      <h2 className={styles.name}>{name}</h2>
-      <h4 className={styles.price}>
-        {" "}
-        {price_sign === null
-          ? `${price}0 €
-          `
-          : `${price}0 ${price_sign?.split(`${price_sign}`)?.join("€")}`}
-      </h4>
-      <div className={styles.imgDiv}>
-        <img src={api_featured_image} className={styles.img} alt="" />
-
-        <ImEnlarge className={styles.enlargeIcon} />
-      </div>
-      <div className={styles.btnDiv}>
-        <button className={styles.addToBagBtn} onClick={handleOnCartClick}>
-          Add to bag
-        </button>
-        <button className={styles.addToFave} onClick={handleWishListBtn}>
-          <h5>Add to favourites</h5>
-          {!makeupData.favourites.find((item) => item.id === id) ? (
-            <RiHeart3Line className={styles.wishListBtn} />
-          ) : (
-            <RiHeart3Fill
-              className={`${styles.wishListBtn} ${styles.active}`}
+      <div className={styles.mainContent}>
+        <div className={styles.imgAndBtnsDiv}>
+          <div className={styles.imgDiv}>
+            <img
+              src={api_featured_image}
+              className={styles.img}
+              alt={name}
+              onClick={() => setModalVisibility(true)}
             />
-          )}{" "}
-        </button>
+
+            <ImEnlarge
+              className={styles.enlargeIcon}
+              onClick={() => setModalVisibility(true)}
+            />
+          </div>
+          <div className={styles.btnDiv}>
+            <button className={styles.addToBagBtn} onClick={handleOnCartClick}>
+              Add to bag
+            </button>
+            <button className={styles.addToFave} onClick={handleWishListBtn}>
+              <h5>Add to favourites</h5>
+              {!makeupData.favourites.find((item) => item.id === id) ? (
+                <RiHeart3Line className={styles.wishListBtn} />
+              ) : (
+                <RiHeart3Fill
+                  className={`${styles.wishListBtn} ${styles.active}`}
+                />
+              )}{" "}
+            </button>
+          </div>
+        </div>
+        <div className={styles.detailsDiv}>
+          <div className={styles.coloursDiv}>
+            {product_colors &&
+              product_colors.map(
+                (item, index) => (
+                  <span
+                    key={index}
+                    className={styles.colourSpan}
+                    style={{
+                      backgroundColor: `${item.hex_value}`,
+                    }}
+                  ></span>
+                )
+                // console.log(item.hex_value)
+              )}
+          </div>
+          <div className={styles.descriptionDiv}>
+            <p className={styles.description}>{description}</p>
+            <div className={styles.tagsDiv}>
+              <span className={styles.tagsSpan}>
+                {tag_list &&
+                  tag_list.map((item, index) => <h5 key={index}>• {item}</h5>)}
+              </span>
+            </div>
+          </div>
+        </div>
+        {/* <Link to="/">Torna alla home</Link> */}
       </div>
-      <div className={styles.coloursDiv}>
-        {product_colors &&
-          product_colors.map(
-            (item, index) => (
-              <span
-                key={index}
-                className={styles.colourSpan}
-                style={{
-                  backgroundColor: `${item.hex_value}`,
-                }}
-              ></span>
-            )
-            // console.log(item.hex_value)
-          )}
-      </div>
-      <div className={styles.descriptionDiv}>
-        {console.log(product)}
-        <p className={styles.description}>{description}</p>
-      </div>
-      <div className={styles.tagsDiv}>
-        {" "}
-        {tag_list && tag_list.map((item, index) => <h5 key={index}>{item}</h5>)}
-      </div>
-      <Link to="/">Torna alla home</Link>
     </div>
   );
 };

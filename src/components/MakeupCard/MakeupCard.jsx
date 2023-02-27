@@ -78,7 +78,7 @@ const MakeupCard = ({ data }) => {
             {price_sign === null
               ? `${price} €
           `
-              : `${price} ${price_sign?.split("£")?.join("€")}`}
+              : `${price}0 ${price_sign?.split(`${price_sign}`)?.join("€")}`}
           </span>
         </div>
         <button className={styles.addToBagBtn} onClick={handleOnCartClick}>

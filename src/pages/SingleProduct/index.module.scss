@@ -1,102 +1,282 @@
 @import "../../styles/mixins";
 .SingleProduct {
   @include flex-container($direction: column, $align: center);
-  padding-top: 3.6rem;
+  padding: 3.6rem 2rem 0;
   min-height: 39.5rem;
 
-  .specsDiv {
-    @include flex-container($justify: center, $gap: 0.5rem);
-    padding: 1rem 0;
-
-    .specsSpan {
-      font-weight: normal;
-      .specsH4 {
-      }
-    }
+  .modalOverlay {
+    @include flex-container($justify: center, $align: center);
+    background-color: rgba(0, 0, 0, 0.767);
+    backdrop-filter: blur(2px);
+    position: fixed;
+    box-sizing: border-box;
+    top: 0;
+    right: 0;
+    left: 0;
+    bottom: 0;
+    z-index: 2;
+    // visibility: hidden;
+    // opacity: 1;
   }
 
   .name {
     text-align: center;
+    margin-top: 0.5rem;
   }
   .price {
     text-align: center;
     padding: 0.5rem 0;
   }
 
-  .imgDiv {
-    position: relative;
-    text-align: center;
-    height: 270px;
-    width: 270px;
-    box-shadow: 0 0px 3px #d9ccf1;
-    .img {
-      height: 270px;
-      width: auto;
-      max-height: 270px;
-      // box-shadow: 0 0px 3px #d9ccf1;
-      // width: 300px;
-    }
+  .specsDiv {
+    @include flex-container($justify: center, $gap: 0.5rem);
+    padding: 0 0 0.5rem 0;
 
-    .enlargeIcon {
-      position: absolute;
-      bottom: 2%;
-      left: 3%;
+    .specsSpan {
+      font-weight: bold;
       cursor: pointer;
+      &:hover {
+        text-decoration: underline;
+      }
+      .specsH4 {
+        font-weight: bold;
+      }
     }
   }
 
-  .btnDiv {
-    @include flex-container($direction: column, $gap: 1rem);
-    width: max-content;
-    padding: 1.5rem 0;
-    width: 280px;
-    .addToBagBtn {
+  .mainContent {
+    @include flex-container($direction: column, $align: center);
+
+    .imgAndBtnsDiv {
+      @include flex-container($direction: column, $align: center);
       width: 100%;
-      background-color: white;
-      height: 2rem;
-      font-family: "Montserrat", sans-serif;
-      font-weight: bolder;
-      border-radius: 5px;
-      border: 1px solid #d9ccf1;
-      box-shadow: 0 0px 3px #d9ccf1;
-      cursor: pointer;
+      .imgDiv {
+        position: relative;
+        text-align: center;
+        height: 270px;
+        width: auto;
+        // padding: 5px;
+        box-shadow: 0 0px 3px #d9ccf1;
+        .img {
+          height: 270px;
+          width: 270px;
+          max-height: 270px;
+          // box-shadow: 0 0px 3px #d9ccf1;
+          // width: 300px;
+        }
 
-      &:active {
-        transform: translateY(2px);
-        background-color: ghostwhite;
+        .enlargeIcon {
+          position: absolute;
+          bottom: 2%;
+          left: 3%;
+          cursor: pointer;
+        }
+      }
+
+      .btnDiv {
+        @include flex-container($direction: column, $gap: 1rem, $align: center);
+        width: max-content;
+        padding: 1.5rem 0;
+        width: 100%;
+        .addToBagBtn {
+          width: 100%;
+          background-color: white;
+          height: 2rem;
+          font-family: "Montserrat", sans-serif;
+          font-weight: bolder;
+          border-radius: 5px;
+          border: 1px solid #d9ccf1;
+          box-shadow: 0 0px 3px #d9ccf1;
+          cursor: pointer;
+
+          &:active {
+            transform: translateY(2px);
+            background-color: ghostwhite;
+          }
+        }
+
+        .addToFave {
+          background-color: white;
+          border: none;
+          box-shadow: none;
+          width: auto;
+          font-family: "Montserrat", sans-serif;
+          cursor: pointer;
+          .wishListBtn {
+          }
+        }
       }
     }
 
-    .addToFave {
-      background-color: white;
-      border: none;
-      box-shadow: none;
-      font-family: "Montserrat", sans-serif;
-      .wishListBtn {
+    .detailsDiv {
+      .coloursDiv {
+        @include flex-container($wrap: wrap, $gap: 0.2rem, $justify: center);
+        // width: max-content;
+        // padding: 0 0.5rem;
+        // width: 280px;
+
+        .colourSpan {
+          display: inline-block;
+          width: 30px;
+          height: 30px;
+          border-radius: 50px;
+        }
+      }
+
+      .descriptionDiv {
+        padding: 1rem 0;
+        width: 100%;
+        font-weight: 500;
+
+        .tagsDiv {
+          width: 100%;
+          .tagsSpan {
+            h5 {
+              font-weight: lighter;
+              &::first-letter {
+                text-transform: capitalize;
+              }
+            }
+          }
+        }
       }
     }
   }
+}
 
-  .coloursDiv {
-    @include flex-container($wrap: wrap, $gap: 0.2rem, $justify: center);
-    // width: max-content;
-    padding: 0 0.5rem;
-    width: 280px;
+@media only screen and (min-width: 767px) {
+  .SingleProduct {
+    @include flex-container($direction: column, $align: center);
+    padding: 3.6rem 2rem 0;
+    min-height: 37.5rem;
 
-    .colourSpan {
-      display: inline-block;
-      width: 30px;
-      height: 30px;
-      border-radius: 50px;
+    .name {
+      text-align: center;
     }
-  }
+    .price {
+      text-align: center;
+      padding: 0.5rem 0;
+    }
 
-  .descriptionDiv {
-    padding: 1rem 0;
-    width: 280px;
-    font-weight: 500;
-  }
+    .specsDiv {
+      @include flex-container($justify: center, $gap: 0.5rem);
+      padding: 1rem 0;
 
-  .tagsDiv {
+      .specsSpan {
+        font-weight: bold;
+        cursor: pointer;
+        &:hover {
+          text-decoration: underline;
+        }
+        .specsH4 {
+          font-weight: bold;
+        }
+      }
+    }
+
+    .mainContent {
+      @include flex-container($direction: row, $gap: 1rem);
+
+      .imgAndBtnsDiv {
+        width: 50%;
+        .imgDiv {
+          position: relative;
+          text-align: center;
+          height: 350px;
+          width: 350px;
+          box-shadow: 0 0px 3px #d9ccf1;
+          .img {
+            height: 350px;
+            width: 350px;
+            max-height: 350px;
+            // box-shadow: 0 0px 3px #d9ccf1;
+            // width: 300px;
+          }
+
+          .enlargeIcon {
+            position: absolute;
+            bottom: 2%;
+            left: 3%;
+            cursor: pointer;
+          }
+        }
+
+        .btnDiv {
+          @include flex-container(
+            $direction: column,
+            $gap: 1rem,
+            $align: center
+          );
+          width: max-content;
+          padding: 1.5rem 0;
+          width: 100%;
+          .addToBagBtn {
+            // width: 100%;
+            max-width: 80%;
+            background-color: white;
+            height: 2rem;
+            font-family: "Montserrat", sans-serif;
+            font-weight: bolder;
+            border-radius: 5px;
+            border: 1px solid #d9ccf1;
+            box-shadow: 0 0px 3px #d9ccf1;
+            cursor: pointer;
+
+            &:active {
+              transform: translateY(2px);
+              background-color: ghostwhite;
+            }
+          }
+
+          .addToFave {
+            width: fit-content;
+            background-color: white;
+            border: none;
+            box-shadow: none;
+            font-family: "Montserrat", sans-serif;
+            cursor: pointer;
+            .wishListBtn {
+            }
+          }
+        }
+      }
+
+      .detailsDiv {
+        width: 50%;
+        @include flex-container($direction: column-reverse, $justify: center);
+
+        .coloursDiv {
+          @include flex-container($wrap: wrap, $gap: 0.2rem, $justify: center);
+          // width: max-content;
+          // padding: 0 0.5rem;
+          // width: 280px;
+
+          .colourSpan {
+            display: inline-block;
+            width: 30px;
+            height: 30px;
+            border-radius: 50px;
+          }
+        }
+
+        .descriptionDiv {
+          padding: 0 0 1rem;
+          width: 100%;
+          font-weight: 500;
+
+          .tagsDiv {
+            width: 100%;
+            .tagsSpan {
+              h5 {
+                font-weight: lighter;
+                &::first-letter {
+                  text-transform: capitalize;
+                }
+              }
+            }
+          }
+        }
+      }
+    }
   }
 }
