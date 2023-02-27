@@ -106,7 +106,7 @@ const SingleProduct = ({
         {price_sign === null
           ? `${price}0 €
           `
-          : `${price}0 ${price_sign?.split("£")?.join("€")}`}
+          : `${price}0 ${price_sign?.split(`${price_sign}`)?.join("€")}`}
       </h4>
       <div className={styles.imgDiv}>
         <img src={api_featured_image} className={styles.img} alt="" />
@@ -117,16 +117,12 @@ const SingleProduct = ({
         <button className={styles.addToBagBtn} onClick={handleOnCartClick}>
           Add to bag
         </button>
-        <button className={styles.addToFave}>
+        <button className={styles.addToFave} onClick={handleWishListBtn}>
           <h5>Add to favourites</h5>
           {!makeupData.favourites.find((item) => item.id === id) ? (
-            <RiHeart3Line
-              onClick={handleWishListBtn}
-              className={styles.wishListBtn}
-            />
+            <RiHeart3Line className={styles.wishListBtn} />
           ) : (
             <RiHeart3Fill
-              onClick={handleWishListBtn}
               className={`${styles.wishListBtn} ${styles.active}`}
             />
           )}{" "}
