@@ -7,12 +7,21 @@ import { memo, useState, useEffect } from "react";
 import { useSelector, useDispatch } from "react-redux";
 import { Navigate, useNavigate } from "react-router";
 
-const Home = () => {
+const Home = ({
+  typeKey,
+  setTypeKey,
+  brandKey,
+  setBrandKey,
+  labelCategoryValue,
+  setLabelCategoryValue,
+  labelBrandValue,
+  setLabelBrandValue,
+}) => {
   const { filterStatus, userData, cartData } = useSelector((state) => state);
   const dispatch = useDispatch();
   const navigate = useNavigate();
-  const [typeKey, setTypeKey] = useState("Nail polish");
-  const [brandKey, setBrandKey] = useState("");
+  // const [typeKey, setTypeKey] = useState("Nail polish");
+  // const [brandKey, setBrandKey] = useState("");
 
   // const onLoginBtnClick = async (e) => {
   //   dispatch({ type: "SET_LOGIN_MODAL_OFF" });
@@ -43,7 +52,14 @@ const Home = () => {
       {/* <Navbar /> */}
 
       <Slider />
-      <FilterList setBrandKey={setBrandKey} setTypeKey={setTypeKey} />
+      <FilterList
+        setBrandKey={setBrandKey}
+        setTypeKey={setTypeKey}
+        setLabelCategoryValue={setLabelCategoryValue}
+        setLabelBrandValue={setLabelBrandValue}
+        labelCategoryValue={labelCategoryValue}
+        labelBrandValue={labelBrandValue}
+      />
       {/* {userData.loginModalVisibility && userData.isLogged === false && (
         <div
           className={styles.loginModalOverlay}

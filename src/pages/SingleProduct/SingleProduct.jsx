@@ -1,5 +1,7 @@
 // import styles from "./index.module.scss";
 import { memo, useState } from "react";
+import { Navigate, useNavigate } from "react-router";
+
 // import { useDispatch, useSelector } from "react-redux";
 import { useSelector, useDispatch } from "react-redux";
 import { Link, useParams } from "react-router-dom";
@@ -7,12 +9,18 @@ import { ImEnlarge } from "react-icons/im";
 import { RiHeart3Line, RiHeart3Fill } from "react-icons/ri";
 import styles from "./index.module.scss";
 
-const SingleProduct = () => {
+const SingleProduct = ({
+  setTypeKey,
+  setBrandKey,
+  setLabelBrandValue,
+  setLabelCategoryValue,
+}) => {
   const { productId } = useParams();
   const { makeupData, userData } = useSelector((state) => state);
   const product = makeupData.makeup.find(
     (product) => product.id === +productId
   );
+
   const {
     name,
     product_type,
@@ -26,6 +34,22 @@ const SingleProduct = () => {
     product_colors,
   } = product;
   const dispatch = useDispatch();
+  const navigate = useNavigate();
+
+  const handleLabelClick = (category, type) => {
+    const key = category.split("_").join("%20");
+    if (type === "brand") {
+      navigate("/");
+      setTypeKey("");
+      setBrandKey(key);
+      setLabelCategoryValue(category);
+    } else {
+      navigate("/");
+      setBrandKey("");
+      setTypeKey(key);
+      setLabelBrandValue(category);
+    }
+  };
 
   const handleOnCartClick = () => {
     // dispatch({ type: "SET_TRUE" });
@@ -53,19 +77,31 @@ const SingleProduct = () => {
   return (
     <div className={styles.SingleProduct}>
       <div className={styles.specsDiv}>
-        <span className={styles.specsSpan}>{brand}</span>
+        <span
+          className={styles.specsSpan}
+          onClick={() => handleLabelClick(brand, "brand")}
+        >
+          {brand}
+        </span>
         <span className={styles.specsSpan}>
           <h4 className={styles.specsH4}>/</h4>
         </span>
 
-        <span className={styles.specsSpan}>
+        <span
+          className={styles.specsSpan}
+          onClick={() => handleLabelClick(product_type, "productType")}
+        >
           {product_type?.split("_")?.join(" ")}
         </span>
       </div>
       <h2 className={styles.name}>{name}</h2>
-      <h4 className={styles.price}>{`${price}0 ${price_sign
-        ?.split("£")
-        ?.join("€")}`}</h4>
+      <h4 className={styles.price}>
+        {" "}
+        {price_sign === null
+          ? `${price}0 €
+          `
+          : `${price}0 ${price_sign?.split("£")?.join("€")}`}
+      </h4>
       <div className={styles.imgDiv}>
         <img src={api_featured_image} className={styles.img} alt="" />
 
@@ -90,10 +126,7 @@ const SingleProduct = () => {
           )}{" "}
         </button>
       </div>
-      <div className={styles.descriptionDiv}>
-        <p className={styles.description}>{description}</p>
-        {console.log(product)}
-        {tag_list && tag_list.map((item, index) => <h5 key={index}>{item}</h5>)}
+      <div className={styles.coloursDiv}>
         {product_colors &&
           product_colors.map(
             (item, index) => (
@@ -107,6 +140,14 @@ const SingleProduct = () => {
             )
             // console.log(item.hex_value)
           )}
+      </div>
+      <div className={styles.descriptionDiv}>
+        {console.log(product)}
+        <p className={styles.description}>{description}</p>
+      </div>
+      <div className={styles.tagsDiv}>
+        {" "}
+        {tag_list && tag_list.map((item, index) => <h5 key={index}>{item}</h5>)}
       </div>
       <Link to="/">Torna alla home</Link>
     </div>

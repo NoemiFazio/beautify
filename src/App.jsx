@@ -19,6 +19,10 @@ import ProtectedRoute from "./pages/ProtectedRoute";
 
 function App() {
   const [user, setUser] = useState(null);
+  const [typeKey, setTypeKey] = useState("Nail polish");
+  const [brandKey, setBrandKey] = useState("");
+  const [labelCategoryValue, setLabelCategoryValue] = useState("");
+  const [labelBrandValue, setLabelBrandValue] = useState("");
   // const { filterStatus } = useSelector((state) => state);
   // const dispatch = useDispatch();
   // const [typeKey, setTypeKey] = useState("Nail polish");
@@ -34,7 +38,21 @@ function App() {
       {/* <Navbar /> */}
       <Routes>
         <Route path="/" element={<SharedLayout />}>
-          <Route index element={<Home />} />
+          <Route
+            index
+            element={
+              <Home
+                typeKey={typeKey}
+                setTypeKey={setTypeKey}
+                brandKey={brandKey}
+                setBrandKey={setBrandKey}
+                labelCategoryValue={labelCategoryValue}
+                setLabelCategoryValue={setLabelCategoryValue}
+                labelBrandValue={labelBrandValue}
+                setLabelBrandValue={setLabelBrandValue}
+              />
+            }
+          />
           <Route path="cart" element={<Cart />} />
           <Route path="products" element={<Products />} />
           {/* <Route path='products' element={<SharedProductLayout/>}>
@@ -42,7 +60,19 @@ function App() {
             <Route path=':productId' element={<Singleroduct/>} />
           </Route> */}
           {/* In verità per il route qui sotto si poteva fare il nesting come in riga 31, come ho scritto nelle 4 righe precedenti,  ma funziona anche così */}
-          <Route path="products/:productId" element={<SingleProduct />} />
+          <Route
+            path="products/:productId"
+            element={
+              <SingleProduct
+                typeKey={typeKey}
+                setTypeKey={setTypeKey}
+                brandKey={brandKey}
+                setBrandKey={setBrandKey}
+                setLabelCategoryValue={setLabelCategoryValue}
+                setLabelBrandValue={setLabelBrandValue}
+              />
+            }
+          />
           <Route path="login" element={<Login setUser={setUser} />} />
           <Route
             path="dashboard"

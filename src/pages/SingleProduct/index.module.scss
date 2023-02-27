@@ -71,17 +71,32 @@
       background-color: white;
       border: none;
       box-shadow: none;
+      font-family: "Montserrat", sans-serif;
       .wishListBtn {
       }
     }
   }
 
-  .descriptionDiv {
+  .coloursDiv {
+    @include flex-container($wrap: wrap, $gap: 0.2rem, $justify: center);
+    // width: max-content;
+    padding: 0 0.5rem;
+    width: 280px;
+
     .colourSpan {
       display: inline-block;
       width: 30px;
       height: 30px;
       border-radius: 50px;
     }
+  }
+
+  .descriptionDiv {
+    padding: 1rem 0;
+    width: 280px;
+    font-weight: 500;
+  }
+
+  .tagsDiv {
   }
 }

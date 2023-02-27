@@ -3,12 +3,20 @@ import { GET } from "../../utils/api";
 import { useSelector, useDispatch } from "react-redux";
 import { useEffect, useState, memo } from "react";
 
-const FilterList = ({ setBrandKey, setTypeKey }) => {
+const FilterList = ({
+  setBrandKey,
+  setTypeKey,
+  setLabelBrandValue,
+  setLabelCategoryValue,
+  labelCategoryValue,
+
+  labelBrandValue,
+}) => {
   const dispatch = useDispatch();
   const { filterStatus } = useSelector((state) => state);
   const [filterCategory, setFilterCategory] = useState("");
-  const [labelCategoryValue, setLabelCategoryValue] = useState("");
-  const [labelBrandValue, setLabelBrandValue] = useState("");
+  // const [labelCategoryValue, setLabelCategoryValue] = useState("");
+  // const [labelBrandValue, setLabelBrandValue] = useState("");
 
   // const Category = [
   //   { phrase: "5 Stars" },
