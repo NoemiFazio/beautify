@@ -12,18 +12,24 @@
     button {
       // @include border($radius: 100%, $border: none);
       @include text($size: 1.4rem, $weight: 200);
-      @include dimensions($height: 40px, $width: 40px);
+      @include dimensions($height: 30px, $width: 30px);
       background-color: white;
       box-shadow: 0 0 5px #fff, 0 0 3px #f09, 0 0 3px #f09;
-      color: #f09;
+      color: rgba(255, 0, 153, 0.598);
       border-radius: 100%;
       border: none;
 
       cursor: pointer;
       transition: all 0.25s;
 
+      .icon {
+        font-size: 1.7rem;
+        margin-top: 0.1rem;
+      }
+
       &:hover {
         // transform: scale(1.08);
+        color: #f09;
         filter: saturate(1.3) contrast(1.1);
       }
 
@@ -31,6 +37,7 @@
         background-color: rgb(241, 241, 241);
         // transform: scale(0.9);
         transform: translateY(2px);
+        color: #f09;
         filter: saturate(1.3) contrast(1.1);
       }
     }
