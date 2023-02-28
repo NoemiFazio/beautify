@@ -26,7 +26,8 @@
       padding: 0 1rem;
       background-color: white;
       border: 0;
-      box-shadow: 0 0 1.8px #d9ccf1;
+      // box-shadow: 0 0 1.8px #d9ccf1;
+      box-shadow: 0 0 5px #fff, 0 0 0px #f09, 0 0 3px #f09;
       cursor: pointer;
       z-index: 2;
 
@@ -43,7 +44,8 @@
       background-color: white;
       top: 127px;
       width: 100%;
-      box-shadow: 0 0 5px #d9ccf1;
+      // box-shadow: 0 0 5px #d9ccf1;
+      box-shadow: 0 0 5px #fff, 0 0 0px #f09, 0 0 3px #f09;
 
       .category {
         padding: 0.5rem 0;
@@ -55,14 +57,15 @@
 
   .filtersDiv {
     @include flex-container($direction: column, $gap: 0.4rem);
-    padding: 0 2rem;
+    padding: 0.3rem 2rem;
     position: absolute;
     z-index: 2;
     background-color: white;
     top: 158px;
     width: 100%;
     height: 15rem;
-    box-shadow: 0 0 5px #d9ccf1;
+    // box-shadow: 0 0 5px #d9ccf1;
+    box-shadow: 0 0 5px #fff, 0 0 0px #f09, 0 0 3px #f09;
     overflow-x: hidden;
     overflow-y: scroll;
     scroll-behavior: smooth;
@@ -70,7 +73,8 @@
     .filter {
       @include flex-container($justify: space-between);
       padding: 0.15rem 0.2rem;
-      box-shadow: 0 0 1px #d9ccf1;
+      // box-shadow: 0 0 1px #d9ccf1;
+      box-shadow: 0 0 5px #fff, 0 0 0px #f09, 0 0 1px #f09;
       cursor: pointer;
 
       &::first-letter {

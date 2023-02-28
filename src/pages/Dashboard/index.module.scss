@@ -1,8 +1,9 @@
 @import "../../styles/mixins";
 
 .Dashboard {
-  padding-top: 3.7rem;
+  @include flex-container($direction: column, $justify: space-evenly);
   min-height: 39.5rem;
+  padding: 3.7rem 1.2rem 0;
 
   .modalOverlay {
     @include flex-container($justify: center, $align: center);
@@ -54,5 +55,13 @@
         animation-duration: 2s;
       }
     }
+  }
+}
+
+@media only screen and (min-width: 767px) {
+  .Dashboard {
+    @include flex-container($direction: column, $align: center, $gap: 1rem);
+    min-height: 42rem;
+    padding: 4.7rem 3.5rem 0;
   }
 }

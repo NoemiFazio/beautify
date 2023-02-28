@@ -1,0 +1,31 @@
+import styles from "./index.module.scss";
+import { memo } from "react";
+
+export default memo(function ScrollBtn({ itemRef }) {
+  const onNextClick = () => {
+    itemRef.current.scrollTo({
+      top: 0,
+      left: itemRef.current.scrollLeft + 570,
+      behavior: "smooth",
+    });
+  };
+
+  const onPrevClick = () => {
+    itemRef.current.scrollTo({
+      top: 0,
+      left: itemRef.current.scrollLeft - 570,
+      behavior: "smooth",
+    });
+  };
+
+  return (
+    <div className={styles.button_container_scroll}>
+      <button onClick={onPrevClick} className={styles.button_prev}>
+        {"<"}
+      </button>
+      <button onClick={onNextClick} className={styles.button_next}>
+        {">"}
+      </button>
+    </div>
+  );
+});
