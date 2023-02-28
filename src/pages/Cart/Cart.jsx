@@ -40,51 +40,72 @@ const Cart = () => {
     }
   };
 
-  function getOccurrence(array, value) {
-    return array.filter((v) => v === value).length;
-  }
+  // function getOccurrence(array, value) {
+  //   return array.filter((v) => v === value).length;
+  // }
+
+  const handleOnRemoveClick = (index) => {
+    dispatch({ type: "REMOVE_PRODUCT", payload: index });
+    console.log(index);
+    console.log(cartData.cartList);
+  };
 
   return (
     <div className={styles.Cart}>
-      <div className={styles.titleDiv}>
-        <h2>My</h2>
-        <h2>Cart</h2>
-      </div>
-      <div className={styles.cartList}>
-        {cartData.cartList.length ? (
-          cartData?.cartList
-            ?.filter((value, index, self) => self.indexOf(value) === index)
-            .map((product, index) => (
-              <p key={index}>
-                {product.name} x{getOccurrence(cartData.cartList, product)}
-              </p>
-            ))
-        ) : (
-          <p>Cart empty</p>
-        )}
-      </div>
-      <div className={styles.totalDiv}>
-        <span>TOT</span>
-        <span>Millemila euri</span>
-      </div>
-      <div className={styles.paymentMethodsDiv}>
-        {paymentmethods.map((item, index) => (
-          <div className={styles.paymentChoice} key={index}>
-            <span>{item.icon}</span>
-            <span
-              onClick={() => setPaymentMethod(item.name)}
-              className={`${styles.paymentMethod} ${
-                paymentMethod === item.name && styles.active
-              }`}
-            >
-              {item.name}
-            </span>
-          </div>
-        ))}
-      </div>
-      <button onClick={handleOnClickPay} className={styles.paymentBtn}>
-        PAY
-      </button>
+      <section className={styles.mainContent}>
+        <div className={styles.titleDiv}>
+          <h2>My Cart</h2>
+        </div>
+        <div className={styles.cartList}>
+          {cartData.cartList.length ? (
+            cartData?.cartList
+              // ?.filter((value, index, self) => self.indexOf(value) === index)
+              .map((product, index) => (
+                <div className={styles.cartEl} key={index}>
+                  <span className={styles.nameSpan}>
+                    <p onClick={() => handleOnRemoveClick(index)} key={index}>
+                      x
+                    </p>
+                    {product.name}
+                  </span>
+
+                  <span className={styles.priceSpan}>
+                    {product.price_sign === null
+                      ? `${product.price}0 €
+          `
+                      : `${product.price}0 ${product.price_sign
+                          ?.split(`${product.price_sign}`)
+                          ?.join("€")}`}
+                  </span>
+                </div>
+              ))
+          ) : (
+            <p>Cart empty</p>
+          )}
+        </div>
+        <div className={styles.totalDiv}>
+          <span>TOT</span>
+          <span>Millemila euri</span>
+        </div>
+        <div className={styles.paymentMethodsDiv}>
+          {paymentmethods.map((item, index) => (
+            <div className={styles.paymentChoice} key={index}>
+              <span>{item.icon}</span>
+              <span
+                onClick={() => setPaymentMethod(item.name)}
+                className={`${styles.paymentMethod} ${
+                  paymentMethod === item.name && styles.active
+                }`}
+              >
+                {item.name}
+              </span>
+            </div>
+          ))}
+        </div>
+        <button onClick={handleOnClickPay} className={styles.paymentBtn}>
+          PAY
+        </button>
+      </section>
     </div>
   );
 };

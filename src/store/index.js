@@ -120,6 +120,7 @@ function cartDataReducer(state = {}, action) {
     case "REMOVE_PRODUCT":
       state.cartList = state.cartList.filter((_, id) => id !== action.payload);
       localStorage.setItem("cart", JSON.stringify(state.cartList));
+      return { ...state, cartList: state.cartList };
     case "CLEAR_CART":
       state.cartList = [];
       localStorage.clear();

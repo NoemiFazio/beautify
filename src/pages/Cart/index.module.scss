@@ -3,4 +3,30 @@
 .Cart {
   padding: 3.7rem 1.2rem 1.2rem;
   min-height: 39.5rem;
+
+  .mainContent {
+    @include flex-container($direction: column, $gap: 0.9rem);
+
+    .titleDiv {
+      h2 {
+      }
+    }
+
+    .cartList {
+      @include flex-container($direction: column, $gap: 0.5rem);
+
+      .cartEl {
+        @include flex-container($direction: row, $justify: space-between);
+        .nameSpan {
+          @include flex-container($direction: row);
+          display: block;
+
+          p {
+            display: inline;
+            padding: 0 0.7rem;
+          }
+        }
+      }
+    }
+  }
 }
