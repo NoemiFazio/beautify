@@ -44,7 +44,12 @@ const Dashboard = () => {
           </div>
         </div>
       )}
-      <h1>{localStorage.getItem("username")}, welcome back!</h1>
+      <h1 className={styles.userWelcome}>
+        <span className={styles.userName}>
+          {localStorage.getItem("username")}
+        </span>
+        , welcome back!
+      </h1>
       {/* <h3>La tua lista dei preferiti:</h3> */}
       {
         makeupData.favourites.length >= 1 && (

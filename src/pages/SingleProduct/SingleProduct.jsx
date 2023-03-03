@@ -1,5 +1,5 @@
 // import styles from "./index.module.scss";
-import { memo, useState } from "react";
+import { memo, useState, useEffect } from "react";
 import { Navigate, useNavigate } from "react-router";
 
 // import { useDispatch, useSelector } from "react-redux";
@@ -38,6 +38,14 @@ const SingleProduct = ({
   } = product;
   const dispatch = useDispatch();
   const navigate = useNavigate();
+
+  useEffect(() => {
+    if (modalVisibility === true) {
+      window.document.body.style.overflowY = "hidden";
+    } else {
+      window.document.body.style.overflowY = "scroll";
+    }
+  }, [modalVisibility]);
 
   const handleLabelClick = (category, type) => {
     const key = category.split("_").join("%20");

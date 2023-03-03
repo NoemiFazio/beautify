@@ -63,7 +63,8 @@
         text-align: center;
         height: 270px;
         width: auto;
-        box-shadow: 0 0px 3px #d9ccf1;
+        border-radius: 10px;
+        box-shadow: 0 0 5px #fff, 0 0 0px #f09, 0 0 3px #f09;
         cursor: pointer;
         .img {
           height: 270px;
@@ -91,8 +92,8 @@
           font-family: "Montserrat", sans-serif;
           font-weight: bolder;
           border-radius: 5px;
-          border: 1px solid #d9ccf1;
-          box-shadow: 0 0px 3px #d9ccf1;
+          border: 1px solid white;
+          box-shadow: 0 0 5px #fff, 0 0 0px #f09, 0 0 3px #f09;
           cursor: pointer;
 
           &:active {
