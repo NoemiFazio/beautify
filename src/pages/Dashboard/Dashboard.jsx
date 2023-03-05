@@ -2,35 +2,42 @@
 import { memo, useEffect } from "react";
 import { useSelector, useDispatch } from "react-redux";
 import styles from "./index.module.scss";
+import Modal from "../../components/Modal";
 import Carousel from "../../components/Carousel/Carousel";
 
 const Dashboard = () => {
   const dispatch = useDispatch();
   const { makeupData, cartData } = useSelector((state) => state);
 
-  const handleOnModalOverlayClick = () => {
-    dispatch({ type: "SET_PURCHASE_MODAL_OFF" });
-  };
+  // const handleOnModalOverlayClick = () => {
+  //   dispatch({ type: "SET_PURCHASE_MODAL_OFF" });
+  // };
 
   useEffect(() => {
     if (cartData.purchaseModalVisibility) {
       setTimeout(() => {
         dispatch({ type: "SET_PURCHASE_MODAL_OFF" });
+        // window.document.body.style.overflowY = "scroll";
       }, 2500);
-
+      // window.document.body.style.overflowY = "hidden";
       // setTimeout(() => {
       //   setStatus("")
       // }, 1500)
     }
   }, [cartData.purchaseModalVisibility]);
 
-  function getOccurrence(array, value) {
-    return array.filter((v) => v === value).length;
-  }
+  // function getOccurrence(array, value) {
+  //   return array.filter((v) => v === value).length;
+  // }
 
   return (
     <div className={styles.Dashboard}>
       {cartData.purchaseModalVisibility && (
+        <Modal modalVisibilityTrue={cartData.purchaseModalVisibility}>
+          <h3>Grazie per l'acquisto 💋</h3>
+        </Modal>
+      )}
+      {/* {cartData.purchaseModalVisibility && (
         <div
           className={styles.modalOverlay}
           onClick={handleOnModalOverlayClick}
@@ -43,7 +50,7 @@ const Dashboard = () => {
             <h3>Grazie per l'acquisto 💋</h3>
           </div>
         </div>
-      )}
+      )} */}
       <h1 className={styles.userWelcome}>
         <span className={styles.userName}>
           {localStorage.getItem("username")}

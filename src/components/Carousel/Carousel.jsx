@@ -47,15 +47,10 @@ const Carousel = ({ data, type }) => {
           ? data
               ?.filter((value, index, self) => self.indexOf(value) === index)
               .map((item, index) => (
-                <>
-                  <CarouselCard key={index} cardData={item} type={type} />
-                  {/* {item.name} x{getOccurrence(cartData.purchasedList, item)} */}
-                </>
+                <CarouselCard key={index} cardData={item} type={type} />
               ))
           : data?.map((item, index) => (
-              <>
-                <CarouselCard key={index} cardData={item} type={type} />
-              </>
+              <CarouselCard key={index} cardData={item} type={type} />
             ))}
         {/* {activities?.discountList?.data?.map((cardData, index) => (
           <MiniCard cardData={cardData} key={index} />

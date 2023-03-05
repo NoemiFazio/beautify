@@ -29,12 +29,12 @@ const Cart = () => {
   ];
   const handleOnClickPay = () => {
     if (paymentMethod && cartData.cartList.length > 0) {
+      navigate("/dashboard");
       dispatch({ type: "BUY_ITEMS" });
       dispatch({ type: "CLEAR_PRODUCT" });
       dispatch({ type: "SET_TRUE" });
       // console.log(cartData.purchasedList);
 
-      navigate("/dashboard");
       dispatch({ type: "SET_PURCHASE_MODAL_ON" });
     } else {
       alert("Select a Pay Method please! or Insert products into the cart");

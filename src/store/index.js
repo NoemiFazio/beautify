@@ -125,8 +125,10 @@ function cartDataReducer(state = {}, action) {
       state.cartList = [];
       localStorage.clear();
     case "SET_PURCHASE_MODAL_ON":
+      window.document.body.style.overflowY = "hidden";
       return { ...state, purchaseModalVisibility: true };
     case "SET_PURCHASE_MODAL_OFF":
+      window.document.body.style.overflowY = "scroll";
       return { ...state, purchaseModalVisibility: false };
       return {
         ...state,
