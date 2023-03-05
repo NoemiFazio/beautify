@@ -96,9 +96,10 @@ const Cart = () => {
           ) : (
             <div className={styles.emptyCartDiv}>
               <p>...is rather empty.</p>
-              <button className={styles.Btn} onClick={onBtnClick}>
+              <Button handleOnClick={onBtnClick}>Let's go shopping! 😉</Button>
+              {/* <button className={styles.Btn} onClick={onBtnClick}>
                 Shall we go shopping? 😉
-              </button>
+              </button> */}
             </div>
           )}
         </div>
