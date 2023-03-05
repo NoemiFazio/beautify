@@ -11,8 +11,10 @@
   left: 0;
   bottom: 0;
   z-index: 2;
-  // visibility: hidden;
-  // opacity: 1;
+
+  &.sharedLayoutPage {
+    z-index: 3;
+  }
 
   .modal {
     @include flex-container(

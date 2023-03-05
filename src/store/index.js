@@ -37,8 +37,10 @@ function userReducer(state = {}, action) {
     case "SET_LOGOUT":
       return { ...state, isLogged: false };
     case "SET_LOGIN_MODAL_ON":
+      window.document.body.style.overflowY = "hidden";
       return { ...state, loginModalVisibility: true };
     case "SET_LOGIN_MODAL_OFF":
+      window.document.body.style.overflowY = "scroll";
       return { ...state, loginModalVisibility: false };
 
     default:

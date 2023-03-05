@@ -2,13 +2,16 @@ import styles from "./index.module.scss";
 import { useSelector, useDispatch } from "react-redux";
 import { useEffect } from "react";
 
-const Modal = ({ modalVisibilityTrue, children }) => {
+const Modal = ({ modalVisibilityTrue, page = "", children }) => {
   const dispatch = useDispatch();
-  const { makeupData, cartData } = useSelector((state) => state);
+  const { makeupData, cartData, userData } = useSelector((state) => state);
 
   const handleOnModalOverlayClick = () => {
-    if (modalVisibilityTrue === cartData.purchaseModalVisibility)
+    if (modalVisibilityTrue === cartData.purchaseModalVisibility) {
       dispatch({ type: "SET_PURCHASE_MODAL_OFF" });
+    } else if (modalVisibilityTrue === userData.loginModalVisibility) {
+      dispatch({ type: "SET_LOGIN_MODAL_OFF" });
+    }
   };
 
   //   useEffect(() => {
@@ -24,7 +27,12 @@ const Modal = ({ modalVisibilityTrue, children }) => {
   //   }, [modalVisibilityTrue]);
 
   return (
-    <div className={styles.modalOverlay} onClick={handleOnModalOverlayClick}>
+    <div
+      className={`${styles.modalOverlay} ${
+        page === "sharedLayoutPage" && styles.sharedLayoutPage
+      }`}
+      onClick={handleOnModalOverlayClick}
+    >
       <div
         className={`${styles.modal} ${
           modalVisibilityTrue ? styles.active : ""
