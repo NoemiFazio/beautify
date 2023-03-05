@@ -35,6 +35,23 @@
     z-index: 3;
     animation: fade 2s linear;
 
+    &.active {
+      // visibility: visible;
+      // opacity: 1;
+      // transform: scale(1);
+      animation-name: fade;
+      animation-duration: 2s;
+    }
+
+    &.singleProductPage {
+      top: auto;
+      border-radius: 0;
+      box-shadow: none;
+      width: 365px;
+      height: 365px;
+      animation: none;
+    }
+
     @keyframes fade {
       0% {
         opacity: 0;
@@ -43,13 +60,16 @@
         opacity: 1;
       }
     }
+  }
+}
 
-    &.active {
-      // visibility: visible;
-      // opacity: 1;
-      // transform: scale(1);
-      animation-name: fade;
-      animation-duration: 2s;
+@media only screen and (min-width: 767px) {
+  .modalOverlay {
+    .modal {
+      &.singleProductPage {
+        width: 400px;
+        height: 400px;
+      }
     }
   }
 }

@@ -5,6 +5,7 @@ const initialState = {
     makeup: [],
     favourites: [],
     viewed: [],
+    imgZoomModalVisibility: false,
   },
   navbarStatus: {
     isActive: false,
@@ -63,6 +64,12 @@ function makeupReducer(state = {}, action) {
           (item) => item.id !== action.payload
         ),
       };
+    case "SET_ZOOM_MODAL_ON":
+      window.document.body.style.overflowY = "hidden";
+      return { ...state, imgZoomModalVisibility: true };
+    case "SET_ZOOM_MODAL_OFF":
+      window.document.body.style.overflowY = "scroll";
+      return { ...state, imgZoomModalVisibility: false };
     case "RESTORE_FAVORITE":
       return { ...state, favourites: action.payload };
     case "CLEAR_FAVOURITES":

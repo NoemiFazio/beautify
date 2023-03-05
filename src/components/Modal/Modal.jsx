@@ -11,6 +11,8 @@ const Modal = ({ modalVisibilityTrue, page = "", children }) => {
       dispatch({ type: "SET_PURCHASE_MODAL_OFF" });
     } else if (modalVisibilityTrue === userData.loginModalVisibility) {
       dispatch({ type: "SET_LOGIN_MODAL_OFF" });
+    } else if (modalVisibilityTrue === makeupData.imgZoomModalVisibility) {
+      dispatch({ type: "SET_ZOOM_MODAL_OFF" });
     }
   };
 
@@ -34,9 +36,9 @@ const Modal = ({ modalVisibilityTrue, page = "", children }) => {
       onClick={handleOnModalOverlayClick}
     >
       <div
-        className={`${styles.modal} ${
-          modalVisibilityTrue ? styles.active : ""
-        }`}
+        className={`${styles.modal}  ${
+          page === "singleProductPage" && styles.singleProductPage
+        } ${modalVisibilityTrue ? styles.active : ""}`}
       >
         {children}
       </div>

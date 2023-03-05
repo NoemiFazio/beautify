@@ -8,6 +8,7 @@ import { Link, useParams } from "react-router-dom";
 import { ImEnlarge } from "react-icons/im";
 import { RiHeart3Line, RiHeart3Fill } from "react-icons/ri";
 import styles from "./index.module.scss";
+import Modal from "../../components/Modal/Modal";
 
 const SingleProduct = ({
   setTypeKey,
@@ -19,7 +20,7 @@ const SingleProduct = ({
 }) => {
   const { productId } = useParams();
   const { makeupData, userData } = useSelector((state) => state);
-  const [modalVisibility, setModalVisibility] = useState(false);
+  // const [modalVisibility, setModalVisibility] = useState(false);
   const product = makeupData.makeup.find(
     (product) => product.id === +productId
   );
@@ -39,13 +40,13 @@ const SingleProduct = ({
   const dispatch = useDispatch();
   const navigate = useNavigate();
 
-  useEffect(() => {
-    if (modalVisibility === true) {
-      window.document.body.style.overflowY = "hidden";
-    } else {
-      window.document.body.style.overflowY = "scroll";
-    }
-  }, [modalVisibility]);
+  // useEffect(() => {
+  //   if (modalVisibility === true) {
+  //     window.document.body.style.overflowY = "hidden";
+  //   } else {
+  //     window.document.body.style.overflowY = "scroll";
+  //   }
+  // }, [modalVisibility]);
 
   const handleLabelClick = (category, type) => {
     const key = category.split("_").join("%20");
@@ -92,13 +93,25 @@ const SingleProduct = ({
     }
   };
 
-  const handleOnModalOverlayClick = () => {
-    setModalVisibility(false);
+  // const handleOnModalOverlayClick = () => {
+  //   setModalVisibility(false);
+  // };
+
+  const onImgClick = () => {
+    dispatch({ type: "SET_ZOOM_MODAL_ON" });
   };
 
   return (
     <div className={styles.SingleProduct}>
-      {modalVisibility && (
+      {makeupData.imgZoomModalVisibility && (
+        <Modal
+          modalVisibilityTrue={makeupData.imgZoomModalVisibility}
+          page="singleProductPage"
+        >
+          <img className={styles.cardImg} src={api_featured_image} alt="name" />
+        </Modal>
+      )}
+      {/* {modalVisibility && (
         <div
           className={styles.modalOverlay}
           onClick={handleOnModalOverlayClick}
@@ -107,7 +120,7 @@ const SingleProduct = ({
             <img src={api_featured_image} alt="name" />
           </div>
         </div>
-      )}
+      )} */}
       <h2 className={styles.name}>{name}</h2>
       <h4 className={styles.price}>
         {" "}
@@ -141,13 +154,10 @@ const SingleProduct = ({
               src={api_featured_image}
               className={styles.img}
               alt={name}
-              onClick={() => setModalVisibility(true)}
+              onClick={onImgClick}
             />
 
-            <ImEnlarge
-              className={styles.enlargeIcon}
-              onClick={() => setModalVisibility(true)}
-            />
+            <ImEnlarge className={styles.enlargeIcon} onClick={onImgClick} />
           </div>
           <div className={styles.btnDiv}>
             <button className={styles.addToBagBtn} onClick={handleOnCartClick}>
