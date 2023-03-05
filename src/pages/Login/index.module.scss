@@ -42,22 +42,6 @@
         }
       }
     }
-    .btn {
-      box-shadow: 0 0 10px #fff, 0 0 6px #f09, 0 0 4px #f09;
-      font-size: medium;
-      background-color: white;
-      height: 1.8rem;
-      width: 165px;
-      border-radius: 50px;
-      border: 1px solid #d9ccf1;
-      margin-top: 1rem;
-      cursor: pointer;
-
-      &:active {
-        text-shadow: 0 0 10px #fff, 0 0 6px #f09, 0 0 4px #f09;
-        color: white;
-      }
-    }
   }
 }
 

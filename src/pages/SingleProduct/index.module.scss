@@ -67,22 +67,6 @@
         width: max-content;
         padding: 1.5rem 0;
         width: 100%;
-        .addToBagBtn {
-          width: 100%;
-          background-color: white;
-          height: 2rem;
-          font-family: "Montserrat", sans-serif;
-          font-weight: bolder;
-          border-radius: 5px;
-          border: 1px solid white;
-          box-shadow: 0 0 5px #fff, 0 0 0px #f09, 0 0 3px #f09;
-          cursor: pointer;
-
-          &:active {
-            transform: translateY(2px);
-            background-color: ghostwhite;
-          }
-        }
 
         .addToFave {
           background-color: white;
@@ -170,13 +154,6 @@
         }
 
         .btnDiv {
-          .addToBagBtn {
-            max-width: 80%;
-
-            &:active {
-            }
-          }
-
           .addToFave {
             width: fit-content;
 

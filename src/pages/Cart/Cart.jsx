@@ -2,10 +2,11 @@
 import { memo, useState } from "react";
 import { Link } from "react-router-dom";
 import { useSelector, useDispatch } from "react-redux";
-import { Navigate, useNavigate } from "react-router";
+import { useNavigate } from "react-router";
 import { BsPaypal, BsFillCreditCard2BackFill } from "react-icons/bs";
 import { AiOutlineGooglePlus } from "react-icons/ai";
 import styles from "./index.module.scss";
+import Button from "../../components/Button/Button";
 
 const Cart = () => {
   const [paymentMethod, setPaymentMethod] = useState();
@@ -135,9 +136,10 @@ const Cart = () => {
               </h3>
             </div>
             <div className={styles.btnDiv}>
-              <button onClick={handleOnClickPay} className={styles.paymentBtn}>
+              <Button handleOnClick={handleOnClickPay}>PAY</Button>
+              {/* <button onClick={handleOnClickPay} className={styles.paymentBtn}>
                 PAY
-              </button>
+              </button> */}
             </div>
           </div>
         )}

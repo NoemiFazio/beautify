@@ -3,6 +3,7 @@ import { RiHeart3Line, RiHeart3Fill } from "react-icons/ri";
 import { Link } from "react-router-dom";
 import { memo } from "react";
 import styles from "./index.module.scss";
+import Button from "../Button/Button";
 
 const MakeupCard = ({ data }) => {
   const {
@@ -81,9 +82,9 @@ const MakeupCard = ({ data }) => {
               : `${price}0 ${price_sign?.split(`${price_sign}`)?.join("€")}`}
           </span>
         </div>
-        <button className={styles.addToBagBtn} onClick={handleOnCartClick}>
+        <Button handleOnClick={handleOnCartClick} type="cardBtn">
           Add to bag
-        </button>
+        </Button>
         {!makeupData.favourites.find((item) => item.id === id) ? (
           <RiHeart3Line
             onClick={handleWishListBtn}

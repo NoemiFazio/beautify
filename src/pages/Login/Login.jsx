@@ -1,14 +1,15 @@
 // import styles from "./index.module.scss";
 import { memo, useState } from "react";
 import { useSelector, useDispatch } from "react-redux";
-import { Navigate, useNavigate } from "react-router";
+import { useNavigate } from "react-router";
+import Button from "../../components/Button/Button";
 import styles from "./index.module.scss";
 
 const Login = ({ setUser }) => {
   const [name, setName] = useState("");
   const [email, setEmail] = useState("");
   const dispatch = useDispatch();
-  const { userData, cartData } = useSelector((state) => state);
+  // const { userData, cartData } = useSelector((state) => state);
   const navigate = useNavigate();
 
   const handleSubmit = async (e) => {
@@ -52,9 +53,10 @@ const Login = ({ setUser }) => {
             onChange={(e) => setEmail(e.target.value)}
           />
         </div>
-        <button type="submit" className={styles.btn}>
+        <Button type="submit">Login</Button>
+        {/* <button type="submit" className={styles.btn}>
           Login
-        </button>
+        </button> */}
       </form>
     </section>
   );

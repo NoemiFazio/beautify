@@ -64,25 +64,6 @@
       }
     }
 
-    .addToBagBtn {
-      width: 100%;
-      background-color: white;
-      height: 2rem;
-      font-family: "Montserrat", sans-serif;
-      font-weight: bolder;
-      border-radius: 5px;
-      // border: 1px solid #d9ccf1;
-      border: none;
-      // box-shadow: 0 0px 3px #d9ccf1;
-      box-shadow: 0 0 5px #fff, 0 0 0px #f09, 0 0 3px #f09;
-      cursor: pointer;
-
-      &:active {
-        transform: translateY(2px);
-        background-color: rgba(248, 248, 255, 0.449);
-      }
-    }
-
     .wishListBtn {
       color: #f09;
       position: absolute;
@@ -146,10 +127,6 @@
       .price {
         font-size: 0.84rem;
         font-weight: bold;
-      }
-
-      .addToBagBtn {
-        width: 100%;
       }
 
       .wishListBtn {

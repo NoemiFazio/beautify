@@ -1,26 +1,25 @@
-// import styles from "./index.module.scss";
-import { memo, useState, useEffect } from "react";
-import { Navigate, useNavigate } from "react-router";
-
-// import { useDispatch, useSelector } from "react-redux";
+import styles from "./index.module.scss";
+import { memo } from "react";
+import { useNavigate } from "react-router";
 import { useSelector, useDispatch } from "react-redux";
-import { Link, useParams } from "react-router-dom";
+import { useParams } from "react-router-dom";
 import { ImEnlarge } from "react-icons/im";
 import { RiHeart3Line, RiHeart3Fill } from "react-icons/ri";
-import styles from "./index.module.scss";
+
 import Modal from "../../components/Modal/Modal";
+import Button from "../../components/Button/Button";
 
 const SingleProduct = ({
   setTypeKey,
   setBrandKey,
   setLabelBrandValue,
   setLabelCategoryValue,
-  labelCategoryValue,
-  labelBrandValue,
 }) => {
+  const dispatch = useDispatch();
+  const navigate = useNavigate();
   const { productId } = useParams();
   const { makeupData, userData } = useSelector((state) => state);
-  // const [modalVisibility, setModalVisibility] = useState(false);
+
   const product = makeupData.makeup.find(
     (product) => product.id === +productId
   );
@@ -37,16 +36,6 @@ const SingleProduct = ({
     tag_list,
     product_colors,
   } = product;
-  const dispatch = useDispatch();
-  const navigate = useNavigate();
-
-  // useEffect(() => {
-  //   if (modalVisibility === true) {
-  //     window.document.body.style.overflowY = "hidden";
-  //   } else {
-  //     window.document.body.style.overflowY = "scroll";
-  //   }
-  // }, [modalVisibility]);
 
   const handleLabelClick = (category, type) => {
     const key = category.split("_").join("%20");
@@ -93,10 +82,6 @@ const SingleProduct = ({
     }
   };
 
-  // const handleOnModalOverlayClick = () => {
-  //   setModalVisibility(false);
-  // };
-
   const onImgClick = () => {
     dispatch({ type: "SET_ZOOM_MODAL_ON" });
   };
@@ -111,16 +96,6 @@ const SingleProduct = ({
           <img className={styles.cardImg} src={api_featured_image} alt="name" />
         </Modal>
       )}
-      {/* {modalVisibility && (
-        <div
-          className={styles.modalOverlay}
-          onClick={handleOnModalOverlayClick}
-        >
-          <div className={styles.modal}>
-            <img src={api_featured_image} alt="name" />
-          </div>
-        </div>
-      )} */}
       <h2 className={styles.name}>{name}</h2>
       <h4 className={styles.price}>
         {" "}
@@ -160,9 +135,9 @@ const SingleProduct = ({
             <ImEnlarge className={styles.enlargeIcon} onClick={onImgClick} />
           </div>
           <div className={styles.btnDiv}>
-            <button className={styles.addToBagBtn} onClick={handleOnCartClick}>
+            <Button handleOnClick={handleOnCartClick} type="cardBtn">
               Add to bag
-            </button>
+            </Button>
             <button className={styles.addToFave} onClick={handleWishListBtn}>
               <h5>Add to favourites</h5>
               {!makeupData.favourites.find((item) => item.id === id) ? (
@@ -171,7 +146,7 @@ const SingleProduct = ({
                 <RiHeart3Fill
                   className={`${styles.wishListBtn} ${styles.active}`}
                 />
-              )}{" "}
+              )}
             </button>
           </div>
         </div>
