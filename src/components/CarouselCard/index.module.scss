@@ -1,16 +1,17 @@
 @import "../../styles/_mixins.scss";
-// @import "../../styles/_variables.scss";
+@import "../../styles/_variables.scss";
 
 .miniCard {
+  @include min-border();
   height: 70px;
   width: 70px;
   flex: 0 0 auto;
-  border-radius: 10px;
+  // border-radius: 10px;
   overflow: hidden;
   position: relative;
   cursor: pointer;
   transition: all 0.2s;
-  box-shadow: 0 0 5px #fff, 0 0 0px #f09, 0 0 3px #f09;
+  // box-shadow: 0 0 5px #fff, 0 0 0px #f09, 0 0 3px #f09;
 
   // @include border($radius: $MoreBorderRadius);
 
@@ -49,7 +50,7 @@
     // left: 0;
     right: 4px;
     text-align: center;
-    color: #f09;
+    color: $MainPink;
     font-weight: bold;
     font-size: 0.8rem;
     text-shadow: 0 0 8px rgba(0, 0, 0, 0.489);
@@ -63,7 +64,7 @@
     right: 3px;
 
     &.active {
-      color: #f09;
+      color: $MainPink;
     }
   }
 }
@@ -83,7 +84,7 @@
       // left: 0;
 
       text-align: center;
-      color: #f09;
+      color: $MainPink;
       font-weight: bold;
       font-size: 0.9rem;
       text-shadow: 0 0 8px rgba(0, 0, 0, 0.489);

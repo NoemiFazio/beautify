@@ -4,9 +4,12 @@ import { useSelector, useDispatch } from "react-redux";
 import styles from "./index.module.scss";
 import Modal from "../../components/Modal";
 import Carousel from "../../components/Carousel/Carousel";
+import Button from "../../components/Button/Button";
+import { useNavigate } from "react-router";
 
 const Dashboard = () => {
   const dispatch = useDispatch();
+  const navigate = useNavigate();
   const { makeupData, cartData } = useSelector((state) => state);
 
   // const handleOnModalOverlayClick = () => {
@@ -26,6 +29,9 @@ const Dashboard = () => {
     }
   }, [cartData.purchaseModalVisibility]);
 
+  const onBtnClick = () => {
+    navigate("/");
+  };
   // function getOccurrence(array, value) {
   //   return array.filter((v) => v === value).length;
   // }
@@ -37,26 +43,22 @@ const Dashboard = () => {
           <h3>Grazie per l'acquisto 💋</h3>
         </Modal>
       )}
-      {/* {cartData.purchaseModalVisibility && (
-        <div
-          className={styles.modalOverlay}
-          onClick={handleOnModalOverlayClick}
-        >
-          <div
-            className={`${styles.modal} ${
-              cartData.purchaseModalVisibility ? styles.active : ""
-            }`}
-          >
-            <h3>Grazie per l'acquisto 💋</h3>
-          </div>
-        </div>
-      )} */}
-      <h1 className={styles.userWelcome}>
-        <span className={styles.userName}>
-          {localStorage.getItem("username")}
-        </span>
-        , welcome back!
-      </h1>
+      {makeupData.favourites.length >= 1 ||
+      cartData.purchasedList.length >= 1 ||
+      makeupData.viewed.length >= 1 ? (
+        ""
+      ) : (
+        <section className={styles.emptyCartSection}>
+          <h1 className={styles.userWelcome}>
+            <h1 className={styles.userName}>
+              {localStorage.getItem("username")}
+              <span>,</span>
+            </h1>
+            welcome back!
+          </h1>
+          <Button handleOnClick={onBtnClick}>Let's go shopping! 😉</Button>
+        </section>
+      )}
       {/* <h3>La tua lista dei preferiti:</h3> */}
       {
         makeupData.favourites.length >= 1 && (

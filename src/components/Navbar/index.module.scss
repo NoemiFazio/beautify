@@ -1,8 +1,8 @@
 @import "../../styles/mixins";
-
+@import "../../styles/variables";
 .navbar {
   overflow: hidden;
-  box-shadow: 0 0 2px #d9ccf1;
+  // box-shadow: 0 0 2px #d9ccf1;
   // max-width: 100%;
   // box-sizing: border-box;
   position: fixed;
@@ -31,7 +31,8 @@
       font-weight: bold;
       font-size: 2.7rem;
       color: #fff;
-      text-shadow: 0 0 7px #fff, 0 0 10px #f09, 0 0 15px #f09;
+      text-shadow: $StandardTextShadow;
+      // text-shadow: 0 0 7px #fff, 0 0 10px $MainPink, 0 0 15px $MainPink;
       text-decoration: none;
     }
 
@@ -43,7 +44,7 @@
       margin-right: 5px;
     }
     .cartNum {
-      color: #f09;
+      color: $MainPink;
       position: absolute;
       top: 2.3rem;
       right: 0.8rem;
@@ -90,14 +91,14 @@
     .link {
       margin-block: 2.5rem;
       list-style: none;
-      color: #f09;
+      color: $MainPink;
       font-weight: bold;
       padding-left: 1rem;
       cursor: pointer;
       width: fit-content;
 
       &.active {
-        text-shadow: 0 0 7px #fff, 0 0 10px #f09, 0 0 15px #f09;
+        text-shadow: 0 0 7px #fff, 0 0 10px $MainPink, 0 0 15px $MainPink;
         color: white;
       }
     }
@@ -118,7 +119,7 @@
   .navbar {
     position: fixed;
     box-sizing: border-box;
-    box-shadow: 0 0 0px #d9ccf1;
+    // box-shadow: 0 0 0px #d9ccf1;
     min-width: 100%;
     z-index: 999;
     .menuIconDiv {

@@ -17,7 +17,7 @@
     box-sizing: border-box;
 
     h3 {
-      color: #f09;
+      color: $MainPink;
       font-weight: 700;
       // text-transform: uppercase;
       &::first-letter {
@@ -28,14 +28,15 @@
 
   .mainContentDiv {
     @include flex-container(row, flex-start, stretch, nowrap, 20px);
+    @include min-border();
     width: auto;
     overflow-x: scroll;
     overflow-y: hidden;
     padding: 10px 20px;
-    border-radius: 5px;
-    box-sizing: border-box;
+    // border-radius: 5px;
+    // box-sizing: border-box;
     // box-shadow: 0 0px 3px #d9ccf1;
-    box-shadow: 0 0 5px #fff, 0 0 0px #f09, 0 0 3px #f09;
+    // box-shadow: 0 0 5px #fff, 0 0 0px #f09, 0 0 3px #f09;
 
     &::-webkit-scrollbar {
       display: none;

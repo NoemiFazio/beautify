@@ -1,11 +1,18 @@
-@mixin flex-container ($direction:row, $justify:flex-start, $align: stretch, $wrap: nowrap, $gap: 0px, $grow: 0){
-	display: flex;
-	flex-direction: $direction;
-	justify-content: $justify;
-	align-items: $align;
-	flex-wrap: $wrap;
-	gap: $gap;
-	flex-grow: $grow;
+@mixin flex-container(
+  $direction: row,
+  $justify: flex-start,
+  $align: stretch,
+  $wrap: nowrap,
+  $gap: 0px,
+  $grow: 0
+) {
+  display: flex;
+  flex-direction: $direction;
+  justify-content: $justify;
+  align-items: $align;
+  flex-wrap: $wrap;
+  gap: $gap;
+  flex-grow: $grow;
 }
 
 @mixin text(
@@ -21,14 +28,14 @@
   text-decoration: $decoration;
   color: $color;
 }
-@mixin box-model($margin: 0, $padding: 0, $sizing: border-box, $border: auto, $radius: 0, $bottom: 0) {
-  margin: $margin;
-  padding: $padding;
-  box-sizing: $sizing;
-  border: $border;
-  border-radius: $radius;
-  border-bottom: $bottom;
-}
+// @mixin box-model($margin: 0, $padding: 0, $sizing: border-box, $border: auto, $radius: 0, $bottom: 0) {
+//   margin: $margin;
+//   padding: $padding;
+//   box-sizing: $sizing;
+//   border: $border;
+//   border-radius: $radius;
+//   border-bottom: $bottom;
+// }
 
 @mixin dimensions($width: auto, $height: auto) {
   width: $width;
@@ -51,8 +58,20 @@
   z-index: $z-index;
 }
 
-@mixin color($color: auto, $background-color: auto, $background: auto) {
-  color: $color;
-  background-color: $background-color;
-  background: $background;
+// @mixin color($color: auto, $background-color: auto, $background: auto) {
+//   color: $color;
+//   background-color: $background-color;
+//   background: $background;
+// }
+
+@mixin max-border() {
+  border-radius: 20px;
+  border: 1px solid white;
+  box-shadow: 0 0 5px #fff, 0 0 0px #f09, 0 0 3px #f09;
+}
+
+@mixin min-border() {
+  border-radius: 5px;
+  border: 1px solid white;
+  box-shadow: 0 0 5px #fff, 0 0 0px #f09, 0 0 3px #f09;
 }

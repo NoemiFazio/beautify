@@ -1,29 +1,32 @@
 @import "../../styles/mixins";
+@import "../../styles/variables";
 
 .Button {
-  box-shadow: 0 0 10px #fff, 0 0 6px #f09, 0 0 4px #f09;
+  @include max-border();
+  // box-shadow: 0 0 10px #fff, 0 0 6px #f09, 0 0 4px #f09;
   font-size: medium;
   background-color: white;
   height: 1.8rem;
   width: 185px;
-  border-radius: 50px;
-  border: 1px solid white;
+  // border-radius: 50px;
+  // border: 1px solid white;
   cursor: pointer;
 
   &:active {
-    text-shadow: 0 0 10px #fff, 0 0 6px #f09, 0 0 4px #f09;
+    text-shadow: $StandardTextShadow;
     color: white;
   }
 
   &.cardBtn {
+    @include min-border();
     width: 100%;
-    background-color: white;
+    // background-color: white;
     height: 2rem;
     font-family: "Montserrat", sans-serif;
     font-weight: bolder;
-    border-radius: 5px;
-    border: none;
-    box-shadow: 0 0 5px #fff, 0 0 0px #f09, 0 0 3px #f09;
+    // border-radius: 5px;
+    // border: none;
+    // box-shadow: 0 0 5px #fff, 0 0 0px #f09, 0 0 3px #f09;
     cursor: pointer;
 
     &:active {

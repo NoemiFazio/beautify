@@ -1,4 +1,5 @@
 @import "../../styles/mixins";
+@import "../../styles/variables";
 
 .Cart {
   min-height: 39.5rem;
@@ -29,14 +30,16 @@
           $justify: space-between,
           $align: center
         );
-        border-radius: 5px;
-        box-shadow: 0 0 5px #fff, 0 0 0px #f09, 0 0 3px #f09;
+        @include min-border();
+        // border-radius: 5px;
+        // box-shadow: 0 0 5px #fff, 0 0 0px #f09, 0 0 3px #f09;
         padding: 0.6rem;
+
         .imgSpan {
           @include flex-container($align: center);
 
           p {
-            color: #f09;
+            color: $MainPink;
             padding: 0 0.7rem;
             cursor: pointer;
           }
@@ -45,12 +48,13 @@
             height: min-content;
             margin: 0;
             .img {
+              @include min-border();
               height: 6rem;
               width: 6rem;
-              border-radius: 10px;
+              // border-radius: 10px;
               cursor: pointer;
               transition: all 0.2s;
-              box-shadow: 0 0 5px #fff, 0 0 0px #f09, 0 0 3px #f09;
+              // box-shadow: 0 0 5px #fff, 0 0 0px #f09, 0 0 3px #f09;
 
               &:hover {
                 transform: scale(1.01);
@@ -62,7 +66,7 @@
 
         .priceSpan {
           p {
-            color: #f09;
+            color: $MainPink;
           }
         }
       }
@@ -132,8 +136,8 @@
           }
 
           &.active {
-            text-shadow: 0 0 10px #fff, 0 0 6px #f09, 0 0 4px #f09;
-            color: #f09;
+            text-shadow: $StandardTextShadow;
+            color: $MainPink;
           }
         }
       }
@@ -141,22 +145,22 @@
       .btnDiv {
         text-align: center;
         padding: 1rem 0;
-        .paymentBtn {
-          box-shadow: 0 0 10px #fff, 0 0 6px #f09, 0 0 4px #f09;
-          font-size: medium;
-          background-color: white;
-          height: 1.8rem;
-          width: 165px;
-          border-radius: 50px;
-          border: 1px solid white;
+        // .paymentBtn {
+        //   box-shadow: 0 0 10px #fff, 0 0 6px #f09, 0 0 4px #f09;
+        //   font-size: medium;
+        //   background-color: white;
+        //   height: 1.8rem;
+        //   width: 165px;
+        //   border-radius: 50px;
+        //   border: 1px solid white;
 
-          cursor: pointer;
+        //   cursor: pointer;
 
-          &:active {
-            text-shadow: 0 0 10px #fff, 0 0 6px #f09, 0 0 4px #f09;
-            color: white;
-          }
-        }
+        //   &:active {
+        //     text-shadow: 0 0 10px #fff, 0 0 6px #f09, 0 0 4px #f09;
+        //     color: white;
+        //   }
+        // }
       }
     }
   }

@@ -1,4 +1,5 @@
 @import "../../styles/mixins";
+@import "../../styles/variables";
 
 .modalOverlay {
   @include flex-container($justify: center, $align: center);
@@ -30,7 +31,7 @@
     height: 10rem;
     top: calc(50% - 5rem);
     border-radius: 20px;
-    box-shadow: 0 0 10px #fff, 0 0 0px #f09, 0 0 15px #f09;
+    box-shadow: 0 0 10px #fff, 0 0 0px $MainPink, 0 0 15px $MainPink;
     text-align: center;
     z-index: 3;
     animation: fade 2s linear;

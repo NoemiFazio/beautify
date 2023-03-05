@@ -1,11 +1,12 @@
 @import "../../styles/mixins";
+@import "../../styles/variables";
 
 .slider {
   @include dimensions($height: 2.5rem, $width: 100%);
   position: relative;
   overflow: hidden;
-  background-color: #f09;
-  box-shadow: 0 0 3px #d9ccf1;
+  background-color: $MainPink;
+  box-shadow: $StandardBoxShadow;
   // height: 6rem;
   z-index: 2;
 
@@ -39,34 +40,6 @@
           margin-left: 0.5rem;
         }
       }
-
-      // .overlay_gradient {
-      //   @include element-position(absolute, $top:0, $left:0);
-      //   position: absolute;
-      //   @include dimensions($width: 100vw, $height: 100%);
-      //   background: rgb(5, 40, 55);
-      //   background: linear-gradient(
-      //     180deg,
-      //     rgba(5, 40, 55, 0.8519782913165266) 0%,
-      //     rgba(9, 9, 121, 0) 100%
-      //   );
-      // }
-
-      // .background {
-      //   @include dimensions($width: 100vw, $height: 100%);
-      //   flex: 0 0 auto;
-      //   object-fit: cover;
-      //   filter: blur(1px);
-      // }
-
-      // .background_city {
-      //   @include dimensions($width: 100%, $height: 100%);
-      //   flex: 0 0 auto;
-      //   position: fixed;
-      //   z-index: -1;
-      //   object-fit: cover;
-      //   filter: blur(0.6px);
-      // }
     }
   }
 }

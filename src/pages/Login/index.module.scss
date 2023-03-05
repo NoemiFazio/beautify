@@ -1,4 +1,5 @@
 @import "../../styles/mixins";
+@import "../../styles/variables";
 
 .Login {
   @include flex-container($align: center, $justify: center);
@@ -12,14 +13,14 @@
       $justify: center,
       $align: center
     );
-    box-shadow: 0 0px 3px #d9ccf1;
+    @include max-border();
+
     padding: 1.5rem 3rem;
     height: 30rem;
     min-width: 260px;
     width: 100%;
     max-width: 760px;
     font-family: "Montserrat", sans-serif;
-    border-radius: 20px;
 
     h1 {
       text-align: center;
@@ -58,7 +59,7 @@
         $justify: center,
         $align: center
       );
-      box-shadow: 0 0px 3px #d9ccf1;
+      box-shadow: $StandardBoxShadow;
 
       max-width: 450px;
     }

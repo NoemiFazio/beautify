@@ -1,8 +1,8 @@
-// import styles from "./index.module.scss";
+import styles from "./index.module.scss";
 import { memo, useState } from "react";
 import { useSelector, useDispatch } from "react-redux";
 import { Link } from "react-router-dom";
-import styles from "./index.module.scss";
+import Button from "../../components/Button";
 
 const Error = () => {
   return (
@@ -21,8 +21,11 @@ const Error = () => {
       <div className={styles.messageContainer}>
         <h4>Where...exactly am I...?</h4>
         <Link className={styles.link} to="/">
-          <button>Let's return back home.</button>
+          <Button>Let's return back home.</Button>
         </Link>
+        {/* <Link className={styles.link} to="/">
+          <button>Let's return back home.</button>
+        </Link> */}
       </div>
     </div>
   );

@@ -1,17 +1,40 @@
 @import "../../styles/mixins";
+@import "../../styles/variables";
 
 .Dashboard {
-  @include flex-container($direction: column, $gap: 1.5rem);
+  @include flex-container($direction: column);
   min-height: 39.5rem;
-  padding: 5.7rem 1.2rem 0;
+  padding: 4rem 1.2rem 0;
 
-  .userWelcome {
-    .userName {
-      font-family: "Moon Dance", cursive;
-      font-size: 2.8rem;
-      padding-right: 0.5rem;
-      text-shadow: 0 0 10px #fff, 0 0 6px #f09, 0 0 4px #f09;
-      color: white;
+  .emptyCartSection {
+    @include flex-container(
+      $direction: column,
+      $justify: space-between,
+      $align: center,
+      // $gap: 4rem
+    );
+    height: 33rem;
+    padding: 3rem 0;
+
+    .userWelcome {
+      // text-align: right;
+      width: 100%;
+      // max-width: 21rem;
+      font-size: 2rem;
+      .userName {
+        font-family: "Moon Dance", cursive;
+        font-size: 4rem;
+        // text-align: start;
+        text-shadow: $StandardTextShadow;
+        color: white;
+        span {
+          font-family: "Montserrat", sans-serif;
+          color: black;
+          text-shadow: none;
+          font-size: 2.8rem;
+          padding-left: 0.5rem;
+        }
+      }
     }
   }
 
@@ -29,42 +52,42 @@
     // visibility: hidden;
     // opacity: 1;
 
-    .modal {
-      @include flex-container(
-        $justify: center,
-        $align: center,
-        $direction: column,
-        $gap: 1.3rem
-      );
-      position: fixed;
-      box-sizing: border-box;
-      background-color: ghostwhite;
-      width: 20rem;
-      height: 10rem;
-      top: calc(50% - 5rem);
-      border-radius: 20px;
-      box-shadow: 0 0 10px #fff, 0 0 0px #f09, 0 0 15px #f09;
-      text-align: center;
-      z-index: 3;
-      animation: fade 2s linear;
+    // .modal {
+    //   @include flex-container(
+    //     $justify: center,
+    //     $align: center,
+    //     $direction: column,
+    //     $gap: 1.3rem
+    //   );
+    //   position: fixed;
+    //   box-sizing: border-box;
+    //   background-color: ghostwhite;
+    //   width: 20rem;
+    //   height: 10rem;
+    //   top: calc(50% - 5rem);
+    //   border-radius: 20px;
+    //   box-shadow: 0 0 10px #fff, 0 0 0px #f09, 0 0 15px #f09;
+    //   text-align: center;
+    //   z-index: 3;
+    //   animation: fade 2s linear;
 
-      @keyframes fade {
-        0% {
-          opacity: 0;
-        }
-        100% {
-          opacity: 1;
-        }
-      }
+    //   @keyframes fade {
+    //     0% {
+    //       opacity: 0;
+    //     }
+    //     100% {
+    //       opacity: 1;
+    //     }
+    //   }
 
-      &.active {
-        // visibility: visible;
-        // opacity: 1;
-        // transform: scale(1);
-        animation-name: fade;
-        animation-duration: 2s;
-      }
-    }
+    //   &.active {
+    //     // visibility: visible;
+    //     // opacity: 1;
+    //     // transform: scale(1);
+    //     animation-name: fade;
+    //     animation-duration: 2s;
+    //   }
+    // }
   }
 }
 

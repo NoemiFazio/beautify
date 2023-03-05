@@ -1,4 +1,5 @@
 @import "../../styles/mixins";
+@import "../../styles/variables";
 
 .MakeupCard {
   @include flex-container($direction: column);
@@ -16,15 +17,16 @@
   z-index: 0;
 
   .imageDiv {
+    @include min-border();
     width: auto;
     max-width: 100%;
     height: 50%;
-    border: 0;
+    // border: 0;
     vertical-align: top;
-    border-radius: 5px;
+    // border-radius: 5px;
     // border: 1px solid #d9ccf1;
     // box-shadow: 0 0px 3px #d9ccf1;
-    box-shadow: 0 0 5px #fff, 0 0 0px #f09, 0 0 3px #f09;
+    // box-shadow: 0 0 5px #fff, 0 0 0px #f09, 0 0 3px #f09;
 
     .makeupImage {
       width: 100%;
@@ -65,7 +67,7 @@
     }
 
     .wishListBtn {
-      color: #f09;
+      color: $MainPink;
       position: absolute;
       top: 2%;
       right: 7%;

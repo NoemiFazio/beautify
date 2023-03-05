@@ -1,4 +1,5 @@
 @import "../../styles/mixins";
+@import "../../styles/variables";
 
 .Error {
   @include flex-container($direction: column, $justify: center, $align: center);
@@ -44,24 +45,24 @@
     h4 {
     }
     .link {
-      button {
-        font-family: "Montserrat", sans-serif;
-        box-shadow: 0 0 10px #fff, 0 0 6px #f09, 0 0 4px #f09;
-        background-color: white;
-        height: 1.8rem;
-        width: 165px;
-        border-radius: 50px;
-        text-decoration: none;
-        border: 1px solid #d9ccf1;
-        cursor: pointer;
-        color: black;
-        font-weight: bold;
+      // button {
+      //   font-family: "Montserrat", sans-serif;
+      //   box-shadow: 0 0 10px #fff, 0 0 6px #f09, 0 0 4px #f09;
+      //   background-color: white;
+      //   height: 1.8rem;
+      //   width: 165px;
+      //   border-radius: 50px;
+      //   text-decoration: none;
+      //   border: 1px solid #d9ccf1;
+      //   cursor: pointer;
+      //   color: black;
+      //   font-weight: bold;
 
-        &:active {
-          text-shadow: 0 0 10px #fff, 0 0 6px #f09, 0 0 4px #f09;
-          color: white;
-        }
-      }
+      //   &:active {
+      //     text-shadow: 0 0 10px #fff, 0 0 6px #f09, 0 0 4px #f09;
+      //     color: white;
+      //   }
+      // }
     }
   }
 }
@@ -79,22 +80,7 @@
       }
       .link {
         button {
-          //   font-family: "Montserrat", sans-serif;
-          //   box-shadow: 0 0 10px #fff, 0 0 6px #f09, 0 0 4px #f09;
-          //   background-color: white;
-          //   height: 1.8rem;
           width: 200px;
-          //   border-radius: 50px;
-          //   text-decoration: none;
-          //   border: 1px solid #d9ccf1;
-          //   cursor: pointer;
-          //   color: black;
-          //   font-weight: bold;
-
-          //   &:active {
-          //     text-shadow: 0 0 10px #fff, 0 0 6px #f09, 0 0 4px #f09;
-          //     color: white;
-          //   }
         }
       }
     }

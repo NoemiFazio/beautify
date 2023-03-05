@@ -1,4 +1,6 @@
 @import "../../styles/mixins";
+@import "../../styles/variables";
+
 .SingleProduct {
   @include flex-container($direction: column, $align: center);
   padding: 3.6rem 2rem 0;
@@ -41,12 +43,13 @@
       @include flex-container($direction: column, $align: center);
       width: 100%;
       .imgDiv {
+        @include min-border();
         position: relative;
         text-align: center;
         height: 270px;
         width: auto;
-        border-radius: 10px;
-        box-shadow: 0 0 5px #fff, 0 0 0px #f09, 0 0 3px #f09;
+        // border-radius: 10px;
+        // box-shadow: 0 0 5px #fff, 0 0 0px #f09, 0 0 3px #f09;
         cursor: pointer;
         .img {
           height: 270px;
