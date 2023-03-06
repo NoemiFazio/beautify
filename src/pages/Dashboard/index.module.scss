@@ -4,9 +4,9 @@
 .Dashboard {
   @include flex-container($direction: column);
   min-height: 39.5rem;
-  padding: 4rem 1.2rem 0;
+  padding: 6rem 1.2rem 0;
 
-  .emptyCartSection {
+  .initialSection {
     @include flex-container(
       $direction: column,
       $justify: space-between,
@@ -38,57 +38,61 @@
     }
   }
 
-  .modalOverlay {
-    @include flex-container($justify: center, $align: center);
-    background-color: rgba(0, 0, 0, 0.767);
-    backdrop-filter: blur(2px);
-    position: fixed;
-    box-sizing: border-box;
-    top: 0;
-    right: 0;
-    left: 0;
-    bottom: 0;
-    z-index: 2;
-    // visibility: hidden;
-    // opacity: 1;
-
-    // .modal {
-    //   @include flex-container(
-    //     $justify: center,
-    //     $align: center,
-    //     $direction: column,
-    //     $gap: 1.3rem
-    //   );
-    //   position: fixed;
-    //   box-sizing: border-box;
-    //   background-color: ghostwhite;
-    //   width: 20rem;
-    //   height: 10rem;
-    //   top: calc(50% - 5rem);
-    //   border-radius: 20px;
-    //   box-shadow: 0 0 10px #fff, 0 0 0px #f09, 0 0 15px #f09;
-    //   text-align: center;
-    //   z-index: 3;
-    //   animation: fade 2s linear;
-
-    //   @keyframes fade {
-    //     0% {
-    //       opacity: 0;
-    //     }
-    //     100% {
-    //       opacity: 1;
-    //     }
-    //   }
-
-    //   &.active {
-    //     // visibility: visible;
-    //     // opacity: 1;
-    //     // transform: scale(1);
-    //     animation-name: fade;
-    //     animation-duration: 2s;
-    //   }
-    // }
+  .personalSection {
+    @include flex-container($direction: column, $gap: 1rem);
   }
+
+  // .modalOverlay {
+  //   @include flex-container($justify: center, $align: center);
+  //   background-color: rgba(0, 0, 0, 0.767);
+  //   backdrop-filter: blur(2px);
+  //   position: fixed;
+  //   box-sizing: border-box;
+  //   top: 0;
+  //   right: 0;
+  //   left: 0;
+  //   bottom: 0;
+  //   z-index: 2;
+  // visibility: hidden;
+  // opacity: 1;
+
+  // .modal {
+  //   @include flex-container(
+  //     $justify: center,
+  //     $align: center,
+  //     $direction: column,
+  //     $gap: 1.3rem
+  //   );
+  //   position: fixed;
+  //   box-sizing: border-box;
+  //   background-color: ghostwhite;
+  //   width: 20rem;
+  //   height: 10rem;
+  //   top: calc(50% - 5rem);
+  //   border-radius: 20px;
+  //   box-shadow: 0 0 10px #fff, 0 0 0px #f09, 0 0 15px #f09;
+  //   text-align: center;
+  //   z-index: 3;
+  //   animation: fade 2s linear;
+
+  //   @keyframes fade {
+  //     0% {
+  //       opacity: 0;
+  //     }
+  //     100% {
+  //       opacity: 1;
+  //     }
+  //   }
+
+  //   &.active {
+  //     // visibility: visible;
+  //     // opacity: 1;
+  //     // transform: scale(1);
+  //     animation-name: fade;
+  //     animation-duration: 2s;
+  //   }
+  // }
+  // }
 }
 
 @media only screen and (min-width: 767px) {

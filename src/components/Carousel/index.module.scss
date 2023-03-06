@@ -2,11 +2,12 @@
 @import "../../styles/_variables.scss";
 
 .Carousel {
-  @include flex-container($direction: column, $gap: 10px, $justify: center);
+  @include flex-container($direction: column, $gap: 10px);
   box-sizing: border-box;
   // padding: 20px 0;
   width: 100%;
-  height: 20vh;
+  // height: 30vh;
+  // border: 1px solid red;
 
   // background-color: $GreyBackground;
 
@@ -19,6 +20,8 @@
     h3 {
       color: $MainPink;
       font-weight: 700;
+      font-size: 1.4rem;
+
       // text-transform: uppercase;
       &::first-letter {
         text-transform: capitalize;
@@ -30,6 +33,7 @@
     @include flex-container(row, flex-start, stretch, nowrap, 20px);
     @include min-border();
     width: auto;
+    // height: 6rem;
     overflow-x: scroll;
     overflow-y: hidden;
     padding: 10px 20px;

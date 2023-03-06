@@ -48,7 +48,7 @@ const Dashboard = () => {
       makeupData.viewed.length >= 1 ? (
         ""
       ) : (
-        <section className={styles.emptyCartSection}>
+        <section className={styles.initialSection}>
           <h1 className={styles.userWelcome}>
             <h1 className={styles.userName}>
               {localStorage.getItem("username")}
@@ -60,16 +60,17 @@ const Dashboard = () => {
         </section>
       )}
       {/* <h3>La tua lista dei preferiti:</h3> */}
-      {
-        makeupData.favourites.length >= 1 && (
-          <Carousel data={makeupData?.favourites} type={"favourites"} />
-        )
-        // ) : (
-        //   <p>Lista vuota</p>
-        // )
-      }
-      {/* <h3>La tua lista dei preferiti:</h3> */}
-      {/* <div>
+      <section className={styles.personalSection}>
+        {
+          makeupData.favourites.length >= 1 && (
+            <Carousel data={makeupData?.favourites} type={"favourites"} />
+          )
+          // ) : (
+          //   <p>Lista vuota</p>
+          // )
+        }
+        {/* <h3>La tua lista dei preferiti:</h3> */}
+        {/* <div>
         {makeupData.favourites.length ? (
           makeupData?.favourites?.map((favourite, index) => (
             <p key={index}>{favourite.name}</p>
@@ -78,26 +79,26 @@ const Dashboard = () => {
           <p>Lista vuota</p>
         )}
       </div> */}
-      {/* <h3>Nel tuo beauty case:</h3> */}
+        {/* <h3>Nel tuo beauty case:</h3> */}
 
-      {
-        cartData.purchasedList.length >= 1 && (
-          <Carousel data={cartData?.purchasedList} type={"beautycase"} />
-        )
-        // ) : (
-        // cartData?.purchasedList
-        //   ?.filter((value, index, self) => self.indexOf(value) === index)
-        //   .map((purchase, index) => (
-        //     <p key={index}>
-        //       {purchase.name} x
-        //       {getOccurrence(cartData.purchasedList, purchase)}
-        //     </p>
-        //   ))
-        //   <p>Lista vuota</p>
-        // )
-      }
+        {
+          cartData.purchasedList.length >= 1 && (
+            <Carousel data={cartData?.purchasedList} type={"beautycase"} />
+          )
+          // ) : (
+          // cartData?.purchasedList
+          //   ?.filter((value, index, self) => self.indexOf(value) === index)
+          //   .map((purchase, index) => (
+          //     <p key={index}>
+          //       {purchase.name} x
+          //       {getOccurrence(cartData.purchasedList, purchase)}
+          //     </p>
+          //   ))
+          //   <p>Lista vuota</p>
+          // )
+        }
 
-      {/* <h3>Nel tuo beauty case:</h3>
+        {/* <h3>Nel tuo beauty case:</h3>
       <div>
         {cartData.purchasedList.length ? (
           cartData?.purchasedList
@@ -112,12 +113,13 @@ const Dashboard = () => {
           <p>Lista vuota</p>
         )}
       </div> */}
-      {makeupData.viewed.length >= 1 && (
-        <>
-          {/* <h3>Viewed</h3> */}
-          <Carousel data={makeupData?.viewed} type={"viewed"} />
-        </>
-      )}
+        {makeupData.viewed.length >= 1 && (
+          <>
+            {/* <h3>Viewed</h3> */}
+            <Carousel data={makeupData?.viewed} type={"viewed"} />
+          </>
+        )}
+      </section>
       {/* {makeupData.viewed.length >= 1 && (
         <>
           <h3>Cos'hai visto:</h3>

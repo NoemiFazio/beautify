@@ -3,8 +3,8 @@
 
 .miniCard {
   @include min-border();
-  height: 70px;
-  width: 70px;
+  height: 100px;
+  width: 100px;
   flex: 0 0 auto;
   // border-radius: 10px;
   overflow: hidden;
@@ -52,7 +52,7 @@
     text-align: center;
     color: $MainPink;
     font-weight: bold;
-    font-size: 0.8rem;
+    font-size: 0.9rem;
     text-shadow: 0 0 8px rgba(0, 0, 0, 0.489);
   }
 
