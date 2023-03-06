@@ -85,12 +85,12 @@
   }
 }
 
-@media only screen and (min-width: 992px) {
+@media only screen and (min-width: 767px) {
   .FilterList {
     margin-bottom: 1.2rem;
 
     .mainDiv {
-      width: 80%;
+      width: 90%;
       .filterBtn {
         padding: 0 1rem;
 
@@ -103,7 +103,7 @@
         @include flex-container($justify: space-around);
         padding: 0 1rem;
         top: 129px;
-        width: 80%;
+        width: 90%;
 
         .category {
           padding: 0.5rem 0;
@@ -113,8 +113,8 @@
 
     .filtersDiv {
       top: 159px;
-      height: auto;
-      width: 80%;
+      height: 15rem;
+      width: 90%;
 
       .filter {
         padding: 0.15rem 0.2rem;

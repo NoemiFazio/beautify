@@ -50,10 +50,10 @@ const Dashboard = () => {
       ) : (
         <section className={styles.initialSection}>
           <h1 className={styles.userWelcome}>
-            <h1 className={styles.userName}>
+            <span className={styles.userName}>
               {localStorage.getItem("username")}
               <span>,</span>
-            </h1>
+            </span>
             welcome back!
           </h1>
           <Button handleOnClick={onBtnClick}>Let's go shopping! 😉</Button>
