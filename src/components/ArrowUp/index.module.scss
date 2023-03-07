@@ -1,0 +1,40 @@
+@import "../../styles/mixins";
+@import "../../styles/variables";
+
+.arrow {
+  @include flex-container($align: center, $justify: center);
+  @include element-position(fixed, auto, 12px, 12px);
+  height: 2.8rem;
+  width: 2.8rem;
+  z-index: 999;
+  opacity: 0;
+  pointer-events: none;
+  transition: all 0.35s;
+  cursor: pointer;
+  background-color: black;
+  box-shadow: $StandardBoxShadow;
+  border-radius: 100%;
+  border: none;
+
+  .icon {
+    font-size: 2.8rem;
+    color: $MainPink;
+  }
+
+  &.active {
+    opacity: 1;
+    pointer-events: all;
+  }
+
+  &:hover {
+    // transform: scale(1.08);
+    // color: #f09;
+    filter: saturate(1.3) contrast(1.1);
+  }
+  // .overlay {
+  //   @include dimensions(30px, 30px);
+  //   position: absolute;
+  //   background-color: rgb(255, 255, 255);
+  //   z-index: -1;
+  // }
+}

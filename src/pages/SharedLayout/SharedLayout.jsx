@@ -6,6 +6,7 @@ import { Outlet, Navigate, useNavigate } from "react-router";
 import Modal from "../../components/Modal/Modal";
 import Footer from "../../components/Footer/Footer";
 import Button from "../../components/Button/Button";
+import ArrowUp from "../../components/ArrowUp/ArrowUp";
 
 const SharedLayout = () => {
   const { userData, cartData } = useSelector((state) => state);
@@ -30,6 +31,7 @@ const SharedLayout = () => {
           <Button handleOnClick={onLoginBtnClick}>Login</Button>
         </Modal>
       )}
+      <ArrowUp />
       <Outlet />
       <Footer />
     </>
