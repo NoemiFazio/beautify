@@ -64,9 +64,11 @@ const MakeupCard = ({ data }) => {
       </div>
 
       <div className={styles.detailsDiv}>
-        <label id={name} className={styles.title}>
-          {name}
-        </label>{" "}
+        <Link className={styles.title} to={`/products/${id}`}>
+          <label id={name} className={styles.title}>
+            {name}
+          </label>{" "}
+        </Link>
         <div className={styles.specsAndBtnDiv}>
           <div className={styles.specifics}>
             <label id={brand} className={styles.brand}>
