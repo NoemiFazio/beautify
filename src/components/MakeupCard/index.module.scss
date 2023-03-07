@@ -4,25 +4,25 @@
 .MakeupCard {
   @include flex-container($direction: column);
   display: inline-flex;
-  width: 50%;
-  min-height: 20rem;
+  width: 10rem;
+  height: 20rem;
   // min-width: 10rem;
   // min-height: 20rem;
   max-width: 13rem;
   max-height: 25rem;
-  margin: 0 0 2.4rem 0;
-  padding: 0 5px;
+  margin: 0 0 2rem 0;
+  // padding: 0 5px;
   vertical-align: top;
   position: relative;
   z-index: 0;
 
   .imageDiv {
     @include min-border();
-    width: auto;
+    width: 10rem;
     max-width: 100%;
-    height: 50%;
+    height: 10rem;
     // border: 0;
-    vertical-align: top;
+    // vertical-align: top;
     // border-radius: 5px;
     // border: 1px solid #d9ccf1;
     // box-shadow: 0 0px 3px #d9ccf1;
@@ -39,30 +39,44 @@
       $justify: space-between,
       $align: center
     );
-
-    height: 50%;
-    padding-top: 1.4rem;
+    // width: 10rem;
+    max-width: 100%;
+    height: 10rem;
+    // height: 50%;
+    padding-top: 0.9rem;
     .title {
       font-weight: bolder;
       text-align: center;
+      font-size: 1rem;
     }
+    .specsAndBtnDiv {
+      @include flex-container(
+        $direction: column,
+        $gap: 0.7rem,
+        // $align: center
+      );
+      width: 100%;
+      .specifics {
+        @include flex-container(
+          $direction: column,
+          $gap: 0.2rem,
+          $align: center
+        );
 
-    .specifics {
-      @include flex-container($direction: column, $gap: 0.2rem, $align: center);
-
-      .brand {
-        font-size: 0.87rem;
-        font-weight: bold;
-        text-align: center;
-        &::first-letter {
-          text-transform: uppercase;
+        .brand {
+          font-size: 0.87rem;
+          font-weight: bold;
+          text-align: center;
+          &::first-letter {
+            text-transform: uppercase;
+          }
         }
-      }
 
-      .category,
-      .price {
-        font-size: 0.84rem;
-        font-weight: bold;
+        .category,
+        .price {
+          font-size: 0.84rem;
+          font-weight: bold;
+        }
       }
     }
 
@@ -82,15 +96,15 @@
 @media only screen and (min-width: 767px) {
   .MakeupCard {
     @include flex-container($direction: column);
-    display: inline-flex;
-    width: 50%;
-    min-height: 20rem;
+    // display: inline-flex;
+    // width: 10rem;
+    // height: 20rem;
     // min-width: 10rem;
     // min-height: 20rem;
     // max-width: 15rem;
     max-height: 25rem;
-    margin: 0 0 20px 0;
-    padding: 0 5px;
+    // margin: 0 0 20px 0;
+    // padding: 0 5px;
     vertical-align: top;
     position: relative;
 
@@ -107,28 +121,38 @@
       }
     }
     .detailsDiv {
-      @include flex-container(
-        $direction: column,
-        $justify: space-around,
-        $align: center
-      );
+      // @include flex-container(
+      //   $direction: column,
+      //   $justify: space-around,
+      //   $align: center
+      // );
 
       height: 50%;
       .title {
         font-weight: bolder;
       }
 
-      .brand {
-        font-weight: bold;
-        &::first-letter {
-          text-transform: uppercase;
-        }
-      }
+      .specsAndBtnDiv {
+        @include flex-container(
+          $direction: column,
+          $gap: 0.8rem,
+          // $align: center
+        );
+        width: 100%;
+        .specifics {
+          .brand {
+            font-weight: bold;
+            &::first-letter {
+              text-transform: uppercase;
+            }
+          }
 
-      .category,
-      .price {
-        font-size: 0.84rem;
-        font-weight: bold;
+          .category,
+          .price {
+            font-size: 0.84rem;
+            font-weight: bold;
+          }
+        }
       }
 
       .wishListBtn {

@@ -67,24 +67,26 @@ const MakeupCard = ({ data }) => {
         <label id={name} className={styles.title}>
           {name}
         </label>{" "}
-        <div className={styles.specifics}>
-          <label id={brand} className={styles.brand}>
-            {brand}
-          </label>
-          {/* <label id={name} className={styles.category}>
+        <div className={styles.specsAndBtnDiv}>
+          <div className={styles.specifics}>
+            <label id={brand} className={styles.brand}>
+              {brand}
+            </label>
+            {/* <label id={name} className={styles.category}>
             {product_type?.split("_")?.join(" ")}
           </label> */}
 
-          <span className={styles.price}>
-            {price_sign === null
-              ? `${price} €
+            <span className={styles.price}>
+              {price_sign === null
+                ? `${price} €
           `
-              : `${price}0 ${price_sign?.split(`${price_sign}`)?.join("€")}`}
-          </span>
+                : `${price}0 ${price_sign?.split(`${price_sign}`)?.join("€")}`}
+            </span>
+          </div>
+          <Button handleOnClick={handleOnCartClick} type="cardBtn">
+            Add to bag
+          </Button>
         </div>
-        <Button handleOnClick={handleOnCartClick} type="cardBtn">
-          Add to bag
-        </Button>
         {!makeupData.favourites.find((item) => item.id === id) ? (
           <RiHeart3Line
             onClick={handleWishListBtn}
