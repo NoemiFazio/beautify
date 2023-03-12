@@ -6,6 +6,7 @@ const initialState = {
     favourites: [],
     viewed: [],
     imgZoomModalVisibility: false,
+    index: 12,
   },
   navbarStatus: {
     isActive: false,
@@ -75,6 +76,10 @@ function makeupReducer(state = {}, action) {
     case "CLEAR_FAVOURITES":
       state.favourites = [];
       localStorage.clear();
+    case "RESET_INDEX":
+      return { ...state, index: 12 };
+    case "INCREMENT_INDEX":
+      return { ...state, index: state.index + 10 };
     default:
       return state;
   }

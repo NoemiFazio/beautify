@@ -13,7 +13,7 @@ const FilterList = ({
   labelBrandValue,
 }) => {
   const dispatch = useDispatch();
-  const { filterStatus } = useSelector((state) => state);
+  const { filterStatus, makeupData } = useSelector((state) => state);
   const [filterCategory, setFilterCategory] = useState("");
   // const [labelCategoryValue, setLabelCategoryValue] = useState("");
   // const [labelBrandValue, setLabelBrandValue] = useState("");
@@ -68,6 +68,7 @@ const FilterList = ({
       setLabelBrandValue("");
       localStorage.clear();
       dispatch({ type: "CLOSE_FILTER_MENU" });
+      dispatch({ type: "RESET_INDEX" });
     } else {
       dispatch({ type: "OPEN_CATEGORY_LIST" });
 
@@ -88,22 +89,27 @@ const FilterList = ({
   const handleSingleLabel = (item, index) => {
     const key = item.split("_").join("%20");
     if (filterCategory === "Category") {
+      // dispatch({ type: "RESET_INDEX" });
       setTypeKey(key);
       setLabelCategoryValue(item);
+      dispatch({ type: "RESET_INDEX" });
 
       if (labelCategoryValue === item) {
         setLabelCategoryValue("");
         setTypeKey("");
+        dispatch({ type: "RESET_INDEX" });
         // console.log(labelCategoryValue);
       }
       // localStorage.setItem(`categoryValue${item}`, JSON.stringify(item));
     } else {
       setBrandKey(key);
       setLabelBrandValue(item);
+      dispatch({ type: "RESET_INDEX" });
 
       if (labelBrandValue === item) {
         setLabelBrandValue("");
         setBrandKey("");
+        dispatch({ type: "RESET_INDEX" });
         // console.log(labelBrandValue);
       }
       // localStorage.setItem(`brandValue${item}`, JSON.stringify(item));

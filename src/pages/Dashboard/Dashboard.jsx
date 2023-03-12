@@ -52,7 +52,7 @@ const Dashboard = () => {
           <h1 className={styles.userWelcome}>
             <span className={styles.userName}>
               {localStorage.getItem("username")}
-              <span>,</span>
+              <span>, </span>
             </span>
             welcome back!
           </h1>

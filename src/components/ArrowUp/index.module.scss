@@ -18,7 +18,8 @@
 
   .icon {
     font-size: 2.8rem;
-    color: $MainPink;
+    color: white;
+    text-shadow: $StandardBoxShadow;
   }
 
   &.active {
