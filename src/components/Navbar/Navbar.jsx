@@ -62,6 +62,12 @@ const Navbar = () => {
   //   }
   //   return window.removeEventListener("scroll", () => eventScrollDown());
   // }, []);
+  const handleOnClick = () => {
+    window.scrollTo({
+      top: 0,
+      behavior: "smooth",
+    });
+  };
 
   return (
     <div className={styles.navbar}>
@@ -77,7 +83,9 @@ const Navbar = () => {
           <BurgerSexy isClosed={navbarStatus.isActive} />
         </button>
         <Link to="/" style={{ textDecoration: "none" }}>
-          <h1 className={styles.siteTitle}>Beautify</h1>
+          <h1 onClick={handleOnClick} className={styles.siteTitle}>
+            Beautify
+          </h1>
         </Link>
         <Link to="cart" style={{ textDecoration: "none" }}>
           <BsCart4

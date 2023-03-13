@@ -29,6 +29,10 @@
     z-index: 1;
   }
 
+  .btnDiv {
+    @include flex-container($justify: center);
+  }
+
   // .loginModalOverlay {
   //   @include flex-container($justify: center, $align: center);
   //   background-color: rgba(0, 0, 0, 0.767);
