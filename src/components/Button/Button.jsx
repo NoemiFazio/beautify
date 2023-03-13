@@ -1,14 +1,21 @@
 import styles from "./index.module.scss";
+import { forwardRef } from "react";
 
-const Button = ({ handleOnClick, type = "", children }) => {
+const Button = forwardRef((props, ref) => {
   return (
     <button
-      onClick={handleOnClick}
-      className={`${styles.Button} ${type === "cardBtn" && styles.cardBtn}`}
+      onClick={props.handleOnClick}
+      className={`${styles.Button} ${
+        props.type === "cardBtn" && styles.cardBtn
+      } ${props.type === "loadBtn" && styles.loadBtn} ${
+        props.isActive && styles.loadBtnActive
+      }`}
+      disabled={props.disabled}
+      ref={ref}
+      style={props.style}
     >
-      {children}
+      {props.children}
     </button>
   );
-};
-
+});
 export default Button;

@@ -2,13 +2,16 @@ import { useEffect, memo, useState, useRef } from "react";
 import { GET } from "../../utils/api";
 import { useDispatch, useSelector } from "react-redux";
 import MakeupCard from "../MakeupCard/MakeupCard";
+import Button from "../Button/Button";
 import styles from "./index.module.scss";
 
 const MakeupList = ({ brandKey, typeKey }) => {
   const dispatch = useDispatch();
   const { makeupData, filterStatus } = useSelector((state) => state);
-  const itemsToRender = makeupData.makeup.slice(0, makeupData.index);
   const ref = useRef(null);
+  const [isActive, setIsActive] = useState(false);
+  const itemsToRender = makeupData.makeup.slice(0, makeupData.index);
+
   const element = window.document.getElementById("loadBtn");
 
   function isDisabled() {
@@ -25,27 +28,27 @@ const MakeupList = ({ brandKey, typeKey }) => {
   }, [dispatch, brandKey, typeKey]);
 
   function isInViewport(element) {
-    // Get the bounding client rectangle position in the viewport
     const bounding = ref.current.getBoundingClientRect();
     if (!ref.current) return;
-    // Checking part. Here the code checks if it's *fully* visible
-    // Edit this part if you just want a partial visibility
+
     if (
-      bounding.top >= 0 &&
-      bounding.left >= 0 &&
-      bounding.right <=
-        (window.innerWidth || document.documentElement.clientWidth) &&
+      // bounding.top >= 0 &&
+      // bounding.left >= 0 &&
+      // bounding.right <=
+      //   (window.innerWidth || document.documentElement.clientWidth) &&
       bounding.bottom <= 396.8000068664551
     ) {
-      console.log("In the viewport! :)");
-      console.log(bounding.bottom);
+      // console.log("In the viewport! :)");
+      // console.log(bounding.bottom);
+      setIsActive(true);
       setTimeout(() => {
         dispatch({ type: "INCREMENT_INDEX" });
-      }, 2500);
+        setIsActive(false);
+      }, 2000);
 
       return true;
     } else {
-      console.log("Not in the viewport. :(");
+      // console.log("Not in the viewport. :(");
       return false;
     }
   }
@@ -75,14 +78,28 @@ const MakeupList = ({ brandKey, typeKey }) => {
       )}
 
       {/* {console.log(makeupData.makeup)} */}
-      <button
-        id="loadBtn"
-        onClick={onHandleBtn}
-        disabled={isDisabled()}
-        ref={ref}
-      >
+
+      {/* <button onClick={onHandleBtn} disabled={isDisabled()} ref={ref}>
         Load more
-      </button>
+      </button> */}
+      {makeupData.makeup.length ? (
+        <Button
+          handleOnClick={onHandleBtn}
+          disabled={isDisabled()}
+          type="loadBtn"
+          ref={ref}
+          isActive={isActive}
+          style={
+            makeupData.index >= makeupData.makeup.length
+              ? { visibility: "hidden" }
+              : { visibility: "visible" }
+          }
+        >
+          Load more
+        </Button>
+      ) : (
+        ""
+      )}
     </div>
   );
 };

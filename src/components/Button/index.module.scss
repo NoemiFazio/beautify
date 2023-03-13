@@ -33,6 +33,24 @@
       transform: translateY(2px);
     }
   }
+
+  &.loadBtn {
+    &.loadBtnActive {
+      animation: fade 3s linear;
+      animation-name: fade;
+    }
+  }
+
+  @keyframes fade {
+    0% {
+      // color: black;
+      text-shadow: none;
+    }
+    100% {
+      color: white;
+      text-shadow: $StandardTextShadow;
+    }
+  }
 }
 
 @media only screen and (min-width: 767px) {
