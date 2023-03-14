@@ -85,6 +85,7 @@ const Home = ({
   return (
     <div className={styles.App}>
       <Slider />
+
       <FilterList
         setBrandKey={setBrandKey}
         setTypeKey={setTypeKey}
@@ -92,7 +93,9 @@ const Home = ({
         setLabelBrandValue={setLabelBrandValue}
         labelCategoryValue={labelCategoryValue}
         labelBrandValue={labelBrandValue}
+        typeKey={typeKey}
       />
+
       {(filterStatus.isFilterActive || filterStatus.isCategoryClicked) && (
         <div className={styles.overlay} onClick={handleOverlayClick}></div>
       )}

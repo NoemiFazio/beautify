@@ -20,7 +20,7 @@ import ScrollToTop from "./utils/ScrollToTop";
 
 function App() {
   const [user, setUser] = useState(null);
-  const [typeKey, setTypeKey] = useState("Nail polish");
+  const [typeKey, setTypeKey] = useState("nail polish");
   const [brandKey, setBrandKey] = useState("");
   const [labelCategoryValue, setLabelCategoryValue] = useState("");
   const [labelBrandValue, setLabelBrandValue] = useState("");

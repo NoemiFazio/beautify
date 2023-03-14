@@ -9,8 +9,8 @@ const FilterList = ({
   setLabelBrandValue,
   setLabelCategoryValue,
   labelCategoryValue,
-
   labelBrandValue,
+  typeKey,
 }) => {
   const dispatch = useDispatch();
   const { filterStatus, makeupData } = useSelector((state) => state);
@@ -70,12 +70,12 @@ const FilterList = ({
       dispatch({ type: "CLOSE_FILTER_MENU" });
       dispatch({ type: "RESET_INDEX" });
     } else {
-      dispatch({ type: "OPEN_CATEGORY_LIST" });
-
-      if (filterStatus.isCategoryClicked === true && filterCategory === value) {
-        dispatch({ type: "CLOSE_CATEGORY_LIST" });
-      }
       setFilterCategory(value);
+      if (filterStatus.isCategoryClicked === true && filterCategory === value) {
+        dispatch({ type: "CLOSE_FILTER_MENU" });
+      }
+
+      dispatch({ type: "OPEN_CATEGORY_LIST" });
     }
   };
 
@@ -169,7 +169,7 @@ const FilterList = ({
         <></>  )}
     </div> */}
           {filterStatus?.labels
-            .map((item) =>
+            ?.map((item) =>
               filterCategory === "Category" ? item.product_type : item.brand
             )
             .filter(
@@ -184,7 +184,12 @@ const FilterList = ({
                 onClick={() => handleSingleLabel(item, index)}
               >
                 {item?.split("_")?.join(" ")}
-                {labelCategoryValue === item ? <span>💋</span> : ""}
+                {item?.split("_")?.join(" ") === typeKey ||
+                labelCategoryValue === item ? (
+                  <span>💋</span>
+                ) : (
+                  ""
+                )}
 
                 {labelBrandValue === item ? <span>💋</span> : ""}
               </label>
