@@ -130,7 +130,14 @@ const FilterList = ({
   };
 
   return (
-    <div className={styles.FilterList}>
+    <div
+      className={styles.FilterList}
+      // style={
+      //   filterStatus.labels.length >= 1
+      //     ? { visibility: "visible" }
+      //     : { visibility: "hidden" }
+      // }
+    >
       <div className={styles.mainDiv}>
         <button className={styles.filterBtn} onClick={handleFilterClick}>
           <p>Filters</p>

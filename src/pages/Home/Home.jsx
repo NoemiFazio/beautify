@@ -56,6 +56,7 @@ const Home = ({
       setTimeout(() => {
         dispatch({ type: "INCREMENT_INDEX" });
         setIsActive(false);
+        console.log(makeupData.index);
       }, 2000);
 
       return true;

@@ -1,6 +1,6 @@
 import styles from "./index.module.scss";
 import { useSelector, useDispatch } from "react-redux";
-import { useEffect } from "react";
+import { useEffect, memo } from "react";
 
 const Modal = ({ modalVisibilityTrue, page = "", children }) => {
   const dispatch = useDispatch();
@@ -45,4 +45,4 @@ const Modal = ({ modalVisibilityTrue, page = "", children }) => {
     </div>
   );
 };
-export default Modal;
+export default memo(Modal);

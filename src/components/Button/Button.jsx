@@ -1,5 +1,5 @@
 import styles from "./index.module.scss";
-import { forwardRef } from "react";
+import { forwardRef, memo } from "react";
 
 const Button = forwardRef((props, ref) => {
   return (
@@ -18,4 +18,4 @@ const Button = forwardRef((props, ref) => {
     </button>
   );
 });
-export default Button;
+export default memo(Button);

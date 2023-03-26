@@ -48,8 +48,8 @@ const Cart = () => {
 
   const handleOnRemoveClick = (index) => {
     dispatch({ type: "REMOVE_PRODUCT", payload: index });
-    console.log(index);
-    console.log(cartData.cartList);
+    // console.log(index);
+    // console.log(cartData.cartList);
   };
   const onBtnClick = () => {
     navigate("/");
