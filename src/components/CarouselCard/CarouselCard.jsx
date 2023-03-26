@@ -1,5 +1,5 @@
 // import Image from "next/image";
-import { memo } from "react";
+import { memo, useCallback } from "react";
 import { Link } from "react-router-dom";
 import { useSelector, useDispatch } from "react-redux";
 import { RiHeart3Line, RiHeart3Fill } from "react-icons/ri";
@@ -21,7 +21,7 @@ const CarouselCard = ({ cardData, type }) => {
   const dispatch = useDispatch();
   const { cartData, makeupData, userData } = useSelector((state) => state);
 
-  const handleWishListBtn = () => {
+  const handleWishListBtn = useCallback(() => {
     if (userData.isLogged === false) {
       dispatch({ type: "SET_LOGIN_MODAL_ON" });
     } else {
@@ -32,11 +32,11 @@ const CarouselCard = ({ cardData, type }) => {
         dispatch({ type: "REMOVE_FAVORITE_MAKEUP", payload: id });
       }
     }
-  };
+  }, []);
 
-  function getOccurrence(array, value) {
+  const getOccurrence = useCallback((array, value) => {
     return array.filter((v) => v === value).length;
-  }
+  }, []);
   // const router = useRouter();
 
   // const handleOnDiscountClick = () => {

@@ -1,6 +1,5 @@
-import MiniCard from "../CarouselCard/CarouselCard";
 import styles from "./index.module.scss";
-import { useEffect, useRef, memo } from "react";
+import { useRef, memo } from "react";
 import CarouselCard from "../CarouselCard";
 // import GET from "../../utils/GET/GET";
 import { useSelector, useDispatch } from "react-redux";
@@ -22,9 +21,9 @@ const Carousel = ({ data, type }) => {
   //     currency
   //   );
   // }, [dispatch, lang, currency]);
-  function getOccurrence(array, value) {
-    return array.filter((v) => v === value).length;
-  }
+  // function getOccurrence(array, value) {
+  //   return array.filter((v) => v === value).length;
+  // }
 
   return (
     <div className={styles.Carousel}>
