@@ -1,7 +1,7 @@
 import styles from "./index.module.scss";
 import { GET } from "../../utils/api";
 import { useSelector, useDispatch } from "react-redux";
-import { useEffect, useState, memo } from "react";
+import { useEffect, useState, memo, useCallback } from "react";
 
 const FilterList = ({
   setBrandKey,
@@ -52,15 +52,15 @@ const FilterList = ({
     );
   }, [dispatch]);
 
-  const handleFilterClick = () => {
+  const handleFilterClick = useCallback(() => {
     dispatch({ type: "OPEN_FILTER_MENU" });
     if (filterStatus.isFilterActive === true) {
       dispatch({ type: "CLOSE_FILTER_MENU" });
       dispatch({ type: "CLOSE_CATEGORY_LIST" });
     }
-  };
+  }, []);
 
-  const handleCategoryClick = (value) => {
+  const handleCategoryClick = useCallback((value) => {
     if (value === "Clear") {
       setTypeKey("");
       setBrandKey("");
@@ -77,7 +77,7 @@ const FilterList = ({
 
       dispatch({ type: "OPEN_CATEGORY_LIST" });
     }
-  };
+  }, []);
 
   // useEffect(() => {
   //   if (clickedValue === index) {
@@ -86,7 +86,7 @@ const FilterList = ({
   //   }
   // }, [clickedValue]);
 
-  const handleSingleLabel = (item, index) => {
+  const handleSingleLabel = useCallback((item, index) => {
     const key = item.split("_").join("%20");
     if (filterCategory === "Category") {
       // dispatch({ type: "RESET_INDEX" });
@@ -127,7 +127,7 @@ const FilterList = ({
     //   ? dispatch({ type: "SET_CATEGORY_VALUE", payload: `${item}${index}` })
     //   : dispatch({ type: "SET_BRAND_VALUE", payload: `${item}${index}` });
     // setIsClicked(!clicked);
-  };
+  }, []);
 
   return (
     <div
