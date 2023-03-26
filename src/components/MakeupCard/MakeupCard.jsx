@@ -1,7 +1,7 @@
 import { useDispatch, useSelector } from "react-redux";
 import { RiHeart3Line, RiHeart3Fill } from "react-icons/ri";
 import { Link } from "react-router-dom";
-import { memo } from "react";
+import { memo, useCallback } from "react";
 import styles from "./index.module.scss";
 import Button from "../Button/Button";
 
@@ -18,7 +18,7 @@ const MakeupCard = ({ data }) => {
   const dispatch = useDispatch();
   const { makeupData, userData } = useSelector((state) => state);
 
-  const handleWishListBtn = () => {
+  const handleWishListBtn = useCallback(() => {
     if (userData.isLogged === false) {
       dispatch({ type: "SET_LOGIN_MODAL_ON" });
     } else {
@@ -29,9 +29,9 @@ const MakeupCard = ({ data }) => {
         dispatch({ type: "REMOVE_FAVORITE_MAKEUP", payload: id });
       }
     }
-  };
+  }, []);
 
-  const handleOnCartClick = () => {
+  const handleOnCartClick = useCallback(() => {
     // dispatch({ type: "SET_TRUE" });
     if (userData.isLogged === false) {
       dispatch({ type: "SET_LOGIN_MODAL_ON" });
@@ -39,16 +39,16 @@ const MakeupCard = ({ data }) => {
       // dispatch({ type: "SET_LOGIN_MODAL_OFF" });
       dispatch({ type: "ADD_PRODUCT", payload: data });
     }
-  };
+  }, []);
 
-  const handleOnImageClick = () => {
+  const handleOnImageClick = useCallback(() => {
     if (makeupData.viewed.find((item) => item.id === id)) {
       return;
     } else {
       dispatch({ type: "SET_VIEWED_PRODUCT", payload: data });
       localStorage.setItem("viewed", JSON.stringify(makeupData.viewed));
     }
-  };
+  }, []);
 
   return (
     <div className={styles.MakeupCard}>
