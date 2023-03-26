@@ -1,5 +1,5 @@
 // import styles from "./index.module.scss";
-import { memo, useState } from "react";
+import { memo, useCallback, useState } from "react";
 import { Link } from "react-router-dom";
 import { useSelector, useDispatch } from "react-redux";
 import { useNavigate } from "react-router";
@@ -46,11 +46,11 @@ const Cart = () => {
   //   return array.filter((v) => v === value).length;
   // }
 
-  const handleOnRemoveClick = (index) => {
+  const handleOnRemoveClick = useCallback((index) => {
     dispatch({ type: "REMOVE_PRODUCT", payload: index });
     // console.log(index);
     // console.log(cartData.cartList);
-  };
+  }, []);
   const onBtnClick = () => {
     navigate("/");
   };

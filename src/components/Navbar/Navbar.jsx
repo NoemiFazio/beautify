@@ -1,6 +1,6 @@
 // import { Link } from "react-router-dom";
 import { useSelector, useDispatch } from "react-redux";
-import { useState, useEffect, memo } from "react";
+import { useState, useEffect, memo, useCallback } from "react";
 import { Navigate, useNavigate } from "react-router";
 import { BsCart4 } from "react-icons/bs";
 import { BurgerSexy } from "react-burger-icons";
@@ -30,6 +30,7 @@ const Navbar = () => {
       dispatch({ type: "CLOSE_MENU" });
     }
   };
+
   const handleLogoutOnClick = () => {
     dispatch({ type: "OPEN_MENU" });
     if (navbarStatus.isActive === true) {
