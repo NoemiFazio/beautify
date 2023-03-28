@@ -21,7 +21,7 @@ const Error = () => {
       <div className={styles.messageContainer}>
         <h4>Where...exactly am I...?</h4>
         <Link className={styles.link} to="/">
-          <Button>Let's return back home.</Button>
+          <Button name="Return home button">Let's return back home.</Button>
         </Link>
         {/* <Link className={styles.link} to="/">
           <button>Let's return back home.</button>

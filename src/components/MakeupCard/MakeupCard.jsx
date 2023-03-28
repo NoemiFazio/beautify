@@ -85,7 +85,11 @@ const MakeupCard = ({ data }) => {
                 : `${price}0 ${price_sign?.split(`${price_sign}`)?.join("€")}`}
             </span>
           </div>
-          <Button handleOnClick={handleOnCartClick} type="cardBtn">
+          <Button
+            handleOnClick={handleOnCartClick}
+            type="cardBtn"
+            name="Add to bag button"
+          >
             Add to bag
           </Button>
         </div>

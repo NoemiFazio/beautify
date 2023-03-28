@@ -56,7 +56,9 @@ const Dashboard = () => {
             </span>
             welcome back!
           </h1>
-          <Button handleOnClick={onBtnClick}>Let's go shopping! 😉</Button>
+          <Button name="Return home button" handleOnClick={onBtnClick}>
+            Let's go shopping! 😉
+          </Button>
         </section>
       )}
       {/* <h3>La tua lista dei preferiti:</h3> */}

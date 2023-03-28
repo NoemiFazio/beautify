@@ -105,6 +105,7 @@ const Home = ({
       <div className={styles.btnDiv}>
         {makeupData.makeup.length ? (
           <Button
+            name="Load next products button"
             handleOnClick={onHandleBtn}
             disabled={isDisabled()}
             type="loadBtn"

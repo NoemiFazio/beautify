@@ -97,7 +97,9 @@ const Cart = () => {
           ) : (
             <div className={styles.emptyCartDiv}>
               <p>...is rather empty.</p>
-              <Button handleOnClick={onBtnClick}>Let's go shopping! 😉</Button>
+              <Button name="Return home button" handleOnClick={onBtnClick}>
+                Let's go shopping! 😉
+              </Button>
               {/* <button className={styles.Btn} onClick={onBtnClick}>
                 Shall we go shopping? 😉
               </button> */}
@@ -138,7 +140,9 @@ const Cart = () => {
               </h3>
             </div>
             <div className={styles.btnDiv}>
-              <Button handleOnClick={handleOnClickPay}>PAY</Button>
+              <Button name="Pay button" handleOnClick={handleOnClickPay}>
+                PAY
+              </Button>
               {/* <button onClick={handleOnClickPay} className={styles.paymentBtn}>
                 PAY
               </button> */}

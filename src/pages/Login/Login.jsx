@@ -53,7 +53,9 @@ const Login = ({ setUser }) => {
             onChange={(e) => setEmail(e.target.value)}
           />
         </div>
-        <Button type="submit">Login</Button>
+        <Button name="Login button" type="submit">
+          Login
+        </Button>
         {/* <button type="submit" className={styles.btn}>
           Login
         </button> */}

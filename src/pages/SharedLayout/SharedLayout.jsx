@@ -28,7 +28,9 @@ const SharedLayout = () => {
           page="sharedLayoutPage"
         >
           <h3>Devi prima effettuare il login!</h3>
-          <Button handleOnClick={onLoginBtnClick}>Login</Button>
+          <Button name="Login button" handleOnClick={onLoginBtnClick}>
+            Login
+          </Button>
         </Modal>
       )}
       <ArrowUp />

@@ -135,7 +135,11 @@ const SingleProduct = ({
             <ImEnlarge className={styles.enlargeIcon} onClick={onImgClick} />
           </div>
           <div className={styles.btnDiv}>
-            <Button handleOnClick={handleOnCartClick} type="cardBtn">
+            <Button
+              name="Add to bag button"
+              handleOnClick={handleOnCartClick}
+              type="cardBtn"
+            >
               Add to bag
             </Button>
             <button className={styles.addToFave} onClick={handleWishListBtn}>

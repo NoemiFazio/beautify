@@ -4,6 +4,10 @@ import { forwardRef, memo } from "react";
 const Button = forwardRef((props, ref) => {
   return (
     <button
+      type={props.name}
+      aria-label={props.name}
+      aria-required="true"
+      name={props.name}
       onClick={props.handleOnClick}
       className={`${styles.Button} ${
         props.type === "cardBtn" && styles.cardBtn
