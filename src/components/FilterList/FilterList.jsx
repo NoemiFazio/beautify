@@ -86,7 +86,7 @@ const FilterList = ({
   //   }
   // }, [clickedValue]);
 
-  const handleSingleLabel = useCallback((item, index) => {
+  const handleSingleLabel = (item, index) => {
     const key = item.split("_").join("%20");
     if (filterCategory === "Category") {
       // dispatch({ type: "RESET_INDEX" });
@@ -127,17 +127,18 @@ const FilterList = ({
     //   ? dispatch({ type: "SET_CATEGORY_VALUE", payload: `${item}${index}` })
     //   : dispatch({ type: "SET_BRAND_VALUE", payload: `${item}${index}` });
     // setIsClicked(!clicked);
-  }, []);
+  };
 
   return (
     <div
       className={styles.FilterList}
-      // style={
-      //   filterStatus.labels.length >= 1
-      //     ? { visibility: "visible" }
-      //     : { visibility: "hidden" }
-      // }
+      style={
+        filterStatus.labels.length >= 1
+          ? { visibility: "visible" }
+          : { visibility: "hidden" }
+      }
     >
+      {/* {console.log("filtro")} */}
       <div className={styles.mainDiv}>
         <button className={styles.filterBtn} onClick={handleFilterClick}>
           <p>Filters</p>

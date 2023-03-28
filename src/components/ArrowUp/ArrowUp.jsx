@@ -29,6 +29,10 @@ export default memo(function ArrowUp() {
 
   return (
     <div
+      type="ArrowUp button"
+      aria-label="ArrowUp button"
+      aria-required="true"
+      name="ArrowUp button"
       onClick={handleOnArrowClick}
       className={`${styles.arrow} ${isVisible ? styles.active : ""}`}
     >

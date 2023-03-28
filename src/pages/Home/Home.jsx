@@ -48,7 +48,7 @@ const Home = ({
       // bounding.left >= 0 &&
       // bounding.right <=
       //   (window.innerWidth || document.documentElement.clientWidth) &&
-      ref.current.getBoundingClientRect().bottom <= 396.8000068664551
+      ref.current.getBoundingClientRect().bottom <= 466
     ) {
       // console.log("In the viewport! :)");
       // console.log(bounding.bottom);
@@ -56,12 +56,12 @@ const Home = ({
       setTimeout(() => {
         dispatch({ type: "INCREMENT_INDEX" });
         setIsActive(false);
-        console.log(makeupData.index);
+        // console.log(makeupData.index);
       }, 2000);
 
       return true;
     } else {
-      // console.log("Not in the viewport. :(");
+      // console.log(ref.current.getBoundingClientRect().bottom);
       return false;
     }
   }
@@ -85,6 +85,7 @@ const Home = ({
 
   return (
     <div className={styles.App}>
+      {/* {console.log("hola")} */}
       <Slider />
 
       <FilterList

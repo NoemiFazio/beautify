@@ -51,6 +51,7 @@ const Cart = () => {
     // console.log(index);
     // console.log(cartData.cartList);
   }, []);
+
   const onBtnClick = () => {
     navigate("/");
   };

@@ -4,6 +4,7 @@
 // import Navbar from "./components/Navbar";
 // import FilterList from "./components/FilterList";
 import { memo, useState } from "react";
+
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import Home from "./pages/Home/Home";
 import Cart from "./pages/Cart/Cart";
