@@ -32,6 +32,15 @@ const CarouselCard = ({ cardData, type }) => {
     }
   }, []);
 
+  const handleOnImageClick = useCallback(() => {
+    if (makeupData.viewed.find((item) => item.id === id)) {
+      return;
+    } else {
+      dispatch({ type: "SET_VIEWED_PRODUCT", payload: cardData });
+      localStorage.setItem("viewed", JSON.stringify(makeupData.viewed));
+    }
+  }, []);
+
   const getOccurrence = useCallback((array, value) => {
     return array.filter((v) => v === value).length;
   }, []);
@@ -39,7 +48,13 @@ const CarouselCard = ({ cardData, type }) => {
   return (
     <div className={styles.miniCard}>
       <Link to={`/products/${id}`}>
-        <img src={api_featured_image} key={id} id={id} alt={name} />
+        <img
+          src={api_featured_image}
+          key={id}
+          id={id}
+          alt={name}
+          onClick={handleOnImageClick}
+        />
       </Link>
       {type === "beautycase" && (
         <span className={styles.occurrenceSpan}>
