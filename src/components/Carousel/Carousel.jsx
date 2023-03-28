@@ -15,12 +15,32 @@ const Carousel = ({ data, type }) => {
       className={styles.Carousel}
     >
       {
-        <div className={styles.title}>
-          <h3>{type}</h3>
+        <div
+          type={`title div`}
+          aria-label={`title div`}
+          aria-required="true"
+          name={`title div`}
+          className={styles.title}
+        >
+          <h3
+            type={`carousel title: ${type}`}
+            aria-label={`carousel title: ${type}`}
+            aria-required="true"
+            name={`carousel title: ${type}`}
+          >
+            {type}
+          </h3>
           <ScrollBtn itemRef={carouselRef} />
         </div>
       }
-      <div className={styles.mainContentDiv} ref={carouselRef}>
+      <div
+        type={`main content div`}
+        aria-label={`main content div`}
+        aria-required="true"
+        name={`main content div`}
+        className={styles.mainContentDiv}
+        ref={carouselRef}
+      >
         {type === "beautycase"
           ? data
               ?.filter((value, index, self) => self.indexOf(value) === index)
