@@ -13,30 +13,11 @@ const FilterList = ({
   typeKey,
 }) => {
   const dispatch = useDispatch();
-  const { filterStatus, makeupData } = useSelector((state) => state);
-  const [filterCategory, setFilterCategory] = useState("");
-  // const [labelCategoryValue, setLabelCategoryValue] = useState("");
-  // const [labelBrandValue, setLabelBrandValue] = useState("");
 
-  // const Category = [
-  //   { phrase: "5 Stars" },
-  //   { phrase: "4 Stars" },
-  //   { phrase: "3 Stars" },
-  //   { phrase: "2 Stars" },
-  //   { phrase: "1 Stars" },
-  // ];
-  // const Brand = [
-  //   { phrase: "Boosh" },
-  //   { phrase: "Coastal classic creation" },
-  //   { phrase: "C'est moi" },
-  //   { phrase: "Colourpop" },
-  //   { phrase: "Glossier" },
-  //   { phrase: "Marienatie" },
-  //   { phrase: "Nudus" },
-  //   { phrase: "Nyx" },
-  //   { phrase: "Penny lane organics" },
-  //   { phrase: "Sally b's skin yummies" },
-  // ];
+  const { filterStatus } = useSelector((state) => state);
+
+  const [filterCategory, setFilterCategory] = useState("");
+
   const filtersCategory = [
     // { name: "Rating" },
     { name: "Brand" },
@@ -46,8 +27,6 @@ const FilterList = ({
 
   useEffect(() => {
     GET("", "").then((data) =>
-      // "colourpop", "lipstick"
-
       dispatch({ type: "SET_LABELS_LIST", payload: data })
     );
   }, [dispatch]);
@@ -79,17 +58,10 @@ const FilterList = ({
     }
   }, []);
 
-  // useEffect(() => {
-  //   if (clickedValue === index) {
-  //     const elem = document.getElementById(`'label${index}'`);
-  //     elem.style.color = "pink";
-  //   }
-  // }, [clickedValue]);
-
-  const handleSingleLabel = (item, index) => {
+  const handleSingleLabel = (item) => {
     const key = item.split("_").join("%20");
+
     if (filterCategory === "Category") {
-      // dispatch({ type: "RESET_INDEX" });
       setTypeKey(key);
       setLabelCategoryValue(item);
       dispatch({ type: "RESET_INDEX" });
@@ -98,9 +70,7 @@ const FilterList = ({
         setLabelCategoryValue("");
         setTypeKey("");
         dispatch({ type: "RESET_INDEX" });
-        // console.log(labelCategoryValue);
       }
-      // localStorage.setItem(`categoryValue${item}`, JSON.stringify(item));
     } else {
       setBrandKey(key);
       setLabelBrandValue(item);
@@ -110,23 +80,11 @@ const FilterList = ({
         setLabelBrandValue("");
         setBrandKey("");
         dispatch({ type: "RESET_INDEX" });
-        // console.log(labelBrandValue);
       }
-      // localStorage.setItem(`brandValue${item}`, JSON.stringify(item));
     }
-    // filterCategory === "Category" ? setTypeKey(key) : setBrandKey(key);
+
     dispatch({ type: "CLOSE_CATEGORY_LIST" });
     dispatch({ type: "CLOSE_FILTER_MENU" });
-
-    // setIndexValue(index);
-    // setLabelValue(item);
-    // filterCategory === "Category"
-    //   ? localStorage.setItem("categoryValue", JSON.stringify(`${item}${index}`))
-    //   : localStorage.setItem("brandValue", JSON.stringify(`${item}${index}`));
-    // filterCategory === "Category"
-    //   ? dispatch({ type: "SET_CATEGORY_VALUE", payload: `${item}${index}` })
-    //   : dispatch({ type: "SET_BRAND_VALUE", payload: `${item}${index}` });
-    // setIsClicked(!clicked);
   };
 
   return (
@@ -138,7 +96,6 @@ const FilterList = ({
           : { visibility: "hidden" }
       }
     >
-      {/* {console.log("filtro")} */}
       <div className={styles.mainDiv}>
         <button className={styles.filterBtn} onClick={handleFilterClick}>
           <p>Filters</p>
@@ -161,21 +118,6 @@ const FilterList = ({
       {filterStatus?.isFilterActive === true &&
       filterStatus?.isCategoryClicked === true ? (
         <div className={styles.filtersDiv}>
-          {/* {(filterCategory === "Category" ? Category : Brand).map(
-            (item, index) => (
-              <label
-                className={styles.filter}
-                key={index}
-                onClick={handleSingleLabel}
-              >
-                {item.phrase}
-              </label>
-            )
-          )}
-        </div>
-      ) : (
-        <></>  )}
-    </div> */}
           {filterStatus?.labels
             ?.map((item) =>
               filterCategory === "Category" ? item.product_type : item.brand
@@ -206,7 +148,6 @@ const FilterList = ({
       ) : (
         <></>
       )}
-      {/* {console.log("FILTERLIST")} */}
     </div>
   );
 };

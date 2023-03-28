@@ -3,6 +3,7 @@
 
 .modalOverlay {
   @include flex-container($justify: center, $align: center);
+
   background-color: rgba(0, 0, 0, 0.767);
   backdrop-filter: blur(2px);
   position: fixed;
@@ -24,6 +25,7 @@
       $direction: column,
       $gap: 1.3rem
     );
+
     position: fixed;
     box-sizing: border-box;
     background-color: ghostwhite;
@@ -37,9 +39,6 @@
     animation: fade 2s linear;
 
     &.active {
-      // visibility: visible;
-      // opacity: 1;
-      // transform: scale(1);
       animation-name: fade;
       animation-duration: 2s;
     }
@@ -57,6 +56,7 @@
       0% {
         opacity: 0;
       }
+
       100% {
         opacity: 1;
       }

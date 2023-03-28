@@ -1,9 +1,10 @@
 import styles from "./index.module.scss";
 import { useSelector, useDispatch } from "react-redux";
-import { useEffect, memo, useCallback } from "react";
+import { memo, useCallback } from "react";
 
 const Modal = ({ modalVisibilityTrue, page = "", children }) => {
   const dispatch = useDispatch();
+
   const { makeupData, cartData, userData } = useSelector((state) => state);
 
   const handleOnModalOverlayClick = useCallback(() => {
@@ -15,18 +16,6 @@ const Modal = ({ modalVisibilityTrue, page = "", children }) => {
       dispatch({ type: "SET_ZOOM_MODAL_OFF" });
     }
   }, []);
-
-  //   useEffect(() => {
-  //     console.log(modalVisibilityTrue);
-
-  //     if (modalVisibilityTrue === true) {
-  //       window.document.body.style.overflowY = "hidden";
-  //       console.log(modalVisibilityTrue);
-  //     } else {
-  //       window.document.body.style.overflowY = "scroll";
-  //       console.log(modalVisibilityTrue);
-  //     }
-  //   }, [modalVisibilityTrue]);
 
   return (
     <div

@@ -10,15 +10,14 @@
     @include flex-container($gap: 8px);
 
     button {
-      // @include border($radius: 100%, $border: none);
       @include text($size: 1.4rem, $weight: 200);
       @include dimensions($height: 30px, $width: 30px);
+
       background-color: white;
       box-shadow: $StandardBoxShadow;
       color: rgba(255, 0, 153, 0.598);
       border-radius: 100%;
       border: none;
-
       cursor: pointer;
       transition: all 0.25s;
 
@@ -28,14 +27,12 @@
       }
 
       &:hover {
-        // transform: scale(1.08);
         color: #f09;
         filter: saturate(1.3) contrast(1.1);
       }
 
       &:active {
         background-color: rgb(241, 241, 241);
-        // transform: scale(0.9);
         transform: translateY(2px);
         color: $MainPink;
         filter: saturate(1.3) contrast(1.1);

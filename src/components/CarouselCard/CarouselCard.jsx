@@ -1,12 +1,8 @@
-// import Image from "next/image";
+import styles from "./index.module.scss";
 import { memo, useCallback } from "react";
 import { Link } from "react-router-dom";
 import { useSelector, useDispatch } from "react-redux";
 import { RiHeart3Line, RiHeart3Fill } from "react-icons/ri";
-
-// import { useRouter } from "next/router";
-import styles from "./index.module.scss";
-// import { toBase64, shimmer } from "../../utils/shimmer";
 
 const CarouselCard = ({ cardData, type }) => {
   const {
@@ -18,7 +14,9 @@ const CarouselCard = ({ cardData, type }) => {
     api_featured_image,
     brand,
   } = cardData;
+
   const dispatch = useDispatch();
+
   const { cartData, makeupData, userData } = useSelector((state) => state);
 
   const handleWishListBtn = useCallback(() => {
@@ -37,11 +35,6 @@ const CarouselCard = ({ cardData, type }) => {
   const getOccurrence = useCallback((array, value) => {
     return array.filter((v) => v === value).length;
   }, []);
-  // const router = useRouter();
-
-  // const handleOnDiscountClick = () => {
-  //   router.push("/activity/" + uuid);
-  // };
 
   return (
     <div className={styles.miniCard}>
@@ -65,9 +58,6 @@ const CarouselCard = ({ cardData, type }) => {
             className={`${styles.wishListBtn} ${styles.active}`}
           />
         ))}
-
-      {/* <p>{discount}</p>
-      <span>{city.name}</span> */}
     </div>
   );
 };

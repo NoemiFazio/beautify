@@ -2,12 +2,15 @@
 
 .MakeupList {
   @include flex-container($wrap: wrap, $justify: space-around);
+
   box-sizing: border-box;
   margin: 1.2rem;
   z-index: 1;
   min-height: 30rem;
+
   p {
     @include flex-container($justify: center, $align: center);
+
     text-align: center;
   }
 }
@@ -15,6 +18,7 @@
 @media only screen and (min-width: 767px) {
   .MakeupList {
     @include flex-container($wrap: wrap, $justify: space-evenly, $gap: 1rem);
+
     margin: 3.4rem;
   }
 }

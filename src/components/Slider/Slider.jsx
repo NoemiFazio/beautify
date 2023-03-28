@@ -1,12 +1,14 @@
+import styles from "./index.module.scss";
 import { useState, useEffect, memo } from "react";
 import { CgAirplane } from "react-icons/cg";
 import { GoMegaphone } from "react-icons/go";
 import { BiWinkSmile } from "react-icons/bi";
-import styles from "./index.module.scss";
 
 const Slider = () => {
   const [value, setValue] = useState(0);
+
   let interval = () => {};
+
   const phrases = [
     {
       phrase: "SPEDIZIONE GRATUITA CON ORDINI > 1.99€",
@@ -53,17 +55,9 @@ const Slider = () => {
               {item.phrase}
               {item.icon}
             </p>
-
-            {/* <div className={styles.overlay_gradient} />
-          <img
-            className={styles.background}
-            src={item.cover_image_url + "?w=1080"}
-            alt="heroimg"
-          /> */}
           </div>
         ))}
       </div>
-      {/* {console.log("SLIDER")} */}
     </div>
   );
 };

@@ -1,8 +1,8 @@
+import styles from "./index.module.scss";
 import { useDispatch, useSelector } from "react-redux";
 import { RiHeart3Line, RiHeart3Fill } from "react-icons/ri";
 import { Link } from "react-router-dom";
 import { memo, useCallback } from "react";
-import styles from "./index.module.scss";
 import Button from "../Button/Button";
 
 const MakeupCard = ({ data }) => {
@@ -15,7 +15,9 @@ const MakeupCard = ({ data }) => {
     api_featured_image,
     brand,
   } = data;
+
   const dispatch = useDispatch();
+
   const { makeupData, userData } = useSelector((state) => state);
 
   const handleWishListBtn = useCallback(() => {
@@ -32,11 +34,9 @@ const MakeupCard = ({ data }) => {
   }, []);
 
   const handleOnCartClick = useCallback(() => {
-    // dispatch({ type: "SET_TRUE" });
     if (userData.isLogged === false) {
       dispatch({ type: "SET_LOGIN_MODAL_ON" });
     } else if (userData.isLogged === true) {
-      // dispatch({ type: "SET_LOGIN_MODAL_OFF" });
       dispatch({ type: "ADD_PRODUCT", payload: data });
     }
   }, []);
@@ -74,9 +74,6 @@ const MakeupCard = ({ data }) => {
             <label id={brand} className={styles.brand}>
               {brand}
             </label>
-            {/* <label id={name} className={styles.category}>
-            {product_type?.split("_")?.join(" ")}
-          </label> */}
 
             <span className={styles.price}>
               {price_sign === null
@@ -105,7 +102,6 @@ const MakeupCard = ({ data }) => {
           />
         )}
       </div>
-      {/* {console.log("MAKEUPCARD")} */}
     </div>
   );
 };

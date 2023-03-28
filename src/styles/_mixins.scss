@@ -28,15 +28,6 @@
   text-decoration: $decoration;
   color: $color;
 }
-// @mixin box-model($margin: 0, $padding: 0, $sizing: border-box, $border: auto, $radius: 0, $bottom: 0) {
-//   margin: $margin;
-//   padding: $padding;
-//   box-sizing: $sizing;
-//   border: $border;
-//   border-radius: $radius;
-//   border-bottom: $bottom;
-// }
-
 @mixin dimensions($width: auto, $height: auto) {
   width: $width;
   height: $height;
@@ -57,12 +48,6 @@
   left: $left;
   z-index: $z-index;
 }
-
-// @mixin color($color: auto, $background-color: auto, $background: auto) {
-//   color: $color;
-//   background-color: $background-color;
-//   background: $background;
-// }
 
 @mixin max-border() {
   border-radius: 20px;

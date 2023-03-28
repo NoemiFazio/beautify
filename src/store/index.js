@@ -16,10 +16,6 @@ const initialState = {
     isFilterActive: false,
     isCategoryClicked: false,
     labels: [],
-    // categoryValue: "",
-    // brandValue: "",
-    // brandKey: "",
-    // categoryKey: "",
   },
   cartData: {
     cartList: [],
@@ -112,13 +108,8 @@ function filterReducer(state = {}, action) {
       return { ...state, isCategoryClicked: false };
     case "SET_LABELS_LIST":
       return {
-        // ...state,
         labels: action.payload,
       };
-    // case "SET_CATEGORY_VALUE":
-    //   return { categoryValue: action.payload };
-    // case "SET_BRAND_VALUE":
-    //   return { brandValue: action.payload };
     default:
       return state;
   }
@@ -127,7 +118,6 @@ function filterReducer(state = {}, action) {
 function cartDataReducer(state = {}, action) {
   switch (action.type) {
     case "ADD_PRODUCT":
-      // return { ...state, favourites: [...state.favourites, action.payload] };
       state.cartList = [...state.cartList, action.payload];
       localStorage.setItem("cart", JSON.stringify(state.cartList));
       return { ...state, cartList: state.cartList };
@@ -148,12 +138,7 @@ function cartDataReducer(state = {}, action) {
         ...state,
         cartList: state.cartList,
       };
-    // case "SET_UUID":
-    //   return { ...state, Uuid: action.payload };
     case "BUY_ITEMS":
-      // return {
-      //   purchasedList: [...state.purchasedList, ...state.cartList],
-      // };
       return { ...state, purchasedList: [...state.cartList] };
 
     case "CLEAR_PRODUCT":

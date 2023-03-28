@@ -1,6 +1,4 @@
-// import styles from "./index.module.scss";
-import { memo, useState } from "react";
-import { useSelector, useDispatch } from "react-redux";
+import { memo } from "react";
 import styles from "./index.module.scss";
 
 const Products = () => {

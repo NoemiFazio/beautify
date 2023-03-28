@@ -3,17 +3,14 @@
 
 .miniCard {
   @include min-border();
+
   height: 100px;
   width: 100px;
   flex: 0 0 auto;
-  // border-radius: 10px;
   overflow: hidden;
   position: relative;
   cursor: pointer;
   transition: all 0.2s;
-  // box-shadow: 0 0 5px #fff, 0 0 0px #f09, 0 0 3px #f09;
-
-  // @include border($radius: $MoreBorderRadius);
 
   &:hover {
     transform: scale(1.01);
@@ -23,31 +20,12 @@
   img {
     height: 100%;
     width: 100%;
-    // object-fit: cover;
     box-shadow: 0 0 2px rgba(0, 0, 0, 0.45);
   }
-
-  // p {
-  //   @include flex-container($align: center, $justify: center);
-  //   position: absolute;
-  //   top: 20%;
-  //   bottom: 0;
-  //   left: 0;
-  //   right: 0;
-  //   color: rgba(255, 255, 255, 0.785);
-  //   font-weight: 800;
-  //   font-size: 1.6rem;
-  //   text-shadow: 0 0 4px rgba(0, 0, 0, 0.204);
-
-  //   &::after {
-  //     content: "%";
-  //   }
-  // }
 
   .occurrenceSpan {
     position: absolute;
     bottom: -2px;
-    // left: 0;
     right: 4px;
     text-align: center;
     color: $MainPink;
@@ -81,8 +59,6 @@
     .occurrenceSpan {
       position: absolute;
       bottom: -2px;
-      // left: 0;
-
       text-align: center;
       color: $MainPink;
       font-weight: bold;

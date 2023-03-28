@@ -3,6 +3,7 @@
 
 .SingleProduct {
   @include flex-container($direction: column, $align: center);
+
   padding: 3.6rem 2rem 0;
   min-height: 39.5rem;
 
@@ -15,6 +16,7 @@
     text-align: center;
     margin-top: 0.5rem;
   }
+
   .price {
     text-align: center;
     padding: 0.5rem 0;
@@ -22,14 +24,17 @@
 
   .specsDiv {
     @include flex-container($justify: center, $gap: 0.5rem);
+
     padding: 0 0 0.5rem 0;
 
     .specsSpan {
       font-weight: bold;
       cursor: pointer;
+
       &:hover {
         text-decoration: underline;
       }
+
       .specsH4 {
         font-weight: bold;
       }
@@ -41,16 +46,17 @@
 
     .imgAndBtnsDiv {
       @include flex-container($direction: column, $align: center);
+
       width: 100%;
+
       .imgDiv {
         @include min-border();
         position: relative;
         text-align: center;
         height: 270px;
         width: auto;
-        // border-radius: 10px;
-        // box-shadow: 0 0 5px #fff, 0 0 0px #f09, 0 0 3px #f09;
         cursor: pointer;
+
         .img {
           height: 270px;
           width: 270px;
@@ -67,6 +73,7 @@
 
       .btnDiv {
         @include flex-container($direction: column, $gap: 1rem, $align: center);
+
         width: max-content;
         padding: 1.5rem 0;
         width: 100%;
@@ -78,6 +85,7 @@
           width: auto;
           font-family: "Montserrat", sans-serif;
           cursor: pointer;
+
           .wishListBtn {
           }
         }
@@ -87,9 +95,6 @@
     .detailsDiv {
       .coloursDiv {
         @include flex-container($wrap: wrap, $gap: 0.2rem, $justify: center);
-        // width: max-content;
-        // padding: 0 0.5rem;
-        // width: 280px;
 
         .colourSpan {
           display: inline-block;
@@ -106,9 +111,11 @@
 
         .tagsDiv {
           width: 100%;
+
           .tagsSpan {
             h5 {
               font-weight: lighter;
+
               &::first-letter {
                 text-transform: capitalize;
               }
@@ -143,9 +150,11 @@
 
       .imgAndBtnsDiv {
         width: 50%;
+
         .imgDiv {
           height: 350px;
           width: 350px;
+
           .img {
             height: 350px;
             width: 350px;

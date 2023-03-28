@@ -1,10 +1,4 @@
-// import styles from "./App.module.scss";
-// import MakeupList from "./components/MakeupList";
-// import Slider from "./components/Slider";
-// import Navbar from "./components/Navbar";
-// import FilterList from "./components/FilterList";
 import { memo, useState } from "react";
-
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import Home from "./pages/Home/Home";
 import Cart from "./pages/Cart/Cart";
@@ -16,28 +10,16 @@ import Error from "./pages/Error";
 import SharedLayout from "./pages/SharedLayout";
 import ProtectedRoute from "./pages/ProtectedRoute";
 import ScrollToTop from "./utils/ScrollToTop";
-// import Navbar from "./components/Navbar";
-// import { useSelector, useDispatch } from "react-redux";
 
 function App() {
   const [user, setUser] = useState(null);
-  const [typeKey, setTypeKey] = useState("nail polish");
+  const [typeKey, setTypeKey] = useState("lip liner");
   const [brandKey, setBrandKey] = useState("");
   const [labelCategoryValue, setLabelCategoryValue] = useState("");
   const [labelBrandValue, setLabelBrandValue] = useState("");
-  // const { filterStatus } = useSelector((state) => state);
-  // const dispatch = useDispatch();
-  // const [typeKey, setTypeKey] = useState("Nail polish");
-  // const [brandKey, setBrandKey] = useState("");
-
-  // const handleOverlayClick = () => {
-  //   dispatch({ type: "CLOSE_FILTER_MENU" });
-  //   dispatch({ type: "CLOSE_CATEGORY_LIST" });
-  // };
 
   return (
     <BrowserRouter>
-      {/* <Navbar /> */}
       <>
         <ScrollToTop />
         <Routes>

@@ -1,7 +1,6 @@
 import styles from "./index.module.scss";
 import { memo } from "react";
 import { GoArrowSmallLeft, GoArrowSmallRight } from "react-icons/go";
-import { RxThickArrowLeft, RxThickArrowRight } from "react-icons/rx";
 
 export default memo(function ScrollBtn({ itemRef }) {
   const onNextClick = () => {
@@ -23,14 +22,10 @@ export default memo(function ScrollBtn({ itemRef }) {
   return (
     <div className={styles.button_container_scroll}>
       <button onClick={onPrevClick} className={styles.button_prev}>
-        {/* {"<"} */}
         <GoArrowSmallLeft className={styles.icon} />
-        {/* <RxThickArrowLeft /> */}
       </button>
       <button onClick={onNextClick} className={styles.button_next}>
-        {/* {">"} */}
         <GoArrowSmallRight className={styles.icon} />
-        {/* <RxThickArrowRight /> */}
       </button>
     </div>
   );

@@ -37,7 +37,6 @@ export default memo(function ArrowUp() {
       className={`${styles.arrow} ${isVisible ? styles.active : ""}`}
     >
       <GoArrowSmallUp className={styles.icon} />
-      {/* <div className={styles.overlay} /> */}
     </div>
   );
 });

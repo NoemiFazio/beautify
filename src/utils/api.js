@@ -13,5 +13,3 @@ const GET = async (brand = "", type = "") => {
 };
 
 export { GET };
-
-// http://api.weatherstack.com/current?access_key=5e5e89fe7b4c26e59924104c78fd4f07&query=New%20York&units=m

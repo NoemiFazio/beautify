@@ -5,7 +5,6 @@ import { useSelector, useDispatch } from "react-redux";
 import { useParams } from "react-router-dom";
 import { ImEnlarge } from "react-icons/im";
 import { RiHeart3Line, RiHeart3Fill } from "react-icons/ri";
-
 import Modal from "../../components/Modal/Modal";
 import Button from "../../components/Button/Button";
 
@@ -16,8 +15,11 @@ const SingleProduct = ({
   setLabelCategoryValue,
 }) => {
   const dispatch = useDispatch();
+
   const navigate = useNavigate();
+
   const { productId } = useParams();
+
   const { makeupData, userData } = useSelector((state) => state);
 
   const product = makeupData.makeup.find(
@@ -39,32 +41,26 @@ const SingleProduct = ({
 
   const handleLabelClick = (category, type) => {
     const key = category.split("_").join("%20");
+
     if (type === "brand") {
       setTypeKey("");
       setLabelCategoryValue("");
       setBrandKey(key);
       setLabelBrandValue(category);
       navigate("/");
-      // console.log(category);
-      // console.log(labelBrandValue);
     } else {
       setBrandKey("");
       setLabelBrandValue("");
       setTypeKey(key);
       setLabelCategoryValue(category);
       navigate("/");
-
-      // console.log(category);
-      // console.log(labelCategoryValue);
     }
   };
 
   const handleOnCartClick = () => {
-    // dispatch({ type: "SET_TRUE" });
     if (userData.isLogged === false) {
       dispatch({ type: "SET_LOGIN_MODAL_ON" });
     } else if (userData.isLogged === true) {
-      // dispatch({ type: "SET_LOGIN_MODAL_OFF" });
       dispatch({ type: "ADD_PRODUCT", payload: product });
     }
   };
@@ -157,18 +153,15 @@ const SingleProduct = ({
         <div className={styles.detailsDiv}>
           <div className={styles.coloursDiv}>
             {product_colors &&
-              product_colors.map(
-                (item, index) => (
-                  <span
-                    key={index}
-                    className={styles.colourSpan}
-                    style={{
-                      backgroundColor: `${item.hex_value}`,
-                    }}
-                  ></span>
-                )
-                // console.log(item.hex_value)
-              )}
+              product_colors.map((item, index) => (
+                <span
+                  key={index}
+                  className={styles.colourSpan}
+                  style={{
+                    backgroundColor: `${item.hex_value}`,
+                  }}
+                ></span>
+              ))}
           </div>
           <div className={styles.descriptionDiv}>
             <p className={styles.description}>{description}</p>
@@ -180,7 +173,6 @@ const SingleProduct = ({
             </div>
           </div>
         </div>
-        {/* <Link to="/">Torna alla home</Link> */}
       </div>
     </div>
   );

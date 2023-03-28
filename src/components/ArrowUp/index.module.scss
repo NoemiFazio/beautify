@@ -28,14 +28,6 @@
   }
 
   &:hover {
-    // transform: scale(1.08);
-    // color: #f09;
     filter: saturate(1.3) contrast(1.1);
   }
-  // .overlay {
-  //   @include dimensions(30px, 30px);
-  //   position: absolute;
-  //   background-color: rgb(255, 255, 255);
-  //   z-index: -1;
-  // }
 }

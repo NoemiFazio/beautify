@@ -1,17 +1,19 @@
-// import styles from "./index.module.scss";
+import styles from "./index.module.scss";
 import { memo, useCallback, useState } from "react";
 import { Link } from "react-router-dom";
 import { useSelector, useDispatch } from "react-redux";
 import { useNavigate } from "react-router";
 import { BsPaypal, BsFillCreditCard2BackFill } from "react-icons/bs";
 import { AiOutlineGooglePlus } from "react-icons/ai";
-import styles from "./index.module.scss";
 import Button from "../../components/Button/Button";
 
 const Cart = () => {
   const [paymentMethod, setPaymentMethod] = useState();
+
   const dispatch = useDispatch();
+
   const navigate = useNavigate();
+
   const { cartData } = useSelector((state) => state);
 
   const paymentmethods = [
@@ -28,28 +30,21 @@ const Cart = () => {
       icon: <BsFillCreditCard2BackFill className={styles.icon} />,
     },
   ];
+
   const handleOnClickPay = () => {
     if (paymentMethod && cartData.cartList.length > 0) {
       navigate("/dashboard");
       dispatch({ type: "BUY_ITEMS" });
       dispatch({ type: "CLEAR_PRODUCT" });
       dispatch({ type: "SET_TRUE" });
-      // console.log(cartData.purchasedList);
-
       dispatch({ type: "SET_PURCHASE_MODAL_ON" });
     } else {
       alert("Select a Pay Method please! or Insert products into the cart");
     }
   };
 
-  // function getOccurrence(array, value) {
-  //   return array.filter((v) => v === value).length;
-  // }
-
   const handleOnRemoveClick = useCallback((index) => {
     dispatch({ type: "REMOVE_PRODUCT", payload: index });
-    // console.log(index);
-    // console.log(cartData.cartList);
   }, []);
 
   const onBtnClick = () => {
@@ -100,9 +95,6 @@ const Cart = () => {
               <Button name="Return home button" handleOnClick={onBtnClick}>
                 Let's go shopping! 😉
               </Button>
-              {/* <button className={styles.Btn} onClick={onBtnClick}>
-                Shall we go shopping? 😉
-              </button> */}
             </div>
           )}
         </div>
@@ -143,9 +135,6 @@ const Cart = () => {
               <Button name="Pay button" handleOnClick={handleOnClickPay}>
                 PAY
               </Button>
-              {/* <button onClick={handleOnClickPay} className={styles.paymentBtn}>
-                PAY
-              </button> */}
             </div>
           </div>
         )}

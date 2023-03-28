@@ -3,31 +3,24 @@
 
 .MakeupCard {
   @include flex-container($direction: column);
+
   display: inline-flex;
   width: 10rem;
   height: 20rem;
-  // min-width: 10rem;
-  // min-height: 20rem;
   max-width: 13rem;
   max-height: 25rem;
   margin: 0 0 2rem 0;
-  // padding: 0 5px;
   vertical-align: top;
   position: relative;
   z-index: 0;
 
   .imageDiv {
     @include min-border();
+
     width: 10rem;
     max-width: 100%;
     height: 10rem;
     transition: all 0.2s;
-    // border: 0;
-    // vertical-align: top;
-    // border-radius: 5px;
-    // border: 1px solid #d9ccf1;
-    // box-shadow: 0 0px 3px #d9ccf1;
-    // box-shadow: 0 0 5px #fff, 0 0 0px #f09, 0 0 3px #f09;
 
     .makeupImage {
       width: 100%;
@@ -45,11 +38,10 @@
       $justify: space-between,
       $align: center
     );
-    // width: 10rem;
+
     max-width: 100%;
     height: 10rem;
-    // height: 50%;
-    // padding-top: 0.9rem;
+
     .title {
       padding: 0.8rem 0 0;
       width: 100%;
@@ -61,11 +53,7 @@
       cursor: pointer;
     }
     .specsAndBtnDiv {
-      @include flex-container(
-        $direction: column,
-        $gap: 0.7rem,
-        // $align: center
-      );
+      @include flex-container($direction: column, $gap: 0.7rem);
       width: 100%;
       .specifics {
         @include flex-container(
@@ -108,15 +96,8 @@
 @media only screen and (min-width: 767px) {
   .MakeupCard {
     @include flex-container($direction: column);
-    // display: inline-flex;
-    // width: 10rem;
-    // height: 20rem;
-    // min-width: 10rem;
-    // min-height: 20rem;
-    // max-width: 15rem;
+
     max-height: 25rem;
-    // margin: 0 0 20px 0;
-    // padding: 0 5px;
     vertical-align: top;
     position: relative;
 
@@ -132,28 +113,22 @@
         height: 100%;
       }
     }
-    .detailsDiv {
-      // @include flex-container(
-      //   $direction: column,
-      //   $justify: space-around,
-      //   $align: center
-      // );
 
+    .detailsDiv {
       height: 50%;
+
       .title {
         font-weight: bolder;
       }
 
       .specsAndBtnDiv {
-        @include flex-container(
-          $direction: column,
-          $gap: 0.8rem,
-          // $align: center
-        );
+        @include flex-container($direction: column, $gap: 0.8rem);
         width: 100%;
+
         .specifics {
           .brand {
             font-weight: bold;
+
             &::first-letter {
               text-transform: uppercase;
             }
@@ -174,7 +149,4 @@
       }
     }
   }
-}
-
-@media only screen and (min-width: 1290px) {
 }

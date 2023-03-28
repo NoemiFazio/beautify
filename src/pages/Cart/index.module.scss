@@ -17,6 +17,7 @@
       $justify: space-evenly,
       $gap: 1.4rem
     );
+
     font-weight: bold;
     padding-top: 1rem;
     min-height: 29rem;
@@ -31,8 +32,7 @@
           $align: center
         );
         @include min-border();
-        // border-radius: 5px;
-        // box-shadow: 0 0 5px #fff, 0 0 0px #f09, 0 0 3px #f09;
+
         padding: 0.6rem;
 
         .imgSpan {
@@ -47,14 +47,14 @@
           .imgLink {
             height: min-content;
             margin: 0;
+
             .img {
               @include min-border();
+
               height: 6rem;
               width: 6rem;
-              // border-radius: 10px;
               cursor: pointer;
               transition: all 0.2s;
-              // box-shadow: 0 0 5px #fff, 0 0 0px #f09, 0 0 3px #f09;
 
               &:hover {
                 transform: scale(1.01);
@@ -78,6 +78,7 @@
           $justify: center,
           $gap: 4rem
         );
+
         height: 29rem;
 
         p {
@@ -91,17 +92,21 @@
 
     .cartTotalDiv {
       @include flex-container($align: center);
+
       .cartTotalText {
         display: inline-block;
         width: 50%;
         font-size: 1.2rem;
         padding-right: 0.6rem;
       }
+
       .cartTotalText:nth-child(1) {
         font-weight: bold;
       }
+
       .cartTotalText:nth-child(2) {
         text-align: end;
+
         &::after {
           content: "€";
           font-weight: 600;
@@ -112,17 +117,22 @@
 
     .paymentDiv {
       @include flex-container($direction: column, $gap: 1rem);
+
       .paymentMethodText {
         text-transform: uppercase;
       }
+
       .paymentMethodsDiv {
         @include flex-container($direction: column, $gap: 0.3rem);
 
         .paymentChoice {
           @include flex-container($align: center);
+
           cursor: pointer;
+
           .iconSpan {
             padding: 0.2rem 0.4rem 0;
+
             .icon {
               font-size: 1.3rem;
             }
@@ -130,6 +140,7 @@
 
           .paymentMethod {
             height: max-content;
+
             &.active {
               color: white;
             }
@@ -145,22 +156,6 @@
       .btnDiv {
         text-align: center;
         padding: 1rem 0;
-        // .paymentBtn {
-        //   box-shadow: 0 0 10px #fff, 0 0 6px #f09, 0 0 4px #f09;
-        //   font-size: medium;
-        //   background-color: white;
-        //   height: 1.8rem;
-        //   width: 165px;
-        //   border-radius: 50px;
-        //   border: 1px solid white;
-
-        //   cursor: pointer;
-
-        //   &:active {
-        //     text-shadow: 0 0 10px #fff, 0 0 6px #f09, 0 0 4px #f09;
-        //     color: white;
-        //   }
-        // }
       }
     }
   }
@@ -173,21 +168,21 @@
 
     .mainContent {
       @include flex-container($direction: row, $align: end, $gap: 1.3rem);
+
       font-weight: bold;
       padding-top: 1rem;
+
       .titleDiv {
         h2 {
         }
       }
 
       .cartList {
-        @include flex-container(
-          $direction: column,
-          // $justify: space-evenly,
-          $gap: 1.3rem
-        );
+        @include flex-container($direction: column, $gap: 1.3rem);
+
         min-height: 28rem;
         width: 100%;
+
         .cartEl {
           .imgSpan {
             @include flex-container($align: center, $gap: 1rem);

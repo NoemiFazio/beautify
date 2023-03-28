@@ -1,16 +1,17 @@
-import styles from "./index.module.scss";
-import Navbar from "../../components/Navbar";
-import { memo, useEffect } from "react";
+import { memo } from "react";
 import { useSelector, useDispatch } from "react-redux";
-import { Outlet, Navigate, useNavigate } from "react-router";
+import { Outlet, useNavigate } from "react-router";
 import Modal from "../../components/Modal/Modal";
 import Footer from "../../components/Footer/Footer";
 import Button from "../../components/Button/Button";
 import ArrowUp from "../../components/ArrowUp/ArrowUp";
+import Navbar from "../../components/Navbar";
 
 const SharedLayout = () => {
-  const { userData, cartData } = useSelector((state) => state);
+  const { userData } = useSelector((state) => state);
+
   const dispatch = useDispatch();
+
   const navigate = useNavigate();
 
   const onLoginBtnClick = async (e) => {

@@ -1,11 +1,11 @@
 import styles from "../../../src/App.module.scss";
+import { memo, useState, useRef, useEffect } from "react";
+import { useSelector, useDispatch } from "react-redux";
+import { useNavigate } from "react-router";
 import MakeupList from "../../components/MakeupList";
 import Slider from "../../components/Slider";
 import FilterList from "../../components/FilterList";
 import Button from "../../components/Button/Button";
-import { memo, useState, useRef, useEffect } from "react";
-import { useSelector, useDispatch } from "react-redux";
-import { useNavigate } from "react-router";
 
 const Home = ({
   typeKey,
@@ -17,12 +17,12 @@ const Home = ({
   labelBrandValue,
   setLabelBrandValue,
 }) => {
-  const { filterStatus, userData, cartData, makeupData } = useSelector(
-    (state) => state
-  );
+  const { filterStatus, makeupData } = useSelector((state) => state);
+
   const dispatch = useDispatch();
-  const navigate = useNavigate();
+
   const ref = useRef();
+
   const [isActive, setIsActive] = useState(false);
 
   const element = ref.current;
@@ -30,6 +30,7 @@ const Home = ({
   function isDisabled() {
     return makeupData.index >= makeupData.makeup.length;
   }
+
   const onHandleBtn = () => {
     dispatch({ type: "INCREMENT_INDEX" });
   };
@@ -40,54 +41,33 @@ const Home = ({
   };
 
   function isInViewport(element) {
-    // const bounding = ref.current.getBoundingClientRect();
     if (!ref.current) return;
 
-    if (
-      // bounding.top >= 0 &&
-      // bounding.left >= 0 &&
-      // bounding.right <=
-      //   (window.innerWidth || document.documentElement.clientWidth) &&
-      ref.current.getBoundingClientRect().bottom <= 466
-    ) {
+    if (ref.current.getBoundingClientRect().bottom <= 466) {
       // console.log("In the viewport! :)");
-      // console.log(bounding.bottom);
+
       setIsActive(true);
       setTimeout(() => {
         dispatch({ type: "INCREMENT_INDEX" });
         setIsActive(false);
-        // console.log(makeupData.index);
       }, 2000);
 
       return true;
     } else {
-      // console.log(ref.current.getBoundingClientRect().bottom);
       return false;
     }
   }
 
   useEffect(() => {
     if (typeof window !== "undefined") {
-      window.addEventListener(
-        "scroll",
-        () => isInViewport(element)
-        // function (event) {
-        //   if (isInViewport(element)) {
-        //     // console.log(window.location.href);
-        //     // update the element display
-        //   }
-        // },
-        // false
-      );
+      window.addEventListener("scroll", () => isInViewport(element));
     }
     return window.removeEventListener("scroll", () => isInViewport());
   }, []);
 
   return (
     <div className={styles.App}>
-      {/* {console.log("hola")} */}
       <Slider />
-
       <FilterList
         setBrandKey={setBrandKey}
         setTypeKey={setTypeKey}
@@ -97,7 +77,6 @@ const Home = ({
         labelBrandValue={labelBrandValue}
         typeKey={typeKey}
       />
-
       {(filterStatus.isFilterActive || filterStatus.isCategoryClicked) && (
         <div className={styles.overlay} onClick={handleOverlayClick}></div>
       )}

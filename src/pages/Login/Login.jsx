@@ -1,20 +1,21 @@
-// import styles from "./index.module.scss";
+import styles from "./index.module.scss";
 import { memo, useState } from "react";
-import { useSelector, useDispatch } from "react-redux";
+import { useDispatch } from "react-redux";
 import { useNavigate } from "react-router";
 import Button from "../../components/Button/Button";
-import styles from "./index.module.scss";
 
 const Login = ({ setUser }) => {
   const [name, setName] = useState("");
+
   const [email, setEmail] = useState("");
+
   const dispatch = useDispatch();
-  // const { userData, cartData } = useSelector((state) => state);
+
   const navigate = useNavigate();
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    // console.log(name, email);
+
     if (!name || !email) return;
     setUser({ name: name, email: email });
     dispatch({ type: "SET_LOGIN" });
@@ -56,9 +57,6 @@ const Login = ({ setUser }) => {
         <Button name="Login button" type="submit">
           Login
         </Button>
-        {/* <button type="submit" className={styles.btn}>
-          Login
-        </button> */}
       </form>
     </section>
   );
