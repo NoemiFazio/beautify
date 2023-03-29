@@ -39,7 +39,7 @@ const Cart = () => {
       dispatch({ type: "SET_TRUE" });
       dispatch({ type: "SET_PURCHASE_MODAL_ON" });
     } else {
-      alert("Select a Pay Method please! or Insert products into the cart");
+      alert("Select a Pay Method please!");
     }
   };
 
