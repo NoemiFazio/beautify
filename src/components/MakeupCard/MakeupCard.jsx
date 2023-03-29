@@ -20,7 +20,7 @@ const MakeupCard = ({ data }) => {
 
   const { makeupData, userData } = useSelector((state) => state);
 
-  const handleWishListBtn = useCallback(() => {
+  const handleWishListBtn = () => {
     if (userData.isLogged === false) {
       dispatch({ type: "SET_LOGIN_MODAL_ON" });
     } else {
@@ -31,7 +31,7 @@ const MakeupCard = ({ data }) => {
         dispatch({ type: "REMOVE_FAVORITE_MAKEUP", payload: id });
       }
     }
-  }, []);
+  };
 
   const handleOnCartClick = useCallback(() => {
     if (userData.isLogged === false) {

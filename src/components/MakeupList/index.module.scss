@@ -17,7 +17,7 @@
 
 @media only screen and (min-width: 767px) {
   .MakeupList {
-    @include flex-container($wrap: wrap, $justify: space-evenly, $gap: 1rem);
+    @include flex-container($wrap: wrap, $justify: space-around, $gap: 1rem);
 
     margin: 3.4rem;
   }
