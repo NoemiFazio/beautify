@@ -19,7 +19,7 @@ const CarouselCard = ({ cardData, type }) => {
 
   const { cartData, makeupData, userData } = useSelector((state) => state);
 
-  const handleWishListBtn = useCallback(() => {
+  const handleWishListBtn = () => {
     if (userData.isLogged === false) {
       dispatch({ type: "SET_LOGIN_MODAL_ON" });
     } else {
@@ -30,7 +30,7 @@ const CarouselCard = ({ cardData, type }) => {
         dispatch({ type: "REMOVE_FAVORITE_MAKEUP", payload: id });
       }
     }
-  }, []);
+  };
 
   const handleOnImageClick = useCallback(() => {
     if (makeupData.viewed.find((item) => item.id === id)) {

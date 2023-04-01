@@ -70,4 +70,4 @@ const Dashboard = () => {
   );
 };
 
-export default memo(Dashboard);
+export default Dashboard;

@@ -7,7 +7,7 @@ import { BurgerSexy } from "react-burger-icons";
 import { NavLink, Link } from "react-router-dom";
 
 const Navbar = () => {
-  const { navbarStatus, cartData } = useSelector((state) => state);
+  const { navbarStatus, cartData, userData } = useSelector((state) => state);
 
   const dispatch = useDispatch();
 
@@ -23,7 +23,23 @@ const Navbar = () => {
   const handleLogoutOnClick = () => {
     dispatch({ type: "OPEN_MENU" });
     if (navbarStatus.isActive === true) {
+      dispatch({ type: "SET_LOGOUT" });
       dispatch({ type: "CLOSE_MENU" });
+      dispatch({ type: "CLEAR_CART" });
+      dispatch({ type: "CLEAR_PRODUCT" });
+      dispatch({ type: "CLEAR_PURCHASED_LIST" });
+      dispatch({ type: "CLEAR_FAVOURITES" });
+      dispatch({ type: "SET_LOGIN_MODAL_OFF" });
+      dispatch({ type: "SET_PURCHASE_MODAL_OFF" });
+
+      navigate("/");
+    }
+  };
+
+  //Nuovo useEffect per far si che , se isLogged è falso al refresh, fa tutte quelle
+  //cose scritte sotto
+  useEffect(() => {
+    if (userData.isLogged === false) {
       dispatch({ type: "CLEAR_CART" });
       dispatch({ type: "CLEAR_PRODUCT" });
       dispatch({ type: "CLEAR_PURCHASED_LIST" });
@@ -33,7 +49,16 @@ const Navbar = () => {
       dispatch({ type: "SET_LOGOUT" });
       navigate("/");
     }
-  };
+  }, [localStorage.getItem("username"), localStorage.getItem("password")]);
+
+  //Nuovo useEffect per far si che , se ci sono quei dati in localstorage, allora setta login in true
+  // useEffect(() => {
+  //   if (localStorage.getItem("username") && localStorage.getItem("password")) {
+  //     dispatch({ type: "SET_LOGIN" });
+  //   } else {
+  //     dispatch({ type: "SET_LOGOUT" });
+  //   }
+  // }, [localStorage.getItem("username"), localStorage.getItem("password")]);
 
   useEffect(() => {
     if (navbarStatus.isActive && window.innerWidth <= 767) {
@@ -73,16 +98,16 @@ const Navbar = () => {
           <BsCart4
             className={styles.icon}
             style={
-              !localStorage.getItem("username") &&
-              !localStorage.getItem("password") && { visibility: "hidden" }
+              userData.isLogged === false && { visibility: "hidden" } // !localStorage.getItem("password") // !localStorage.getItem("username") &&
             }
           />
           <span
             className={styles.cartNum}
             style={
-              !localStorage.getItem("username") &&
-              !localStorage.getItem("password")
-                ? { visibility: "hidden" }
+              userData.isLogged === false
+                ? // !localStorage.getItem("username") &&
+                  // !localStorage.getItem("password")
+                  { visibility: "hidden" }
                 : { visibility: "visible" }
             }
           >
@@ -112,19 +137,21 @@ const Navbar = () => {
             Home
           </NavLink>
 
-          {!localStorage.getItem("username") &&
-            !localStorage.getItem("email") && (
-              <NavLink
-                className={({ isActive }) =>
-                  isActive ? `${styles.link} ${styles.active}` : styles.link
-                }
-                to="login"
-                onClick={handleHamOnClick}
-              >
-                Login
-              </NavLink>
-            )}
-          {localStorage.getItem("username") &&
+          {userData.isLogged === false && (
+            // !localStorage.getItem("username") &&
+            //   !localStorage.getItem("email") &&
+            <NavLink
+              className={({ isActive }) =>
+                isActive ? `${styles.link} ${styles.active}` : styles.link
+              }
+              to="login"
+              onClick={handleHamOnClick}
+            >
+              Login
+            </NavLink>
+          )}
+          {userData.isLogged === true &&
+            localStorage.getItem("username") &&
             localStorage.getItem("email") && (
               <>
                 <NavLink

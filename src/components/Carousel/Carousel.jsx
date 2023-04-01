@@ -55,4 +55,4 @@ const Carousel = ({ data, type }) => {
   );
 };
 
-export default memo(Carousel);
+export default Carousel;

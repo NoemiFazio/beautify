@@ -21,7 +21,11 @@ const MakeupCard = ({ data }) => {
   const { makeupData, userData } = useSelector((state) => state);
 
   const handleWishListBtn = () => {
-    if (userData.isLogged === false) {
+    if (
+      // !localStorage.getItem("username") &&
+      // !localStorage.getItem("password")
+      userData.isLogged === false
+    ) {
       dispatch({ type: "SET_LOGIN_MODAL_ON" });
     } else {
       dispatch({ type: "SET_FAVORITE_MAKEUP", payload: data });
