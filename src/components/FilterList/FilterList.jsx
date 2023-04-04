@@ -31,13 +31,12 @@ const FilterList = ({
     );
   }, [dispatch]);
 
-  const handleFilterClick = useCallback(() => {
-    dispatch({ type: "OPEN_FILTER_MENU" });
+  const handleFilterClick = () => {
     if (filterStatus.isFilterActive === true) {
       dispatch({ type: "CLOSE_FILTER_MENU" });
       dispatch({ type: "CLOSE_CATEGORY_LIST" });
-    }
-  }, []);
+    } else dispatch({ type: "OPEN_FILTER_MENU" });
+  };
 
   const handleCategoryClick = useCallback((value) => {
     if (value === "Clear") {
