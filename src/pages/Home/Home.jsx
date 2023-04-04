@@ -5,7 +5,8 @@ import { useNavigate } from "react-router";
 import MakeupList from "../../components/MakeupList";
 import Slider from "../../components/Slider";
 import FilterList from "../../components/FilterList";
-import Button from "../../components/Button/Button";
+import Button from "../../components/Button";
+import Loader from "../../components/Loader";
 
 const Home = ({
   typeKey,
@@ -68,7 +69,21 @@ const Home = ({
   return (
     <div className={styles.App}>
       <Slider />
-      <FilterList
+      {/* {makeupData.isLoading === true && <Loader />} */}
+      {makeupData.isLoading === true ? (
+        <Loader />
+      ) : (
+        <FilterList
+          setBrandKey={setBrandKey}
+          setTypeKey={setTypeKey}
+          setLabelCategoryValue={setLabelCategoryValue}
+          setLabelBrandValue={setLabelBrandValue}
+          labelCategoryValue={labelCategoryValue}
+          labelBrandValue={labelBrandValue}
+          typeKey={typeKey}
+        />
+      )}
+      {/* <FilterList
         setBrandKey={setBrandKey}
         setTypeKey={setTypeKey}
         setLabelCategoryValue={setLabelCategoryValue}
@@ -76,7 +91,8 @@ const Home = ({
         labelCategoryValue={labelCategoryValue}
         labelBrandValue={labelBrandValue}
         typeKey={typeKey}
-      />
+      /> */}
+
       {(filterStatus.isFilterActive || filterStatus.isCategoryClicked) && (
         <div className={styles.overlay} onClick={handleOverlayClick}></div>
       )}

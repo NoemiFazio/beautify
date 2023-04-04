@@ -14,7 +14,7 @@ const FilterList = ({
 }) => {
   const dispatch = useDispatch();
 
-  const { filterStatus } = useSelector((state) => state);
+  const { filterStatus, makeupData } = useSelector((state) => state);
 
   const [filterCategory, setFilterCategory] = useState("");
 
@@ -40,6 +40,7 @@ const FilterList = ({
 
   const handleCategoryClick = useCallback((value) => {
     if (value === "Clear") {
+      // dispatch({ type: "SET_LOADING_ON" });
       setTypeKey("");
       setBrandKey("");
       setLabelCategoryValue("");
@@ -59,7 +60,7 @@ const FilterList = ({
 
   const handleSingleLabel = (item) => {
     const key = item.split("_").join("%20");
-
+    // dispatch({ type: "SET_LOADING_ON" });
     if (filterCategory === "Category") {
       setTypeKey(key);
       setLabelCategoryValue(item);

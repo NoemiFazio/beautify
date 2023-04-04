@@ -7,6 +7,7 @@ const initialState = {
     viewed: [],
     imgZoomModalVisibility: false,
     index: 12,
+    isLoading: false,
   },
   navbarStatus: {
     isActive: false,
@@ -76,6 +77,10 @@ function makeupReducer(state = {}, action) {
       return { ...state, index: 12 };
     case "INCREMENT_INDEX":
       return { ...state, index: state.index + 10 };
+    case "SET_LOADING_ON":
+      return { ...state, isLoading: true };
+    case "SET_LOADING_OFF":
+      return { ...state, isLoading: false };
     default:
       return state;
   }
