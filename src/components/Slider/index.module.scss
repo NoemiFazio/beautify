@@ -8,7 +8,7 @@
   overflow: hidden;
   background-color: $MainPink;
   box-shadow: $StandardBoxShadow;
-  z-index: 2;
+  z-index: 3;
 
   .slider_container {
     @include flex-container();

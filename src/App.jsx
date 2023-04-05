@@ -13,7 +13,7 @@ import ScrollToTop from "./utils/ScrollToTop";
 
 function App() {
   const [user, setUser] = useState(null);
-  const [typeKey, setTypeKey] = useState("lip liner");
+  const [typeKey, setTypeKey] = useState("");
   const [brandKey, setBrandKey] = useState("");
   const [labelCategoryValue, setLabelCategoryValue] = useState("");
   const [labelBrandValue, setLabelBrandValue] = useState("");

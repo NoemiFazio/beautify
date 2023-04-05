@@ -12,22 +12,16 @@ const MakeupList = ({ brandKey, typeKey }) => {
   const itemsToRender = makeupData.makeup.slice(0, makeupData.index);
 
   useEffect(() => {
-    // console.log(makeupData.isLoading);
     dispatch({ type: "SET_LOADING_ON" });
-    // console.log(makeupData.isLoading);
+
     GET(brandKey, typeKey)
-      .then(
-        (data) => dispatch({ type: "SET_MAKEUP_LIST", payload: data })
-        // dispatch({ type: "SET_LOADING_OFF" })
-      )
+      .then((data) => dispatch({ type: "SET_MAKEUP_LIST", payload: data }))
       .then((data) => {
         dispatch({ type: "SET_LOADING_OFF" });
       })
       .catch(() => {
         dispatch({ type: "SET_LOADING_OFF" });
       });
-    // dispatch({ type: "SET_LOADING_OFF" });
-    // console.log(makeupData.isLoading);
   }, [dispatch, brandKey, typeKey]);
 
   return (

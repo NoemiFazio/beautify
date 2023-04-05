@@ -70,19 +70,17 @@ const Home = ({
     <div className={styles.App}>
       <Slider />
       {/* {makeupData.isLoading === true && <Loader />} */}
-      {makeupData.isLoading === true ? (
-        <Loader />
-      ) : (
-        <FilterList
-          setBrandKey={setBrandKey}
-          setTypeKey={setTypeKey}
-          setLabelCategoryValue={setLabelCategoryValue}
-          setLabelBrandValue={setLabelBrandValue}
-          labelCategoryValue={labelCategoryValue}
-          labelBrandValue={labelBrandValue}
-          typeKey={typeKey}
-        />
-      )}
+      {makeupData.isLoading && <Loader />}
+      <FilterList
+        setBrandKey={setBrandKey}
+        setTypeKey={setTypeKey}
+        setLabelCategoryValue={setLabelCategoryValue}
+        setLabelBrandValue={setLabelBrandValue}
+        labelCategoryValue={labelCategoryValue}
+        labelBrandValue={labelBrandValue}
+        typeKey={typeKey}
+      />
+
       {/* <FilterList
         setBrandKey={setBrandKey}
         setTypeKey={setTypeKey}
