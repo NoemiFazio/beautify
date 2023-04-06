@@ -28,7 +28,7 @@ const SharedLayout = () => {
           modalVisibilityTrue={userData.loginModalVisibility}
           page="sharedLayoutPage"
         >
-          <h3>Devi prima effettuare il login!</h3>
+          <h3>Sign up first!</h3>
           <Button name="Login button" handleOnClick={onLoginBtnClick}>
             Login
           </Button>

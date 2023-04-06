@@ -37,22 +37,22 @@ const MakeupCard = ({ data }) => {
     }
   };
 
-  const handleOnCartClick = useCallback(() => {
+  const handleOnCartClick = () => {
     if (userData.isLogged === false) {
       dispatch({ type: "SET_LOGIN_MODAL_ON" });
     } else if (userData.isLogged === true) {
       dispatch({ type: "ADD_PRODUCT", payload: data });
     }
-  }, []);
+  };
 
-  const handleOnImageClick = useCallback(() => {
+  const handleOnImageClick = () => {
     if (makeupData.viewed.find((item) => item.id === id)) {
       return;
     } else {
       dispatch({ type: "SET_VIEWED_PRODUCT", payload: data });
       localStorage.setItem("viewed", JSON.stringify(makeupData.viewed));
     }
-  }, []);
+  };
 
   return (
     <div className={styles.MakeupCard}>

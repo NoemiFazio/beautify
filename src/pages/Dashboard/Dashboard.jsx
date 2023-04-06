@@ -29,7 +29,7 @@ const Dashboard = () => {
     <div className={styles.Dashboard}>
       {cartData.purchaseModalVisibility && (
         <Modal modalVisibilityTrue={cartData.purchaseModalVisibility}>
-          <h3>Grazie per l'acquisto 💋</h3>
+          <h3>Thanks for the purchase! 💋</h3>
         </Modal>
       )}
       {makeupData.favourites.length >= 1 ||
