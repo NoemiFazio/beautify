@@ -1,7 +1,7 @@
 import styles from "./index.module.scss";
 import { GET } from "../../utils/api";
 import { useSelector, useDispatch } from "react-redux";
-import { useEffect, useState, memo, useCallback } from "react";
+import { useEffect, useState, memo } from "react";
 
 const FilterList = ({
   setBrandKey,
@@ -38,7 +38,7 @@ const FilterList = ({
     } else dispatch({ type: "OPEN_FILTER_MENU" });
   };
 
-  const handleCategoryClick = useCallback((value) => {
+  const handleCategoryClick = (value) => {
     if (value === "Clear") {
       // dispatch({ type: "SET_LOADING_ON" });
       setTypeKey("");
@@ -56,7 +56,7 @@ const FilterList = ({
 
       dispatch({ type: "OPEN_CATEGORY_LIST" });
     }
-  }, []);
+  };
 
   const handleSingleLabel = (item) => {
     const key = item.split("_").join("%20");

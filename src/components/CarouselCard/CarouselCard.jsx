@@ -1,5 +1,5 @@
 import styles from "./index.module.scss";
-import { memo, useCallback } from "react";
+import { memo } from "react";
 import { Link } from "react-router-dom";
 import { useSelector, useDispatch } from "react-redux";
 import { RiHeart3Line, RiHeart3Fill } from "react-icons/ri";
@@ -32,18 +32,18 @@ const CarouselCard = ({ cardData, type }) => {
     }
   };
 
-  const handleOnImageClick = useCallback(() => {
+  const handleOnImageClick = () => {
     if (makeupData.viewed.find((item) => item.id === id)) {
       return;
     } else {
       dispatch({ type: "SET_VIEWED_PRODUCT", payload: cardData });
       localStorage.setItem("viewed", JSON.stringify(makeupData.viewed));
     }
-  }, []);
+  };
 
-  const getOccurrence = useCallback((array, value) => {
+  const getOccurrence = (array, value) => {
     return array.filter((v) => v === value).length;
-  }, []);
+  };
 
   return (
     <div className={styles.miniCard}>

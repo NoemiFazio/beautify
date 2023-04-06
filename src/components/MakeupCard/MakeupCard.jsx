@@ -2,7 +2,7 @@ import styles from "./index.module.scss";
 import { useDispatch, useSelector } from "react-redux";
 import { RiHeart3Line, RiHeart3Fill } from "react-icons/ri";
 import { Link } from "react-router-dom";
-import { memo, useCallback } from "react";
+import { memo } from "react";
 import Button from "../Button/Button";
 
 const MakeupCard = ({ data }) => {

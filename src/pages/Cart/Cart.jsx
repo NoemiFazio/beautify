@@ -1,5 +1,5 @@
 import styles from "./index.module.scss";
-import { memo, useCallback, useState } from "react";
+import { memo, useState } from "react";
 import { Link } from "react-router-dom";
 import { useSelector, useDispatch } from "react-redux";
 import { useNavigate } from "react-router";
@@ -43,9 +43,9 @@ const Cart = () => {
     }
   };
 
-  const handleOnRemoveClick = useCallback((index) => {
+  const handleOnRemoveClick = (index) => {
     dispatch({ type: "REMOVE_PRODUCT", payload: index });
-  }, []);
+  };
 
   const onBtnClick = () => {
     navigate("/");

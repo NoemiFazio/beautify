@@ -1,24 +1,24 @@
 import styles from "./index.module.scss";
 import { GoArrowSmallUp } from "react-icons/go";
-import { useEffect, useState, memo, useCallback } from "react";
+import { useEffect, useState, memo } from "react";
 
 export default memo(function ArrowUp() {
   const [isVisible, setIsVisible] = useState(false);
 
-  const eventScrollUp = useCallback(() => {
+  const eventScrollUp = () => {
     if (window.scrollY > 400) {
       setIsVisible(true);
     } else if (window.scrollY === 0) {
       setIsVisible(false);
     }
-  }, []);
+  };
 
-  const handleOnArrowClick = useCallback(() => {
+  const handleOnArrowClick = () => {
     window.scrollTo({
       top: 0,
       behavior: "smooth",
     });
-  }, []);
+  };
 
   useEffect(() => {
     if (typeof window !== "undefined") {
