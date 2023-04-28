@@ -1,6 +1,6 @@
 • 🖋️ SUMMARY:
 
-- Project name: Beautify;
+- Project name: Beautify ✨;
 - Purpose: Makeup ecommerce;
 - Why was it made: I built this little project of mine, made in React.js, in order to apply old knowledge, experiment new technologies and libraries and, last but not least, in order to improve myself.
 - Feel free to take a look : → https://beautify-indol.vercel.app ← 🤗
